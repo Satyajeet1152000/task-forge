@@ -1,10 +1,11 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { Routes } from "@task-forge/shared/constant";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-import { useAuth } from "@/modules/auth/auth-provider";
+import { useAuth } from "@/modules/auth/use-auth";
 
 const HomePage: React.FC = () => {
   const router = useRouter();
@@ -13,7 +14,7 @@ const HomePage: React.FC = () => {
     if (isLoading) {
       return;
     }
-    router.replace(isAuthenticated ? "/dashboard" : "/login");
+    router.replace(isAuthenticated ? Routes.DASHBOARD : Routes.LOGIN);
   }, [isLoading, isAuthenticated, router]);
   return (
     <main className="flex min-h-screen items-center justify-center">

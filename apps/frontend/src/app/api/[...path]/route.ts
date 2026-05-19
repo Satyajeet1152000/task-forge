@@ -6,25 +6,27 @@ type RouteContext = {
   params: Promise<{ path: string[] }>;
 };
 
-async function proxyRequest(
-  request: NextRequest,
-  pathSegments: string[],
-): Promise<NextResponse> {
+async function proxyRequest(request: NextRequest, pathSegments: string[]): Promise<NextResponse> {
   const targetPath = pathSegments.join("/");
   const targetUrl = `${API_BASE_URL}/api/${targetPath}${request.nextUrl.search}`;
   const headers = new Headers(request.headers);
+
   headers.delete("host");
   headers.delete("connection");
+
   const init: RequestInit = {
     method: request.method,
     headers,
     cache: "no-store",
   };
+
   if (request.method !== "GET" && request.method !== "HEAD") {
     init.body = await request.text();
   }
+
   const upstream = await fetch(targetUrl, init);
   const responseHeaders = new Headers();
+
   upstream.headers.forEach((value, key) => {
     const lowerKey = key.toLowerCase();
     if (lowerKey === "set-cookie") {
@@ -35,10 +37,13 @@ async function proxyRequest(
     }
     responseHeaders.set(key, value);
   });
+
   upstream.headers.getSetCookie().forEach((cookie) => {
     responseHeaders.append("Set-Cookie", cookie);
   });
+
   const body = await upstream.arrayBuffer();
+
   return new NextResponse(body, {
     status: upstream.status,
     statusText: upstream.statusText,

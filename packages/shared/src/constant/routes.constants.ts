@@ -1,4 +1,8 @@
-export enum Routes {}
+export enum Routes {
+  DASHBOARD = "/dashboard",
+  LOGIN = "/login",
+  SIGNUP = "/signup",
+}
 
 export const HEADER_NAV_ITEMS: { href: string; label: string }[] = [
   // { href: Routes.DASHBOARD, label: "Dashboard" },

@@ -1,21 +1,32 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { Routes } from "@task-forge/shared/constant";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth } from "@/modules/auth/auth-provider";
+import { logoutAction } from "@/modules/auth/auth.actions";
+import { getErrorMessage } from "@/modules/auth/auth.errors";
+import { useAuth } from "@/modules/auth/use-auth";
 
 const DashboardPage: React.FC = () => {
-  const { user, logout, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
   const router = useRouter();
+
   const handleLogout = async (): Promise<void> => {
-    await logout();
-    router.push("/login");
-    router.refresh();
+    try {
+      await logoutAction();
+      toast.success("Logged out successfully");
+      router.push(Routes.LOGIN);
+      router.refresh();
+    } catch (error) {
+      toast.error(getErrorMessage(error, "Logout failed"));
+    }
   };
+
   if (isLoading) {
     return (
       <main className="flex min-h-screen items-center justify-center">

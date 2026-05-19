@@ -1,36 +1,36 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { Routes } from "@task-forge/shared/constant";
 
-const AUTH_COOKIE_NAME = process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME ?? "task_forge_auth";
+import { auth } from "@/modules/auth/auth";
 
-const authRoutes = ["/login", "/signup"];
-const protectedRoutePrefix = "/dashboard";
+const publicRoutes = [Routes.LOGIN, Routes.SIGNUP];
 
-export function middleware(request: NextRequest): NextResponse {
-  const token = request.cookies.get(AUTH_COOKIE_NAME)?.value;
-  const { pathname } = request.nextUrl;
-  const isAuthRoute = authRoutes.some(
-    (route) => pathname === route || pathname.startsWith(`${route}/`),
+function isPublicRoute(pathname: string): boolean {
+  return publicRoutes.some(
+    (route) => pathname === (route as string) || pathname.startsWith(`${route as string}/`),
   );
-  const isProtectedRoute =
-    pathname === protectedRoutePrefix || pathname.startsWith(`${protectedRoutePrefix}/`);
-  if (pathname === "/") {
-    if (!token) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-    return NextResponse.redirect(new URL("/dashboard", request.url));
-  }
-  if (isProtectedRoute && !token) {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("from", pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-  if (isAuthRoute && token) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
-  }
-  return NextResponse.next();
 }
 
+export default auth((request) => {
+  const { nextUrl } = request;
+  const isLoggedIn = Boolean(request.auth);
+  const { pathname } = nextUrl;
+
+  if (isPublicRoute(pathname)) {
+    if (isLoggedIn) {
+      return Response.redirect(new URL(Routes.DASHBOARD, nextUrl));
+    }
+    return;
+  }
+
+  if (!isLoggedIn) {
+    return Response.redirect(new URL(Routes.LOGIN, nextUrl));
+  }
+
+  if (pathname === "/") {
+    return Response.redirect(new URL(Routes.DASHBOARD, nextUrl));
+  }
+});
+
 export const config = {
-  matcher: ["/", "/dashboard/:path*", "/login", "/signup"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };

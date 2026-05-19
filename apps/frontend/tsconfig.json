@@ -17,7 +17,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@task-forge/shared/schemas": ["../../packages/shared/src/schemas/index.ts"],
-      "@task-forge/shared/types": ["../../packages/shared/src/types/index.ts"]
+      "@task-forge/shared/types": ["../../packages/shared/src/types/index.ts"],
+      "@task-forge/shared/constant": ["../../packages/shared/src/constant/index.ts"]
     },
     "isolatedModules": true,
     "noEmit": true

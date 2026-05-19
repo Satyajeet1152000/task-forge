@@ -1,11 +1,14 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { Routes } from "@task-forge/shared/constant";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import React from "react";
+import { toast } from "sonner";
 
-import { useAuth } from "../auth-provider";
-import { redirectToDashboard } from "../auth.utils";
+import { getSignInErrorMessage } from "../auth.errors";
 
 import AuthLayout from "./auth-layout";
 import GoogleAuthButton from "./google-auth-button";
@@ -26,15 +29,30 @@ import { Separator } from "@/components/ui/separator";
 
 const LoginForm: React.FC = () => {
   const { form, onSubmit, isSubmitting } = useLoginForm();
-  const { googleAuth, isLoading } = useAuth();
+  const router = useRouter();
+
   const handleGoogleSuccess = async (credential: string): Promise<void> => {
-    await googleAuth(credential);
-    redirectToDashboard();
+    const result = await signIn("google", { credential, redirect: false });
+    if (result?.error) {
+      toast.error(getSignInErrorMessage(result));
+      return;
+    }
+    toast.success("Authenticated with Google");
+    router.push(Routes.DASHBOARD);
+    router.refresh();
   };
+
   return (
     <AuthLayout title="Welcome Back" subtitle="Please enter your details to log in">
       <Form {...form}>
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            void onSubmit();
+          }}
+          className="space-y-6"
+        >
           <FormField
             control={form.control}
             name="email"
@@ -73,7 +91,7 @@ const LoginForm: React.FC = () => {
           <Button
             type="submit"
             className="h-12 w-full text-base font-semibold uppercase"
-            disabled={isSubmitting || isLoading}
+            disabled={isSubmitting}
           >
             {isSubmitting ? (
               <>
@@ -93,7 +111,7 @@ const LoginForm: React.FC = () => {
           <GoogleAuthButton
             label="Continue with Google"
             onSuccess={(credential) => void handleGoogleSuccess(credential)}
-            disabled={isSubmitting || isLoading}
+            disabled={isSubmitting}
           />
           <p className="text-center text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
