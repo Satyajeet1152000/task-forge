@@ -1,4 +1,3 @@
-import { UserRole } from "@task-forge/shared/types";
 import type { FastifyReply } from "fastify";
 
 declare module "fastify" {

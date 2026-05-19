@@ -1,0 +1,744 @@
+---
+description: Backend rules for Task Forge — Fastify + TypeORM + TypeScript
+alwaysApply: false
+---
+
+<!-- TODO: breakdown this file into smaller files because its too large more than 600 lines -->
+
+# Backend Rules
+
+## 1. File Structure
+
+### 1.1 Module folder structure
+
+Every feature module MUST follow this exact structure. No exceptions.
+
+```
+modules/
+└── <feature>/
+    ├── index.ts                 barrel — re-exports router + service (+ util only if file exists); see §1.2
+    ├── <feature>.router.ts      routes only — FastifyPluginAsync
+    ├── <feature>.controller.ts  HTTP layer — calls service, sends reply
+    ├── <feature>.service.ts     business logic — no HTTP concepts (public API for other modules)
+    ├── <feature>.util.ts        optional — add only when needed; never scaffold empty (see §1.2)
+    ├── <feature>.error.ts       Error Classes extended from `AppError`
+    └── internal/
+        ├── <feature>.entity.ts     TypeORM entity
+        ├── <feature>.repository.ts Repository file for task
+        ├── <feature>.serializer.ts Serializer for task
+        ├── <feature>.reader.ts     DB Read operations
+        └── <feature>.writer.ts     DB write operations
+```
+
+### 1.2 Module barrel file (`index.ts`)
+
+Every feature module MUST have `index.ts` at the module root. It re-exports the **public** surface only:
+
+1. **From `<feature>.router.ts`** — export the route registration artifact (e.g. `{feature}RouteConfig`) that `routers.ts` needs.
+2. **From `<feature>.service.ts`** — export the service (named or default re-export, matching how the service file exports).
+3. **From `<feature>.util.ts`** — export util symbols **only when that file exists**. If there is no util file, do **not** add util exports or a stub util file.
+
+**`<feature>.util.ts`:** create it **only when there is a concrete requirement** (e.g. pure helpers shared with other modules, or logic worth splitting from the service). Do **not** generate an empty `<feature>.util.ts` when adding a new module “by default”.
+
+```ts
+// index.ts — example when util exists
+export { taskRouteConfig } from "./task.router";
+export { default as TaskService } from "./task.service";
+export { formatTaskLabel, slugifyTaskName } from "./task.util";
+
+// index.ts — example when util does NOT exist (no util file, no util line)
+export { taskRouteConfig } from "./task.router";
+export { default as TaskService } from "./task.service";
+```
+
+Other modules may import from `@modules/<feature>` for the route config and cross-module service/util access, as long as those symbols are listed here (see §11.2).
+
+### 1.3 Registering a new module
+
+Each module MUST export a `{feature}RouteConfig: RouterConfig` from its router file (or re-export it from `index.ts` per §1.2).
+Only ever touch ONE file when adding a new module — `src/routers.ts`.
+`routers.ts` ONLY imports route configs and assembles them into `routerConfigs` — no inline `{ endpoint, router }` objects.
+Never edit `app.ts`, `data-source.ts`, `db-config.ts`, `error-handler.ts` to add a new module.
+
+```ts
+// <feature>.router.ts — export route config
+export const taskRouteConfig: RouterConfig = {
+  endpoint: "/tasks",
+  router: taskRouter,
+};
+
+// routers.ts — import configs only (from module barrel)
+import { taskRouteConfig } from "@modules/task";
+
+export const routerConfigs: RouterConfig[] = [
+  healthRouteConfig,
+  authRouteConfig,
+  userRouteConfig,
+  taskRouteConfig, // ← add here
+];
+```
+
+### 1.4 Plugin folder structure
+
+```
+plugins/
+├── cors.plugin.ts
+├── error.plugin.ts
+├── helmet.plugin.ts
+├── jwt.plugin.ts
+└── request-context.plugin.ts
+```
+
+---
+
+## 2. Naming Conventions
+
+### 2.1 File naming
+
+```
+Files:        kebab-case           task.service.ts
+Classes:      PascalCase           TaskService
+Functions:    camelCase            getTaskById()
+Variables:    camelCase            taskList
+Constants:    SCREAMING_SNAKE      MAX_RETRY_COUNT
+Interfaces:   PascalCase           CreateTaskInput
+Enums:        PascalCase           UserRole.ADMIN
+DB tables:    snake_case plural    task_boards
+```
+
+## 2. Internal folder rule (/modules/<feature>/internal)
+
+Always create `internal` folder in module with majorly these files.
+
+1. `<feature>.entity.ts`
+2. `<feature>.repository.ts`
+3. `<feature>.reader.ts`
+4. `<feature>.write.ts`
+5. `<feature>.serializer.ts`
+
+### 2.1 Entity file (/modules/<feature>/internal/<feature>.entity.ts)
+
+This is TypeORM entity file. Always use snake_case plural name for db column name and camelCase for entity variable name.
+Add necessary Indexing.
+Column names must be snake_case. Every entity that persists row timestamps MUST include `created_at` and `updated_at` using the structure below.
+
+Primary Column Should be always of type 'bigInt' number, no uuid.
+
+**Foreign keys:** Do **not** declare database-level FK constraints in TypeORM entities or migrations (no `@ManyToOne` / `@JoinColumn` for DB FK, and no `REFERENCES` in raw SQL migrations). Enforce relationships and integrity in application code (services) instead.
+
+**Timestamp columns (`created_at` / `updated_at`):** Use `@CreateDateColumn` and `@UpdateDateColumn` with DB names `created_at` and `updated_at`, `type: 'timestamp'`, `nullable: false`, and `default: () => 'CURRENT_TIMESTAMP'`. Task names are camelCase `createdAt` and `updatedAt`, both typed as `Date`.
+
+```ts
+  @CreateDateColumn({
+    type: 'timestamp',
+    name: 'created_at',
+    nullable: false,
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  createdAt: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    name: 'updated_at',
+    nullable: false,
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  updatedAt: Date;
+```
+
+### 2.1a Migrations when entities change (TypeORM)
+
+- Whenever a TypeORM entity under `modules/**/internal/*.entity.ts` is changed in a way that affects the **database schema** (new/removed columns, types, indexes, table renames, etc.), you MUST produce a migration by running TypeORM’s generator — **do not** create a new migration file manually from scratch and **do not** copy-paste migration stubs.
+- **Command (from `apps/backend`):** `pnpm run mig:gen` (equivalent: `npm run mig:gen`). The script `mig:gen` in `apps/backend/package.json` runs `build`, loads `.env.development`, and runs `typeorm mig:gen` with `-d dist/database/data-source.js`, writing new files under `src/database/migrations/`. From the repo root you may use `pnpm --filter @task-forge/backend run mig:gen` when using workspace filters.
+- **After generation:** open the new migration file and **review `up` and `down` by hand**. TypeORM sometimes emits overly destructive SQL (e.g. `DROP TABLE` / `DROP COLUMN`) for small entity tweaks or when the DB and entities are out of sync. Adjust the generated migration to use safe, incremental steps when needed (e.g. add nullable column → backfill → `SET NOT NULL`) and keep `down` consistent with your edits.
+- **Agents / AI:** after editing any `*.entity.ts`, instruct the developer to run `mig:gen` (or run it in a terminal when appropriate); never invent a hand-written migration file as the primary workflow.
+
+```ts
+@Entity()
+export class Task {
+  @PrimaryGeneratedColumn({ type: "bigint" })
+  id: number;
+
+  @Column({ type: "bigint", name: "user_id" })
+  userId: number;
+
+  @Column({ type: "character varying", length: 250 })
+  title: string;
+
+  @Column({ type: "text", nullable: true })
+  description: string | null;
+
+  @Column({ type: "character varying", length: 30 })
+  status: TaskStatus;
+
+  @CreateDateColumn({
+    type: "timestamp",
+    name: "created_at",
+    nullable: false,
+    default: () => "CURRENT_TIMESTAMP",
+  })
+  createdAt: Date;
+
+  @UpdateDateColumn({
+    type: "timestamp",
+    name: "updated_at",
+    nullable: false,
+    default: () => "CURRENT_TIMESTAMP",
+  })
+  updatedAt: Date;
+}
+```
+
+### 2.2 Repository File (/modules/<feature>/internal/<feature>.repository.ts)
+
+Always create repository file for performing db read and write operations.
+
+```ts
+import AppDataSource from ".@database/data-source";
+
+import { Task } from "./task.entity";
+
+const TaskRepository = AppDataSource.getRepository(Task);
+
+export default TaskRepository;
+```
+
+### 2.3 Reader Write file
+
+All Action related to DB should implemented in reader and writer files.
+Do not implement DB operation directly in other than these file.
+
+1. Reader file -> (/modules/<feature>/internal/<feature>.reader.ts)
+2. writer file -> (/modules/<feature>/internal/<feature>.writer.ts)
+
+```ts
+export class TaskReader {
+  public static async getTaskById(params: GetTaskByIdParams): Promise<Task> {
+    const task: Task = await TaskRepository.findOneBy({
+      userId: params.userId,
+      id: params.taskId,
+      status: params.status ?? TaskStatus.TODO,
+    });
+
+    if (!task) {
+      return null;
+    }
+
+    return task;
+  }
+}
+```
+
+```ts
+export default class TaskWriter {
+  public static async createTask(params: CreateTaskParams): Promise<Task> {
+    const task = new Task();
+    task.userId = params.userId;
+    task.title = params.title;
+    task.status = params.status ?? TaskStatus.TODO;
+    task.description = params.description ?? null;
+    return TaskRepository.save(task);
+  }
+}
+```
+
+### 2.4 Serializer file (/modules/<feature>/internal/<feature>.serializer.ts)
+
+Create serializer function like `serialize<Feature>` Example: 'serializeUser'.
+Always is serialize entity type into feature type derived from schema. Do not create any interface / types in this file.
+Always use serializer in DB reader and writer to return serialized value.
+
+```ts
+// user.serializer.ts
+import { User } from "@task-forge/shared/types";
+import { User as UserEntity } from "./user.entity";
+
+export const serializeUser = (user: UserEntity): User => {
+  return {
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    // ...rest key values
+  };
+};
+
+// user.reader.ts
+export default class UserReader {
+  public static async getUserById(params: GetUserParams): Promise<User> {
+    try {
+      const user = await UserRepository.findOneByOrFail({
+        id: params.userId,
+        accountId: params.accountId,
+      });
+      return serializeUser(user);
+    } catch (error) {
+      throw new UserNotFoundError(`User with id ${params.userId} not found`, error as Error, {
+        ...params,
+      });
+    }
+  }
+}
+
+// user.writer.ts
+export default class UserWriter {
+  public static async createUserByEmail(accountId: number, email: string): Promise<User> {
+    const newUser = new UserEntity();
+    newUser.accountId = accountId;
+    newUser.email = email.trim().toLowerCase();
+    newUser.status = UserStatus.ACTIVE;
+
+    return serializeUser(await UserRepository.save(newUser));
+  }
+}
+```
+
+## 3. Router Layer Rules (\*.router.ts)
+
+### 3.1 Router responsibility
+
+A router file ONLY defines routes and maps them to controller methods.
+No business logic. No database calls. No error handling.
+
+```ts
+// ✓ correct — server only registers routes
+export const taskRouter: FastifyPluginAsync = async (app) => {
+  const controller = new TaskController();
+
+  app.get(
+    "/:id",
+    {
+      schema: {
+        tags: ["Properties"],
+        params: taskParamsSchema,
+      },
+    },
+    controller.getById,
+  );
+};
+```
+
+### 3.2 Do not use fp() on module routers
+
+Module routers are isolated — they should NOT use `fastify-plugin` fp() wrapper.
+fp() is only for infrastructure plugins (cors, jwt, helmet, swagger).
+
+---
+
+## 4. Controller Layer Rules (\*.controller.ts)
+
+### 4.1 Controller responsibility
+
+Controller handles HTTP concerns ONLY:
+
+- reads from `request` (params, body, query, headers)
+- calls service methods
+- sends reply with correct status code
+- NEVER contains business logic or database calls
+
+```ts
+// ✓ correct
+export class TaskController {
+  getById = async (
+    request: FastifyRequest<{ Params: TaskParams }>,
+    reply: FastifyReply,
+  ): Promise<void> => {
+    const task = await TaskService.getById(request.params.id);
+    return reply.status(200).send(successResponse(task));
+  };
+}
+```
+
+### 4.2 Always use arrow functions in controllers
+
+Arrow functions preserve `this` binding when passed as route handlers.
+
+```ts
+// ✓ arrow function — this.service works
+getById = async (request, reply) => {
+  const data = await this.service.getById(request.params.id);
+};
+```
+
+### 4.3 Always use void for reply
+
+```ts
+return  reply.status(200).send({ success: true, data })   ✓
+return reply.status(200).send({ success: true, data })  ✓
+reply.status(200).send({ success: true, data })         ✗ — unhandled promise
+```
+
+### 4.4 Standard response shape
+
+Use response helpers from `src/lib/api-response.ts` (see Section 12).
+Never construct response objects manually.
+
+---
+
+## 5. Service Layer Rules (\*.service.ts)
+
+### 5.1 Service responsibility
+
+Service contains ALL business logic. It has zero knowledge of HTTP.
+No `request`, no `reply`, no HTTP status codes. Breakdown complex and similar logic to separate private static functions.
+
+```ts
+// ✓ correct — pure business logic
+export default class TaskService {
+  public static async getById(id: string): Promise<TaskEntity> {
+    const task = await this.repo.findOne({ where: { id } });
+    if (!task) throw new NotFoundException(`Task ${id} not found`);
+    return task;
+  }
+}
+```
+
+### 5.2 Always use typed exceptions
+
+Never throw plain `Error` in services. Always use typed exception classes.
+
+```ts
+// ✓ correct
+if (!task) throw new TaskNotFoundError(`Task ${id} not found`);
+if (exists) throw new TaskBadRequestError(`Title already taken`);
+if (!allowed) throw new TaskForbiddenError("Cannot access this task");
+
+// ✗ wrong
+if (!task) throw new Error("Not found");
+if (!task) return null; // never return null to signal not found
+```
+
+### 5.3 Cross-module boundaries (service / util only)
+
+- **How modules talk to each other:** only through `<feature>.service.ts` and, when needed, `<feature>.util.ts`. Controllers, routers, and services in module A call **public static methods** (or exported functions) on module B’s service or util — not on B’s DB layer.
+- **Forbidden from outside the owning module:** any import from `modules/<feature>/internal/` — including `*.reader`, `*.writer`, `*.entity`, `*.repository`, `*.serializer`. Those files are **private** to the feature that owns the table.
+- **If another module needs behavior or data that is not exposed yet:** extend the **owning** module’s `.service.ts` (orchestration, business rules, DB-backed operations) or `.util.ts` (stateless helpers, formatting, small pure functions) with the new method/function. Choose service vs util by the kind of work (needs persistence / domain rules → service; pure or trivial → util).
+- **Do not** reach into another module’s `internal` folder to “just read one row” — add a method on that module’s service (or reader called only from that service) instead.
+
+```ts
+// ✓ correct — TaskService uses UserService’s public API
+import UserService from "@modules/user/user.service";
+const user = await UserService.getByIdForAccount({ userId, accountId });
+
+// ✓ correct — shared pure helper from owning module
+import { formatDisplayName } from "@modules/user/user.util";
+
+// ✗ wrong — bypassing the module boundary
+import { UserReader } from "@modules/user/internal/user.reader";
+import { User } from "@modules/user/internal/user.entity";
+```
+
+### 5.4 Always use reader and writer files for DB operations
+
+Never call `<feature>.repository.ts` in services file.
+For DB Reader operation use `/internal/<feature>.reader.ts`
+For DB writer operation use `/internal/<feature>.writer.ts`
+Based on requirement handle error like not found or bad request during fetch or update operation.
+
+```ts
+// ✓ correct
+const task = await TaskReader.getTaskById({ id });
+```
+
+### 5.5 Reuse service methods internally
+
+Reuse private and public static methods internally if required.
+
+---
+
+## 6. Schema And Type Rules
+
+### 6.1 Schemas and types — all in `packages/shared`
+
+- **Every** Zod schema and **every** data/DTO/param/enum type for backend features belongs in **`packages/shared`** (`src/schemas/<feature>.schema.ts`, `src/types/<feature>.types.ts`). Backend modules **must not** own `*.types.ts` or `*.schema.ts` for those shapes — import with `@task-forge/shared/schemas` and `@task-forge/shared/types`.
+- **Exceptions (backend-only, not “shared types”):** TypeORM **entities** and **repositories** stay under `internal/`; **error classes** extending `AppError` stay in `<feature>.error.ts`; **Fastify**-specific handler typing stays in controllers/routers. Nothing in those exceptions replaces declaring the **payload shape** in shared when that shape is passed between layers or validated.
+
+### 6.2 Import schemas using sub-path — always
+
+import { createTaskSchema } from '@task-forge/shared/schemas' ✓
+import { createTaskSchema } from '@task-forge/shared/types' ✗ — no main path
+import { createTaskSchema } from '../../packages/shared/...' ✗ — never direct
+
+### 6.3 Import types using sub-path — always
+
+import { Task } from '@task-forge/shared/types' ✓
+import { Task } from '@task-forge/shared/types' ✗ — no main path
+
+### 6.4 Import env using env sub-path — backend only
+
+import { env } from '@task-forge/shared/env' ✓
+import { env } from '@task-forge/shared/types' ✗
+
+### 6.4a Import shared constants using constant sub-path — when needed
+
+import { SWAGGER_TAG_DISPLAY_ORDER } from '@task-forge/shared/constant' ✓
+import { SWAGGER_TAG_DISPLAY_ORDER } from '@task-forge/shared/types' ✗ — no main path
+
+### 6.5 All validation schemas in shared must be Zod
+
+Every **Zod** schema in `packages/shared` uses Zod. Add a Zod schema when you need runtime validation, Fastify/OpenAPI wiring, `safeParse` in services, or env parsing. If none of those apply, still declare the shape as a plain **`type` / `interface` in `packages/shared/src/types/`** — not in the backend module (see §6.10).
+
+### 6.6 Use .partial() for update schemas
+
+export const updateTaskSchema = createTaskSchema.partial() ✓
+
+### 6.7 Always add meaningful validation messages
+
+z.string().min(2, 'Name must be at least 2 characters') ✓
+z.string().min(2) ✗
+
+### 6.8 TypeScript types: infer when a schema exists; otherwise declare (always in shared)
+
+- If a **Zod schema already exists** for a shape, prefer **`export type X = z.infer<typeof xSchema>`** in `packages/shared/src/types` (or use the exported inferred type).
+- If **no** schema is required, use a plain **`interface` / `type`** in **`packages/shared/src/types/<feature>.types.ts`** — never in `apps/backend/src/modules/<feature>/<feature>.types.ts` for data shapes.
+  export type CreateTaskInput = z.infer<typeof createTaskSchema> ✓
+  export type GetWidgetByIdParams = { accountId: number; widgetId: number } ✓ in `packages/shared/src/types/widget.types.ts`
+
+### 6.9 Route schemas for Swagger (in shared only)
+
+- NEVER create `.schema.ts` files inside backend modules just for Swagger.
+- All route-level Swagger schemas MUST live in `packages/shared/src/schemas/<feature>.schema.ts`.
+- For each HTTP route, define a dedicated `<method><RouteName>RouteSchema` object
+  (e.g. `getHealthRouteSchema`, `postSigninRouteSchema`) that contains only
+  Swagger-related metadata and schema references — **no Fastify imports, no handlers**.
+- Always append new route schema exports at the **end of the corresponding
+  `<feature>.schema.ts` file** to keep them easy to find.
+- When a route has a **`body`**, you MAY add **`requestBodyExample`** with a realistic
+  sample payload **inlined on the same route schema object** (same keys as the body).
+  Do **not** introduce a separate exported `*RequestBodyExample` variable — the backend
+  Swagger plugin reads `requestBodyExample` and sets OpenAPI `example` for Swagger UI.
+- **Swagger tag order:** do **not** set root `openapi.tags` on `@fastify/swagger` (it overrides
+  operation tags poorly). Order is applied in the Swagger UI `transformSpecification` step
+  (`orderOpenApiTags` in `swagger.plugin.ts`) using **`SWAGGER_TAG_DISPLAY_ORDER`** from
+  `@task-forge/shared/constant`, which must stay in sync with **`RouteTags`** on each route
+  schema (`packages/shared/src/types/openapi-route.types.ts`).
+
+Example (from `packages/shared/src/schemas/health.schema.ts`):
+
+```ts
+import { RouteTags } from "../types/openapi-route.types";
+
+export const getHealthRouteSchema = {
+  tags: [RouteTags.HEALTH],
+  summary: "Health Check",
+  description: "Returns server health status including database connection state",
+  response: {
+    200: successResponseSchema(healthDataSchema),
+  },
+};
+```
+
+Example with optional Try-it-out sample (body + inlined `requestBodyExample`):
+
+```ts
+import { RouteTags } from "../types/openapi-route.types";
+
+export const postSignupRouteSchema = {
+  tags: [RouteTags.AUTH],
+  summary: "Sign up",
+  body: signupSchema,
+  requestBodyExample: {
+    name: "Alex Morgan",
+    email: "alex.morgan@example.com",
+    phoneNumber: { countryCode: "US", number: "+14155550199" },
+  },
+  response: { 201: successResponseSchema(userSchema) },
+};
+```
+
+Routers MUST import and use these route schemas instead of defining inline
+`schema` objects:
+
+```ts
+// apps/backend/src/modules/health/health.router.ts
+import { getHealthRouteSchema } from "@task-forge/shared/schemas";
+
+app.get(
+  "/",
+  {
+    schema: getHealthRouteSchema,
+    config: {},
+  },
+  controller.getHealth,
+);
+```
+
+### 6.10 When to add Zod vs plain types (both live in `packages/shared`)
+
+**Add or extend a Zod schema** in `packages/shared/src/schemas/` when you need one or more of:
+
+- Fastify route validation (body, query, params, response serialization)
+- OpenAPI / Swagger documentation for that shape
+- `packages/shared` env validation
+- Explicit **`safeParse` / `parse`** in application code
+
+**Use plain TypeScript types** (no new Zod schema) in **`packages/shared/src/types/`** when:
+
+- The shape does **not** need runtime validation or OpenAPI for that field set — still **centralize** the type in shared so backend (and frontend, if needed) import one definition.
+- Do **not** place that plain type under `apps/backend/src/modules/` — see shared rules §1.1 and §5.1.
+
+---
+
+## 7. Error Handling Rules
+
+### 7.1 Never handle errors in routes or controllers
+
+All errors bubble up to `error.plugin.ts` automatically.
+Do not wrap service calls in try/catch in controllers.
+
+### 7.3 Create error classes by extending `AppError`
+
+Create Error based on requirement by extending `AppError` in `<feature>.error.ts`
+
+```ts
+export class TaskNotFoundError extends ApplicationError {
+  constructor(message?: string, metadata?: unknown, error: Error) {
+    super({
+      message,
+      metadata,
+      cause: error;
+      statusCode: 404,
+      logType: LogType.WARN,
+    });
+  }
+}
+```
+
+---
+
+## 8. Environment Variable Rules
+
+### 8.1 Never use process.env directly
+
+```ts
+// ✓ correct
+import { env } from "@task-forge/shared/env";
+const port = env.PORT;
+
+// ✗ wrong
+const port = process.env.PORT;
+const port = parseInt(process.env.PORT ?? "3000");
+```
+
+### 8.2 Adding a new env variable
+
+Always follow these steps in order:
+
+1. Add to `packages/shared/src/env.schema.ts`
+2. Add to `apps/backend/.env.development`
+3. Add to `apps/backend/.env.uat`
+4. Add to `apps/backend/.env.example` (with empty value)
+
+---
+
+## 11. Import Rules
+
+### 11.1 Always use path aliases for cross-folder imports
+
+Available aliases:
+@lib/_ → src/lib/_
+@modules/_ → src/modules/_
+@plugins/_ → src/plugins/_
+@middleware/_ → src/middleware/_
+@config/_ → src/config/_
+@server/_ → src/server/_
+
+Cross-folder imports MUST use aliases — never relative paths:
+
+```ts
+// ✓ correct — alias
+import { successResponse } from "@lib/api-response";
+import { requireAuth } from "@middleware/require-auth";
+import AppDataSource from "@database/data-source";
+
+// ✗ wrong — relative cross-folder
+import { successResponse } from "../../lib/api-response";
+import { requireAuth } from "../../../middleware/require-auth";
+import { NotFoundException } from "../../exceptions/http.exception";
+```
+
+Same-folder imports stay relative — do not use aliases within the same module:
+
+```ts
+// ✓ correct — same folder stays relative for service/router/controller
+import { AuthService } from "./auth.service";
+// ✓ schemas and data types come from packages/shared, not ./auth.schema or ./auth.types
+import { signinSchema } from "@task-forge/shared/schemas";
+import type { SigninInput } from "@task-forge/shared/types";
+
+// ✗ wrong — alias for same folder
+import { AuthService } from "@modules/auth/auth.service";
+```
+
+### 11.2 Cross-module imports (other features)
+
+When importing from **another** feature under `modules/`, you may import **only** that feature’s `<feature>.service.ts` and `<feature>.util.ts` (if it exists). Do not import that feature’s `internal/` folder, router, controller, prehandlers, or other private files.
+
+```ts
+// ✓ correct
+import TaskService from "@modules/task/task.service";
+import { computeSlug } from "@modules/task/task.util";
+
+// ✗ wrong — another module’s internal layer is private
+import { TaskReader } from "@modules/task/internal/task.reader";
+```
+
+---
+
+## 12. API Response Rules
+
+### 12.1 Always use response helper functions
+
+Never construct response objects manually in controllers.
+Always import from `@lib/api-response`.
+
+```ts
+// ✓ correct
+return reply.status(200).send(successResponse(task));
+return reply.status(200).send(messageResponse("Email is valid"));
+return reply.status(201).send(successResponse(user, "Account created"));
+
+// ✗ wrong — manual response object
+return reply.status(200).send({ success: true, data: task });
+return reply.status(200).send({ message: "Email is valid", success: true });
+```
+
+### 12.2 Standard status codes per operation
+
+- GET one → 200 + successResponse(data)
+- GET list → 200 + successResponse(data) or paginatedResponse(data, meta)
+- POST create → 201 + successResponse(data, 'Resource created')
+- PUT update → 200 + successResponse(data, 'Resource updated')
+- DELETE → 204 + no body (reply.status(204).send())
+- POST action → 200 + messageResponse('Action description')
+
+### 12.3 Never validate request body manually in controllers
+
+Zod validation happens at the route schema level only.
+Never call schema.parse(request.body) in a controller.
+
+```ts
+// ✓ correct — validated by Fastify + Zod at route level
+validateUserEmail = async (request: FastifyRequest<{ Body: ValidateUserEmailInput }>, reply) => {
+  await this.service.validateUserEmail(request.body); // already validated
+  return reply.status(200).send(messageResponse("Email is valid"));
+};
+
+// ✗ wrong — manual parse in controller
+validateUserEmail = async (request, reply) => {
+  const body = validateUserEmailSchema.parse(request.body); // remove this
+  await this.service.validateUserEmail(body);
+};
+```
+
+### 12.4 ApiResponse and PaginationMeta types live in packages/shared
+
+Never redefine ApiResponse or PaginationMeta locally in the backend.
+Always import from @task-forge/shared and NEVER use the `type` import modifier.
+
+```ts
+import { ApiResponse, PaginationMeta } from '@task-forge/shared/types'   ✓
+interface ApiResponse { ... }                                      ✗
+import type { ApiResponse } from '@task-forge/shared/types'             ✗ — do not use `type`
+```
+
+---

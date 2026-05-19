@@ -1,0 +1,36 @@
+{
+  "name": "@task-forge/shared",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "exports": {
+    "./env": {
+      "types": "./dist/env.schema.d.ts",
+      "default": "./dist/env.schema.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "default": "./dist/schemas/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/types/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json --outDir dist",
+    "dev": "tsc -p tsconfig.json --outDir dist --watch",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "fastify": "^5.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.6.3"
+  }
+}

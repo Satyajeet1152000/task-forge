@@ -1,5 +1,12 @@
 import { randomUUID } from "node:crypto";
 
+import {
+  registerCompress,
+  registerErrorHandler,
+  registerHelmet,
+  registerRateLimit,
+  registerSwagger,
+} from "@plugins";
 import { env } from "@task-forge/shared/env";
 import Fastify, { type FastifyInstance } from "fastify";
 import {
@@ -10,15 +17,8 @@ import {
 
 import { loggerConfig } from "./lib/logger-config";
 import { registerCors } from "./plugins/cors.plugin";
-import { routerConfigs } from "./routers";
-import {
-  registerCompress,
-  registerErrorHandler,
-  registerRateLimit,
-  registerSwagger,
-} from "@plugins";
 import { registerRequestContext } from "./plugins/request-context.plugin";
-import { registerHelmet } from "./plugins/helmet.plugin";
+import { routerConfigs } from "./routers";
 
 async function createServer(app: FastifyInstance): Promise<void> {
   if (env.NODE_ENV === "development") await registerSwagger(app);

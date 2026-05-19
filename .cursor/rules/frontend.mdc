@@ -1,0 +1,491 @@
+---
+description: Frontend rules for Task Forge — Next.js + Zustand + TanStack Query + shadcn/ui + sonner toasts on mutations
+alwaysApply: false
+---
+# Frontend Rules
+
+## 1. File Structure
+
+### 1.1 Module folder structure
+Every feature module SHOULD follow this structure.
+
+```
+modules/
+└── <feature>/
+    ├── index.ts                  barrel — re-exports components, api, queries, store, types, utils (see §1.5)
+    ├── <feature>.api.ts          raw axios functions — no hooks, no state
+    ├── <feature>.store.ts        store management (optional)
+    ├── <feature>.queries.ts      TanStack Query hooks only
+    ├── <feature>.types.ts        (optional) UI-only types used in 2+ files — see §10.3–10.4; do not add when scaffolding a module
+    ├── <feature>.utils.ts       (optional) module-only helpers
+    └── components/               components used ONLY by this module
+        ├── index.ts              barrel — re-export all public components (and optional shared hooks)
+        ├── FeatureCard.tsx
+        ├── FeatureForm.tsx
+        └── FeatureList.tsx
+```
+
+Notes:
+- Do **not** create `<feature>.types.ts` when starting a new module. Add it only when a UI-only type is shared across **more than one** component or file (see §10.4).
+- Import domain/API types from `@task-forge/shared/types` **directly** in the file that needs them — never re-export shared types through `<feature>.types.ts`.
+
+### 1.2 Global component folders (`src/components/`)
+
+The entire **`apps/frontend/src/components/`** tree is for **app-wide UI and common components** (primitives, shell, cross-feature widgets). Feature-only UI stays in **`modules/<feature>/components/`** (see §1.1).
+
+```
+src/components/
+├── index.ts          barrel — re-export the public app-wide API (see below), including `ui/` primitives when desired
+├── ui/               shadcn primitives — NEVER edit manually
+├── layout/           app shell — Header, Sidebar, PageWrapper, etc.
+└── shared/           legacy only — do NOT add new files here (see notes)
+```
+
+**Barrel (`src/components/index.ts`)**
+
+- Maintain **`index.ts`** at **`src/components/`** and export anything meant for cross-app import (e.g. layout pieces, `ErrorBoundary`, `LoadingSpinner`, `AppErrorView`).
+- Prefer **`import { … } from '@/components'`** (or `@/components/index`) for those symbols instead of deep paths, when the barrel exports them.
+- When the project chooses a single import surface, it is acceptable to barrel-export `ui/` primitives from **`src/components/index.ts`** and import them via **`@/components`**.
+- Keep direct imports from **`@/components/ui/...`** valid for existing code and incremental migration.
+
+**Where to add new common components**
+
+- Add new files as **`src/components/<Name>.tsx`** (PascalCase, matches §2.1) or, if several files belong together, **`src/components/<feature>/`** (e.g. small group of colocated files) — **not** under **`src/components/shared/`**.
+- **`src/components/shared/`** is **legacy / frozen**: **do not add new files** there; migrate existing pieces out over time when you touch them.
+
+Rule: if a component is used by only one module — it lives in `modules/<feature>/components/`.
+If used by two or more modules — it lives under **`src/components/`** (outside `shared/` for new work) and should be exported from **`src/components/index.ts`** when it is part of the public surface.
+
+### 1.3 App Router structure
+```
+src/app/
+├── layout.tsx                    root layout — Providers wrapper only
+├── page.tsx                      redirects to /dashboard or /login
+├── (auth)/
+│   ├── login/page.tsx
+│   └── register/page.tsx
+└── (portal)/
+    ├── layout.tsx                portal shell with sidebar + header
+    ├── dashboard/page.tsx
+    └── properties/
+        ├── page.tsx              list view
+        └── [id]/page.tsx         detail/edit view
+```
+
+Only add a new store file if the state is truly global (needed in 3+ unrelated components).
+Otherwise use TanStack Query server state or local React state.
+
+### 1.4 Lib folder
+```
+src/lib/
+├── axios.ts          axios instance with baseURL + auth interceptors
+├── queryClient.ts    TanStack Query client config
+└── utils.ts          cn() helper from shadcn — utility functions only
+```
+
+### 1.5 Module barrel exports (`index.ts`)
+
+Every feature module **SHOULD** use two barrel files so consumers can import from `@/modules/<feature>` and `@/modules/<feature>/components` without deep file paths.
+
+**`modules/<feature>/components/index.ts`**
+
+- Re-export **all public components** in that folder using **`export { default as ComponentName } from './ComponentName'`** (see §5.2) so consumers get stable named imports from the barrel.
+- Optionally re-export co-located **hooks** (e.g. `*.hook.ts`) if they are imported from outside `components/` (e.g. from `app/`). Hooks used only by a single component do not need a barrel export.
+- Do **not** re-export shadcn `ui/` primitives from here.
+
+Example (components use default export per §5.1–5.2):
+
+```ts
+export { default as FeatureCard } from './FeatureCard'
+export { default as FeatureForm } from './FeatureForm'
+```
+
+**`modules/<feature>/index.ts`**
+
+- Re-export **everything** intended as the module’s public API, typically:
+  - `export * from './components'` (or explicit re-exports from `./components` if you need to avoid name clashes)
+  - `<feature>.api.ts` — export functions and any types that belong in the API layer
+  - `<feature>.queries.ts` — export hooks and exported query keys (e.g. `AUTH_KEYS`)
+  - Optional: `<feature>.store.ts`, `<feature>.types.ts` (UI-only, multi-file — §10.4), `<feature>.utils.ts` when the module defines them
+- App Router pages and other modules should prefer `import { … } from '@/modules/<feature>'` when pulling module API, queries, or components.
+
+**Constraints**
+
+- Avoid circular imports: the module `index.ts` must not create cycles (e.g. `queries` importing from `index`); keep barrels as pure re-exports where possible.
+- If a symbol is internal to the module, do **not** add it to the barrels.
+
+---
+
+## 2. Naming Conventions
+
+### 2.1 File naming
+```
+kebab-case for non-component files
+task.api.ts          ✓
+task.queries.ts      ✓
+taskApi.ts           ✗
+
+PascalCase for component files
+TaskCard.tsx         ✓
+taskCard.tsx         ✗
+task-card.tsx        ✗
+```
+
+### 2.2 Component naming
+```tsx
+// PascalCase const name — matches file name exactly; see §5.1 for React.FC + default export
+const TaskCard: React.FC = () => { }
+export default TaskCard             ✓
+
+export function taskCard() { }      ✗
+```
+
+### 2.3 Hook naming
+```ts
+// camelCase with use prefix
+export function useTasks() { }           ✓
+export function useCreateTask() { }       ✓
+export function getProperties() { }           ✗ — missing use prefix
+```
+
+### 2.4 Query key naming
+```ts
+// define as const array at top of queries file
+// SCREAMING_SNAKE for the key name
+const PROPERTY_KEYS = {
+  all:    ['properties'] as const,
+  byId:   (id: string) => ['properties', id] as const,
+  list:   (filters: object) => ['properties', 'list', filters] as const,
+}
+```
+
+### 2.5 API function naming
+```ts
+// verb + noun — matches HTTP method intent
+export async function fetchProperties() { }       ✓  GET all
+export async function fetchTaskById() { }     ✓  GET one
+
+export async function getProperties() { }         ✗ — use fetch prefix for GET
+export async function postTask() { }          ✗ — use create prefix
+```
+
+### 2.6 Comments
+- **Do not** add unnecessary comments: no restating JSX or hooks, no obvious inline narration.
+- **Do** add a short comment **only** for **complex or non-obvious business logic** where the UI behavior or data flow would otherwise be hard to reason about.
+- Prefer **component/function names** and **typed props** over comments.
+
+### 2.7 Icons (`lucide-react` vs `@iconify/react`)
+- **`lucide-react`** — use **only** inside **`apps/frontend/src/components/ui/`** (shadcn/ui primitives). The shadcn CLI and upstream snippets assume Lucide components; keep new or regenerated shadcn files on `lucide-react` for icons.
+- **`@iconify/react`** — use for icons **outside** `components/ui/`: layout (`components/layout/`), feature modules (`modules/**`), pages, `AppErrorView`, and any other app-specific UI.
+- Do **not** import `lucide-react` in non-`ui/` app code for new work; do **not** replace Lucide icons with Iconify inside `components/ui/` unless you are intentionally forking a primitive and accept drift from shadcn defaults.
+
+---
+
+## 3. API Layer Rules (*.api.ts)
+
+### 3.1 API file responsibility
+Only raw axios calls. No hooks, no state, no components.
+Returns typed responses. Throws on error (axios interceptor handles 401).
+
+```ts
+// ✓ correct — pure async function
+export class TaskService extends APIService {
+  static async function fetchTaskById(id: string): Promise<Task> {
+    const { data } = await this.apiClient.get<ApiResponse<Task>>(`/tasks/${id}`)
+    return data.data
+  }
+}
+```
+
+### 3.2 Always extend APIService and user await this.apiClient for api call.
+
+### 3.3 Always type the response
+```ts
+const { data } = await this.apiClient.get<ApiResponse<Task>>(`/tasks/${id}`)
+```
+
+### 3.4 ApiResponse wrapper type
+```ts
+// matches backend response shape { success: true, data: T }
+interface ApiResponse<T> {
+  success: boolean
+  data: T
+}
+```
+
+---
+
+## 4. Query Layer Rules (*.queries.ts)
+
+### 4.1 Query file responsibility
+Only TanStack Query hooks. Imports from `<feature>.api.ts`. No axios calls directly.
+
+```ts
+// ✓ correct — hook imports from api file
+export function useTask(id: string) {
+  return useQuery({
+    queryKey: PROPERTY_KEYS.byId(id),
+    queryFn: () => fetchTaskById(id),
+    enabled: !!id,
+  })
+}
+```
+
+### 4.2 Always define query keys as constants
+```ts
+const PROPERTY_KEYS = {
+  all:  ['properties'] as const,
+  byId: (id: string) => ['properties', id] as const,
+}
+
+```
+
+### 4.3 Always use enabled for conditional queries
+```ts
+useQuery({
+  queryKey: PROPERTY_KEYS.byId(id),
+  queryFn: () => fetchTaskById(id!),
+  enabled: !!id,
+})
+```
+
+### 4.4 Always invalidate after mutations
+```ts
+import { toast } from "sonner"
+
+export function useCreateTask() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: createTask,
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: PROPERTY_KEYS.all })
+      toast.success("Task created successfully")
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+}
+```
+
+### 4.5 Standard mutation pattern
+```ts
+import { toast } from "sonner"
+
+export function useUpdateTask() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: UpdateTaskInput }) =>
+      updateTask(id, data),
+    onSuccess: (_, { id }) => {
+      void queryClient.invalidateQueries({ queryKey: PROPERTY_KEYS.byId(id) })
+      void queryClient.invalidateQueries({ queryKey: PROPERTY_KEYS.all })
+      toast.success("Task updated successfully")
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
+}
+```
+
+### 4.6 Toasts for every mutation (`onSuccess` and `onError`)
+- **Every** `useMutation` in a `*.queries.ts` file **MUST** surface user-visible feedback via **`toast`** from **`sonner`** (the app Toaster is wired in the root layout).
+- Implement **`onSuccess`** with **`toast.success(...)`** with a short, action-specific message (e.g. “Task updated successfully”).
+- Implement **`onError`** with **`toast.error(...)`** — prefer **`error.message`** when the error is an `Error`; map or stringify API errors if your API layer wraps them differently.
+- Keep messages concise; avoid duplicating the same toast in the calling component unless you need context the mutation cannot know (rare).
+- Do **not** add toasts for `useQuery` hooks unless there is an explicit product requirement (queries usually use loading/error UI instead).
+
+```ts
+import { toast } from "sonner"
+
+// inside useMutation:
+onSuccess: () => {
+  void queryClient.invalidateQueries({ queryKey: PROPERTY_KEYS.all })
+  toast.success("…")
+},
+onError: (error) => {
+  toast.error(error instanceof Error ? error.message : "Something went wrong")
+},
+```
+
+---
+
+## 5. Component Rules
+
+### 5.1 Arrow components typed with `React.FC`; default export last
+- Define components as an **arrow function** assigned to a **`const`**, typed with **`React.FC`** (or **`React.FC<Props>`** when the component accepts props).
+- Put **exactly one** **`export default`** at the **end** of the file, exporting that const (same pattern as `page.tsx` / feature components).
+
+```tsx
+// ✓ no props
+const RegisterPage: React.FC = () => {
+  return <div>...</div>
+}
+
+export default RegisterPage
+```
+
+```tsx
+// ✓ with props — interface above, then FC<Props>
+interface TaskCardProps {
+  task: Task
+  onEdit?: (id: string) => void
+  className?: string
+}
+
+const TaskCard: React.FC<TaskCardProps> = ({
+  task,
+  onEdit,
+  className,
+}) => {
+  return <div>...</div>
+}
+
+export default TaskCard
+```
+
+```tsx
+// ✗ function declaration, inline default export, or untyped arrow without React.FC
+export default function RegisterPage() { }
+export const Card = () => { }
+```
+
+### 5.2 Default export only (for component files)
+- Each component file ends with **`export default <SameNameAsConst>`**; do not add a separate named export of the same component in that file.
+- **Barrels** (`components/index.ts`) should re-export with a stable name, e.g. `export { default as TaskCard } from './TaskCard'`.
+
+### 5.3 Always define props interface
+```tsx
+interface TaskCardProps {
+  task: Task
+  onEdit?: (id: string) => void
+  className?: string
+}
+
+const TaskCard: React.FC<TaskCardProps> = ({
+  task,
+  onEdit,
+  className,
+}) => {
+  return <div>...</div>
+}
+
+export default TaskCard
+```
+
+### 5.4 Never use inline styles, use tailwind classes
+
+### 5.5 Always use cn() for conditional classes
+
+### 5.6 Never edit shadcn components directly
+
+### 5.7 Use Server Components by default in App Router
+- **Sync** server components (no `use client`, no top-level `await` in the component body) should follow §5.1: `const Page: React.FC = () => { return <TaskList /> }; export default Page`.
+- When a **`page.tsx` or `layout.tsx` must be `async`** (e.g. `await` for `searchParams`, data fetching), use **`export default async function PageName()`** — do not force `React.FC` on async Server Components; typings may use an explicit return type such as `Promise<React.ReactElement>` if needed.
+
+```tsx
+// ✓ async Server Component when await is required
+export default async function VerifyOtpPage(props: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}): Promise<React.ReactElement> {
+  const resolved = await props.searchParams
+  return <VerifyOtpForm context={...} />
+}
+```
+
+```tsx
+// ✓ Client component — 'use client' first, then §5.1
+'use client'
+
+const TaskForm: React.FC = () => {
+  return <form>...</form>
+}
+
+export default TaskForm
+```
+
+---
+
+## 6. Form Rules
+
+### 6.1 Always use React Hook Form + Zod
+
+### 6.2 For form handle logic keep it in separate file like taskForm.hook.ts
+In this file handle form initial value declaration, schema validation and submit logic.
+If required pass params.
+
+### 6.3 Always use shadcn Form components
+
+### 6.4 Always handle loading and error states in forms
+---
+
+## 7. State Management Rules
+
+### 7.1 Server state — always TanStack Query
+Any data that comes from the API is server state. Use TanStack Query.
+Never put API data into Zustand.
+
+### 7.2 Client state — Zustand for global, useState for local
+
+### 7.3 Auth store rules
+The auth store is the only Zustand store that persists to localStorage.
+Never store sensitive data beyond token and basic user info.
+
+---
+
+## 8. Component State Management
+Always create component folder inside `/module/<feature>/component` for loading, error and empty-data state
+and create index.tsx file for main component.
+1. Loading State - `<feature>-loading-skeleton.tsx`
+2. Error State - `<feature>-error.tsx`
+3. Empty Data State - `<feature>-empty-data.tsx`
+4. Component with data - `<feature>-index.tsx` handle 1,2,3 state in this file.
+
+---
+
+### 9 Use ErrorBoundary for unexpected errors
+Wrap page-level components in **`ErrorBoundary`** from the app components barrel when exported, e.g. **`import { ErrorBoundary } from '@/components'`**, otherwise **`@/components/shared/ErrorBoundary`** until the barrel re-exports it.
+
+```tsx
+// (portal)/tasks/page.tsx
+import { ErrorBoundary } from '@/components'
+
+export default function PropertiesPage() {
+  return (
+    <ErrorBoundary>
+      <TaskList />
+    </ErrorBoundary>
+  )
+}
+```
+
+---
+
+## 10. Types Rules
+
+### 10.1 Always import types from shared sub-path
+  import type { Task } from '@task-forge/shared/types'      ✓
+  import type { Task } from '@task-forge/shared'            ✗ — no main path
+  interface Task { ... }                                     ✗ — never redefine shared-domain types locally
+
+### 10.2 Always import schemas from shared sub-path for form validation
+  import { createTaskSchema } from '@task-forge/shared/schemas'   ✓
+  import { createTaskSchema } from '@task-forge/shared'            ✗ — no main path
+
+### 10.3 Default: types next to usage; no shared re-exports in `.types.ts`
+- Prefer `interface` / `type` in the **same file** as the component or hook that needs it when only that file uses the shape.
+- Do **not** create `<feature>.types.ts` up front for a new feature — add it only when reuse forces it (§10.4).
+- **Never** use `<feature>.types.ts` to re-export or re-wrap types from `@task-forge/shared/types`. Import shared types directly: `import type { … } from '@task-forge/shared/types'`.
+- Do **not** redefine API/domain entities in the frontend. Those belong in `packages/shared`; compose or narrow them locally only as needed for the UI.
+
+### 10.4 When to add `<feature>.types.ts`
+- Create the file **only** when the **same** UI-oriented type is imported by **more than one** component or other file in the module (e.g. two components, or a component plus a hook).
+- Keep the file limited to **UI-related** shapes: shared props, view models, UI state, discriminated unions for rendering, etc.
+- If a type is used in a single file only, it stays in that file — do not move it to `.types.ts` “for consistency.”
+
+### 10.5 Cross-app contracts stay in `packages/shared`
+- New API contracts, entities, and shared DTOs belong in `packages/shared` per the shared package rules, then are imported via `@task-forge/shared/types` or `@task-forge/shared/schemas`.
+- Module `.types.ts` is not a shortcut for duplicating those shapes in the app.

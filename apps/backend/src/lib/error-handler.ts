@@ -1,6 +1,5 @@
-import { HttpStatusCode, LogType } from "@task-forge/shared/types";
-
 import { getRequestId } from "@lib/get-request-id";
+import { HttpStatusCode, LogType } from "@task-forge/shared/types";
 
 export interface SerializedException {
   message: string;

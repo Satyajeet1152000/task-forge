@@ -1,12 +1,12 @@
 {
   "name": "@task-forge/backend",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
   "engines": {
     "node": "22.x"
   },
   "scripts": {
-    "build": "tsc -p ../../packages/shared/tsconfig.json && tsc -p tsconfig.json --outDir dist",
+    "build": "pnpm --filter @task-forge/shared build && tsc -p tsconfig.json --outDir dist",
     "dev": "npm run dev:migration && cross-env NODE_ENV=development npm run dev:backend",
     "dev:migration": "cross-env NODE_ENV=development DOTENV_CONFIG_PATH=.env.development npm run typeorm migration:run -- -d dist/database/data-source.js",
     "dev:backend": "cross-env NODE_ENV=development tsx watch --env-file=.env.development src/app.ts",
