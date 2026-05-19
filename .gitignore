@@ -6,3 +6,5 @@ node_modules
 .turbo
 *.tsbuildinfo
 .cursor/mcp.json
+
+graphify-out/cache

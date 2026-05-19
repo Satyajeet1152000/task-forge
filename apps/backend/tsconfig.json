@@ -20,6 +20,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "useDefineForClassFields": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
     "paths": {
       "@task-forge/shared/env": ["../../packages/shared/src/env.schema.ts"],
       "@task-forge/shared/schemas": ["../../packages/shared/src/schemas/index.ts"],

@@ -1,5 +1,7 @@
+import "reflect-metadata";
 import { randomUUID } from "node:crypto";
 
+import AppDataSource from "@database/data-source";
 import {
   registerCompress,
   registerErrorHandler,
@@ -17,6 +19,7 @@ import {
 
 import { loggerConfig } from "./lib/logger-config";
 import { registerCors } from "./plugins/cors.plugin";
+import { registerJwt } from "./plugins/jwt.plugin";
 import { registerRequestContext } from "./plugins/request-context.plugin";
 import { routerConfigs } from "./routers";
 
@@ -27,6 +30,7 @@ async function createServer(app: FastifyInstance): Promise<void> {
   await registerRequestContext(app);
   await registerHelmet(app);
   await registerCors(app);
+  await registerJwt(app);
   await registerRateLimit(app);
   await registerErrorHandler(app);
 
@@ -82,13 +86,31 @@ async function init(): Promise<void> {
   process.on("SIGTERM", () => void shutDown("SIGTERM"));
   process.on("SIGINT", () => void shutDown("SIGINT"));
 
-  try {
-    await app.listen({ port: env.PORT, host: "0.0.0.0" });
-    app.log.info("Server is ready");
-  } catch (err) {
-    app.log.error("app - error starting server - %s", err);
-    process.exit(1);
-  }
+  await AppDataSource.initialize()
+    .then(() => {
+      app.log.info("connected with Database successfully");
+
+      app
+        .listen({ port: env.PORT, host: "0.0.0.0" })
+        .then(() => {
+          app.log.info("Server is ready");
+        })
+        .catch((err) => {
+          app.log.error("app - error starting server - %s", err);
+          AppDataSource.destroy()
+            .then(() => {
+              app.log.info("Database connection closed");
+            })
+            .catch((err) => {
+              app.log.error("app - error closing database connection - %s", err);
+            });
+          process.exit(1);
+        });
+    })
+    .catch((err) => {
+      app.log.error("app - error connecting with Database - %s", err);
+      process.exit(1);
+    });
 }
 
 void init();

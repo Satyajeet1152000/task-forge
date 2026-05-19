@@ -1,0 +1,23 @@
+{
+  "eslint.useFlatConfig": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "search.exclude": {
+    "**/.turbo": true,
+    "**/.next": true,
+    "**/.vscode": true,
+    "**/node_modules": true,
+    "**/.specstory": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/coverage": true,
+    "**/logs": true
+  },
+  "cSpell.words": ["iconify", "SUPABASE"],
+  "tailwindCSS.lint.invalidTailwindDirective": "ignore"
+}

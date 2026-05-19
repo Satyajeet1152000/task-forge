@@ -134,8 +134,8 @@ async function swaggerPlugin(app: FastifyInstance): Promise<void> {
     openapi: {
       openapi: "3.0.0",
       info: {
-        title: "Havened API",
-        description: "Havened backend API documentation",
+        title: "Task Forge API",
+        description: "Task Forge backend API documentation",
         version: "0.1.0",
       },
       servers: [
@@ -167,7 +167,7 @@ async function swaggerPlugin(app: FastifyInstance): Promise<void> {
   await app.register(swaggerUi, {
     routePrefix: "/api/docs",
     theme: {
-      title: "Havened API",
+      title: "Task Forge API",
     },
     uiConfig: {
       docExpansion: "none",
