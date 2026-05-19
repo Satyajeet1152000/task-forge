@@ -1,5 +1,5 @@
 {
-  "name": "trello-task-management-server",
+  "name": "task-forge-server",
   "version": "1.0.0",
   "description": "Trello Style Task Managment App",
   "type": "module",
