@@ -1,4 +1,4 @@
-import { AuthProvider, UserRole } from "@task-forge/shared/types";
+import { AuthProvider } from "@task-forge/shared/types";
 import {
   Column,
   CreateDateColumn,
@@ -25,9 +25,6 @@ export class UserEntity {
 
   @Column({ type: "text", nullable: true })
   image: string | null;
-
-  @Column({ type: "character varying", length: 20, default: UserRole.USER })
-  role: UserRole;
 
   @Column({ type: "character varying", length: 20, default: AuthProvider.CREDENTIALS })
   provider: AuthProvider;

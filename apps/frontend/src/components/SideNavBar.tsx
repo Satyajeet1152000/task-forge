@@ -2,7 +2,6 @@
 
 import { Icon } from "@iconify/react";
 import { NAV_ITEMS, Routes } from "@task-forge/shared/constant";
-import { UserRole } from "@task-forge/shared/types";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
@@ -12,10 +11,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { logoutAction } from "@/modules/auth/auth.actions";
 import { useAuth } from "@/modules/auth/use-auth";
-
-function formatRoleLabel(role: UserRole): string {
-  return role === UserRole.ADMIN ? "Admin" : "User";
-}
 
 function getInitials(name: string): string {
   return name
@@ -33,14 +28,7 @@ function isNavItemActive(pathname: string, href: string): boolean {
 export function SideNavBar(): React.ReactElement {
   const pathname = usePathname();
   const router = useRouter();
-  const { user, isLoading } = useAuth();
-
-  const visibleNavItems = NAV_ITEMS.filter((item) => {
-    if (!user?.role) {
-      return false;
-    }
-    return item.userRoles.includes(user.role);
-  });
+  const { user } = useAuth();
 
   const handleLogout = async (): Promise<void> => {
     try {
@@ -62,16 +50,11 @@ export function SideNavBar(): React.ReactElement {
             {user?.name ? getInitials(user.name) : "U"}
           </AvatarFallback>
         </Avatar>
-        {!isLoading && user?.role ? (
-          <span className="mt-3 rounded-md bg-primary px-3 py-0.5 text-xs font-medium text-primary-foreground">
-            {formatRoleLabel(user.role)}
-          </span>
-        ) : null}
         <p className="mt-3 text-sm font-semibold text-foreground">{user?.name ?? "User"}</p>
         <p className="mt-0.5 text-xs text-muted-foreground">{user?.email ?? ""}</p>
       </div>
       <nav className="flex min-h-0 flex-1 flex-col gap-0.5 py-4 pl-2">
-        {visibleNavItems.map((item) => {
+        {NAV_ITEMS.map((item) => {
           const isActive = isNavItemActive(pathname, item.href);
           return (
             <Link

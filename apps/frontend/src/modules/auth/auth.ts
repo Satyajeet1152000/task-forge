@@ -1,5 +1,5 @@
 import { googleAuthBodySchema, loginBodySchema } from "@task-forge/shared/schemas";
-import type { User, UserRole } from "@task-forge/shared/types";
+import type { User } from "@task-forge/shared/types";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
@@ -12,14 +12,12 @@ function mapUserToSession(user: User): {
   name: string;
   email: string;
   image: string | null;
-  role: UserRole;
 } {
   return {
     id: String(user.id),
     name: user.name,
     email: user.email,
     image: user.image,
-    role: user.role as UserRole,
   };
 }
 

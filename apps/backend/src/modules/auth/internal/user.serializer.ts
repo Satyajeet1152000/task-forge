@@ -8,7 +8,6 @@ export const serializeUser = (user: UserEntity): User => {
     name: user.name,
     email: user.email,
     image: user.image,
-    role: user.role,
     provider: user.provider,
     assignedTasks: (user.assignedTasks ?? []).map(Number),
     createdAt: user.createdAt.toISOString(),

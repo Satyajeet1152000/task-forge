@@ -8,7 +8,6 @@ import type {
   SignupInput,
   User,
 } from "@task-forge/shared/types";
-import { UserRole } from "@task-forge/shared/types";
 import { OAuth2Client } from "google-auth-library";
 
 import { GoogleAuthError, InvalidCredentialsError } from "./auth.error";
@@ -81,7 +80,6 @@ export default class AuthService {
     return {
       sub: user.id,
       email: user.email,
-      role: user.role as UserRole,
     };
   }
 

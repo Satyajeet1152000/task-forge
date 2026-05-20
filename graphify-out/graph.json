@@ -9,7 +9,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/eslint.config.mjs",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_eslint_config_mjs",
-      "community": 101,
+      "community": 102,
       "norm_label": "eslint.config.mjs"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/index.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_index_js",
-      "community": 102,
+      "community": 103,
       "norm_label": "index.js"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/middleware/auth.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_middleware_auth_js",
-      "community": 41,
+      "community": 42,
       "norm_label": "auth.js"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/middleware/auth.js",
       "source_location": "L4",
       "id": "auth_protect",
-      "community": 41,
+      "community": 42,
       "norm_label": "protect()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/models/User.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_models_user_js",
-      "community": 103,
+      "community": 104,
       "norm_label": "user.js"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/models/Task.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_models_task_js",
-      "community": 104,
+      "community": 105,
       "norm_label": "task.js"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/taskController.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_controllers_taskcontroller_js",
-      "community": 11,
+      "community": 0,
       "norm_label": "taskcontroller.js"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/taskController.js",
       "source_location": "L3",
       "id": "taskcontroller_createtask",
-      "community": 11,
+      "community": 0,
       "norm_label": "createtask()"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/taskController.js",
       "source_location": "L24",
       "id": "taskcontroller_gettasks",
-      "community": 11,
+      "community": 0,
       "norm_label": "gettasks()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/taskController.js",
       "source_location": "L35",
       "id": "taskcontroller_updatetask",
-      "community": 11,
+      "community": 0,
       "norm_label": "updatetask()"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/taskController.js",
       "source_location": "L56",
       "id": "taskcontroller_deletetask",
-      "community": 11,
+      "community": 0,
       "norm_label": "deletetask()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/authController.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_controllers_authcontroller_js",
-      "community": 11,
+      "community": 0,
       "norm_label": "authcontroller.js"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/authController.js",
       "source_location": "L4",
       "id": "authcontroller_signup",
-      "community": 11,
+      "community": 0,
       "norm_label": "signup()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/controllers/authController.js",
       "source_location": "L23",
       "id": "authcontroller_login",
-      "community": 11,
+      "community": 0,
       "norm_label": "login()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/routes/task.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_routes_task_js",
-      "community": 105,
+      "community": 106,
       "norm_label": "task.js"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/server/routes/auth.js",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_server_routes_auth_js",
-      "community": 106,
+      "community": 107,
       "norm_label": "auth.js"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/middleware.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_middleware_ts",
-      "community": 107,
+      "community": 108,
       "norm_label": "middleware.ts"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/postcss.config.mjs",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_postcss_config_mjs",
-      "community": 108,
+      "community": 109,
       "norm_label": "postcss.config.mjs"
     },
     {
@@ -171,7 +171,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/next.config.mjs",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_next_config_mjs",
-      "community": 109,
+      "community": 110,
       "norm_label": "next.config.mjs"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/sentry.server.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_sentry_server_config_ts",
-      "community": 110,
+      "community": 111,
       "norm_label": "sentry.server.config.ts"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/sentry.client.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_sentry_client_config_ts",
-      "community": 111,
+      "community": 112,
       "norm_label": "sentry.client.config.ts"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/tailwind.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_tailwind_config_ts",
-      "community": 112,
+      "community": 113,
       "norm_label": "tailwind.config.ts"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/sentry.edge.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_sentry_edge_config_ts",
-      "community": 113,
+      "community": 114,
       "norm_label": "sentry.edge.config.ts"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/instrumentation.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_instrumentation_ts",
-      "community": 114,
+      "community": 115,
       "norm_label": "instrumentation.ts"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/context/ModelContext.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_context_modelcontext_tsx",
-      "community": 17,
+      "community": 16,
       "norm_label": "modelcontext.tsx"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/context/ModelContext.tsx",
       "source_location": "L40",
       "id": "modelcontext_modalprovider",
-      "community": 17,
+      "community": 16,
       "norm_label": "modalprovider()"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/context/ModelContext.tsx",
       "source_location": "L74",
       "id": "modelcontext_usemodal",
-      "community": 17,
+      "community": 16,
       "norm_label": "usemodal()"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/context/ListUpdateContext.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_context_listupdatecontext_tsx",
-      "community": 42,
+      "community": 43,
       "norm_label": "listupdatecontext.tsx"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/context/ListUpdateContext.tsx",
       "source_location": "L53",
       "id": "listupdatecontext_uselistupdater",
-      "community": 42,
+      "community": 43,
       "norm_label": "uselistupdater()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_layout_tsx",
-      "community": 28,
+      "community": 29,
       "norm_label": "layout.tsx"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/layout.tsx",
       "source_location": "L15",
       "id": "layout_rootlayout",
-      "community": 28,
+      "community": 29,
       "norm_label": "rootlayout()"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_page_tsx",
-      "community": 43,
+      "community": 44,
       "norm_label": "page.tsx"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/page.tsx",
       "source_location": "L7",
       "id": "page_dashboard",
-      "community": 43,
+      "community": 44,
       "norm_label": "dashboard()"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/global-error.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_global_error_tsx",
-      "community": 44,
+      "community": 45,
       "norm_label": "global-error.tsx"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/global-error.tsx",
       "source_location": "L7",
       "id": "global_error_globalerror",
-      "community": 44,
+      "community": 45,
       "norm_label": "globalerror()"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/sentry-example-page/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_sentry_example_page_page_tsx",
-      "community": 115,
+      "community": 116,
       "norm_label": "page.tsx"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/dashboard/layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_dashboard_layout_tsx",
-      "community": 45,
+      "community": 46,
       "norm_label": "layout.tsx"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/dashboard/layout.tsx",
       "source_location": "L4",
       "id": "layout_dashboardlayout",
-      "community": 45,
+      "community": 46,
       "norm_label": "dashboardlayout()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/dashboard/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_dashboard_page_tsx",
-      "community": 12,
+      "community": 11,
       "norm_label": "page.tsx"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/dashboard/page.tsx",
       "source_location": "L1",
       "id": "page_dashboardpage",
-      "community": 12,
+      "community": 11,
       "norm_label": "dashboardpage()"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/api/auth/[...nextauth]/route.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_api_auth_nextauth_route_ts",
-      "community": 116,
+      "community": 117,
       "norm_label": "route.ts"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/api/sentry-example-api/route.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_api_sentry_example_api_route_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "route.ts"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/api/sentry-example-api/route.ts",
       "source_location": "L6",
       "id": "route_get",
-      "community": 4,
+      "community": 3,
       "norm_label": "get()"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/(auth)/layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_auth_layout_tsx",
-      "community": 46,
+      "community": 47,
       "norm_label": "layout.tsx"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/(auth)/layout.tsx",
       "source_location": "L3",
       "id": "layout_authlayout",
-      "community": 46,
+      "community": 47,
       "norm_label": "authlayout()"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/(auth)/register/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_auth_register_page_tsx",
-      "community": 47,
+      "community": 48,
       "norm_label": "page.tsx"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/(auth)/register/page.tsx",
       "source_location": "L3",
       "id": "page_registerpage",
-      "community": 47,
+      "community": 48,
       "norm_label": "registerpage()"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/app/(auth)/login/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_app_auth_login_page_tsx",
-      "community": 15,
+      "community": 14,
       "norm_label": "page.tsx"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(auth)/login/page.tsx",
       "source_location": "L13",
       "id": "page_loginpage",
-      "community": 15,
+      "community": 14,
       "norm_label": "loginpage()"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/auth/auth.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_auth_auth_config_ts",
-      "community": 117,
+      "community": 118,
       "norm_label": "auth.config.ts"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/auth/next-auth.d.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_auth_next_auth_d_ts",
-      "community": 118,
+      "community": 119,
       "norm_label": "next-auth.d.ts"
     },
     {
@@ -468,7 +468,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/auth/auth.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_auth_auth_ts",
-      "community": 119,
+      "community": 120,
       "norm_label": "auth.ts"
     },
     {
@@ -477,7 +477,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/utils/gradients.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_utils_gradients_ts",
-      "community": 48,
+      "community": 49,
       "norm_label": "gradients.ts"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/utils/gradients.ts",
       "source_location": "L1546",
       "id": "gradients_getrandomgradient",
-      "community": 48,
+      "community": 49,
       "norm_label": "getrandomgradient()"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/LinkButton.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_linkbutton_tsx",
-      "community": 49,
+      "community": 50,
       "norm_label": "linkbutton.tsx"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/LinkButton.tsx",
       "source_location": "L12",
       "id": "linkbutton_linkbutton",
-      "community": 49,
+      "community": 50,
       "norm_label": "linkbutton()"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/FormSuccess.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_formsuccess_tsx",
-      "community": 120,
+      "community": 121,
       "norm_label": "formsuccess.tsx"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ThemeProvider.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_themeprovider_tsx",
-      "community": 50,
+      "community": 51,
       "norm_label": "themeprovider.tsx"
     },
     {
@@ -531,7 +531,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ThemeProvider.tsx",
       "source_location": "L7",
       "id": "themeprovider_themeprovider",
-      "community": 50,
+      "community": 51,
       "norm_label": "themeprovider()"
     },
     {
@@ -540,7 +540,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/AuthProvider.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_authprovider_tsx",
-      "community": 51,
+      "community": 52,
       "norm_label": "authprovider.tsx"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/AuthProvider.tsx",
       "source_location": "L5",
       "id": "authprovider_authprovider",
-      "community": 51,
+      "community": 52,
       "norm_label": "authprovider()"
     },
     {
@@ -594,7 +594,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/card.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_card_tsx",
-      "community": 121,
+      "community": 122,
       "norm_label": "card.tsx"
     },
     {
@@ -603,7 +603,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/popover.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_popover_tsx",
-      "community": 122,
+      "community": 123,
       "norm_label": "popover.tsx"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/label.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_label_tsx",
-      "community": 123,
+      "community": 124,
       "norm_label": "label.tsx"
     },
     {
@@ -621,7 +621,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/calendar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_calendar_tsx",
-      "community": 52,
+      "community": 53,
       "norm_label": "calendar.tsx"
     },
     {
@@ -630,7 +630,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/calendar.tsx",
       "source_location": "L12",
       "id": "calendar_calendar",
-      "community": 52,
+      "community": 53,
       "norm_label": "calendar()"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/avatar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_avatar_tsx",
-      "community": 124,
+      "community": 125,
       "norm_label": "avatar.tsx"
     },
     {
@@ -648,7 +648,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/button.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_button_tsx",
-      "community": 125,
+      "community": 126,
       "norm_label": "button.tsx"
     },
     {
@@ -657,7 +657,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/select.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_select_tsx",
-      "community": 126,
+      "community": 127,
       "norm_label": "select.tsx"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/input.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_input_tsx",
-      "community": 127,
+      "community": 128,
       "norm_label": "input.tsx"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/skeleton.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_skeleton_tsx",
-      "community": 53,
+      "community": 54,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/skeleton.tsx",
       "source_location": "L3",
       "id": "skeleton_skeleton",
-      "community": 53,
+      "community": 54,
       "norm_label": "skeleton()"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/ui/form.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_ui_form_tsx",
-      "community": 128,
+      "community": 129,
       "norm_label": "form.tsx"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/Navbar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_navbar_navbar_tsx",
-      "community": 54,
+      "community": 55,
       "norm_label": "navbar.tsx"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/Navbar.tsx",
       "source_location": "L7",
       "id": "navbar_navbar",
-      "community": 54,
+      "community": 55,
       "norm_label": "navbar()"
     },
     {
@@ -720,7 +720,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/Toolbar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_navbar_toolbar_tsx",
-      "community": 129,
+      "community": 130,
       "norm_label": "toolbar.tsx"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/CreateTaskButton.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_navbar_createtaskbutton_tsx",
-      "community": 130,
+      "community": 131,
       "norm_label": "createtaskbutton.tsx"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/Menus.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_navbar_menus_tsx",
-      "community": 131,
+      "community": 132,
       "norm_label": "menus.tsx"
     },
     {
@@ -747,7 +747,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/UserAvatar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_navbar_useravatar_tsx",
-      "community": 55,
+      "community": 56,
       "norm_label": "useravatar.tsx"
     },
     {
@@ -756,7 +756,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Navbar/UserAvatar.tsx",
       "source_location": "L12",
       "id": "useravatar_useravatar",
-      "community": 55,
+      "community": 56,
       "norm_label": "useravatar()"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/LoginForm.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_auth_loginform_tsx",
-      "community": 56,
+      "community": 57,
       "norm_label": "loginform.tsx"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/LoginForm.tsx",
       "source_location": "L36",
       "id": "loginform_onsubmit",
-      "community": 56,
+      "community": 57,
       "norm_label": "onsubmit()"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/RegisterForm.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_auth_registerform_tsx",
-      "community": 57,
+      "community": 58,
       "norm_label": "registerform.tsx"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/RegisterForm.tsx",
       "source_location": "L38",
       "id": "registerform_onsubmit",
-      "community": 57,
+      "community": 58,
       "norm_label": "onsubmit()"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/CardWrapper.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_auth_cardwrapper_tsx",
-      "community": 58,
+      "community": 59,
       "norm_label": "cardwrapper.tsx"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Auth/CardWrapper.tsx",
       "source_location": "L13",
       "id": "cardwrapper_cardwrapper",
-      "community": 58,
+      "community": 59,
       "norm_label": "cardwrapper()"
     },
     {
@@ -873,7 +873,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Create-New/CreateTaskModal.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_create_new_createtaskmodal_tsx",
-      "community": 17,
+      "community": 16,
       "norm_label": "createtaskmodal.tsx"
     },
     {
@@ -882,7 +882,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Create-New/CreateTaskModal.tsx",
       "source_location": "L4",
       "id": "createtaskmodal_createtaskmodal",
-      "community": 17,
+      "community": 16,
       "norm_label": "createtaskmodal()"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/InfoBar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_infobar_tsx",
-      "community": 132,
+      "community": 133,
       "norm_label": "infobar.tsx"
     },
     {
@@ -900,7 +900,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskToolbar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_tasktoolbar_tsx",
-      "community": 133,
+      "community": 134,
       "norm_label": "tasktoolbar.tsx"
     },
     {
@@ -909,7 +909,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/Dashboard.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_dashboard_tsx",
-      "community": 59,
+      "community": 60,
       "norm_label": "dashboard.tsx"
     },
     {
@@ -918,7 +918,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/Dashboard.tsx",
       "source_location": "L8",
       "id": "dashboard_dashboard",
-      "community": 59,
+      "community": 60,
       "norm_label": "dashboard()"
     },
     {
@@ -927,7 +927,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/ListHeading.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_listheading_tsx",
-      "community": 60,
+      "community": 61,
       "norm_label": "listheading.tsx"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/ListHeading.tsx",
       "source_location": "L3",
       "id": "listheading_listheading",
-      "community": 60,
+      "community": 61,
       "norm_label": "listheading()"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/Task.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_task_tsx",
-      "community": 29,
+      "community": 30,
       "norm_label": "task.tsx"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/Task.tsx",
       "source_location": "L14",
       "id": "task_handledragstart",
-      "community": 29,
+      "community": 30,
       "norm_label": "handledragstart()"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/Task.tsx",
       "source_location": "L20",
       "id": "task_handledragend",
-      "community": 29,
+      "community": 30,
       "norm_label": "handledragend()"
     },
     {
@@ -972,7 +972,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TasksListSection.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_taskslistsection_tsx",
-      "community": 61,
+      "community": 62,
       "norm_label": "taskslistsection.tsx"
     },
     {
@@ -981,7 +981,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TasksListSection.tsx",
       "source_location": "L4",
       "id": "taskslistsection_taskslistsection",
-      "community": 61,
+      "community": 62,
       "norm_label": "taskslistsection()"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_tasklists_tsx",
-      "community": 10,
+      "community": 9,
       "norm_label": "tasklists.tsx"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L57",
       "id": "tasklists_loadrecords",
-      "community": 10,
+      "community": 9,
       "norm_label": "loadrecords()"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L70",
       "id": "tasklists_handleonedit",
-      "community": 10,
+      "community": 9,
       "norm_label": "handleonedit()"
     },
     {
@@ -1026,7 +1026,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L80",
       "id": "tasklists_handleondelete",
-      "community": 10,
+      "community": 9,
       "norm_label": "handleondelete()"
     },
     {
@@ -1035,7 +1035,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L95",
       "id": "tasklists_handledraggedelement",
-      "community": 10,
+      "community": 9,
       "norm_label": "handledraggedelement()"
     },
     {
@@ -1044,7 +1044,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L99",
       "id": "tasklists_handledrop",
-      "community": 10,
+      "community": 9,
       "norm_label": "handledrop()"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L135",
       "id": "tasklists_handledragover",
-      "community": 10,
+      "community": 9,
       "norm_label": "handledragover()"
     },
     {
@@ -1062,7 +1062,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/TaskLists.tsx",
       "source_location": "L145",
       "id": "tasklists_handledragleave",
-      "community": 10,
+      "community": 9,
       "norm_label": "handledragleave()"
     },
     {
@@ -1071,7 +1071,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/components/Dashboard/AddNewButton.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_components_dashboard_addnewbutton_tsx",
-      "community": 134,
+      "community": 135,
       "norm_label": "addnewbutton.tsx"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/hooks/useMount.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_hooks_usemount_ts",
-      "community": 62,
+      "community": 63,
       "norm_label": "usemount.ts"
     },
     {
@@ -1089,7 +1089,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/hooks/useMount.ts",
       "source_location": "L5",
       "id": "usemount_usemount",
-      "community": 62,
+      "community": 63,
       "norm_label": "usemount()"
     },
     {
@@ -1098,7 +1098,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/createTask.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_tasks_createtask_ts",
-      "community": 63,
+      "community": 64,
       "norm_label": "createtask.ts"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/createTask.ts",
       "source_location": "L7",
       "id": "createtask_createtask",
-      "community": 63,
+      "community": 64,
       "norm_label": "createtask()"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/deleteTask.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_tasks_deletetask_ts",
-      "community": 64,
+      "community": 65,
       "norm_label": "deletetask.ts"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/deleteTask.ts",
       "source_location": "L5",
       "id": "deletetask_deletetask",
-      "community": 64,
+      "community": 65,
       "norm_label": "deletetask()"
     },
     {
@@ -1134,7 +1134,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/updateTask.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_tasks_updatetask_ts",
-      "community": 65,
+      "community": 66,
       "norm_label": "updatetask.ts"
     },
     {
@@ -1143,7 +1143,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/updateTask.ts",
       "source_location": "L13",
       "id": "updatetask_updatetask",
-      "community": 65,
+      "community": 66,
       "norm_label": "updatetask()"
     },
     {
@@ -1152,7 +1152,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/getTasks.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_tasks_gettasks_ts",
-      "community": 10,
+      "community": 9,
       "norm_label": "gettasks.ts"
     },
     {
@@ -1161,7 +1161,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/tasks/getTasks.ts",
       "source_location": "L5",
       "id": "gettasks_gettasklist",
-      "community": 10,
+      "community": 9,
       "norm_label": "gettasklist()"
     },
     {
@@ -1170,7 +1170,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/auth/login.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_auth_login_ts",
-      "community": 66,
+      "community": 67,
       "norm_label": "login.ts"
     },
     {
@@ -1179,7 +1179,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/auth/login.ts",
       "source_location": "L9",
       "id": "login_login",
-      "community": 66,
+      "community": 67,
       "norm_label": "login()"
     },
     {
@@ -1188,7 +1188,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/auth/register.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_actions_auth_register_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "register.ts"
     },
     {
@@ -1197,7 +1197,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/actions/auth/register.ts",
       "source_location": "L6",
       "id": "register_register",
-      "community": 3,
+      "community": 2,
       "norm_label": "register()"
     },
     {
@@ -1206,7 +1206,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/lib/schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_lib_schema_ts",
-      "community": 135,
+      "community": 136,
       "norm_label": "schema.ts"
     },
     {
@@ -1215,7 +1215,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/lib/utils.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_lib_utils_ts",
-      "community": 30,
+      "community": 31,
       "norm_label": "utils.ts"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/lib/utils.ts",
       "source_location": "L4",
       "id": "utils_cn",
-      "community": 30,
+      "community": 31,
       "norm_label": "cn()"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/lib/timeAgo.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_old_client_lib_timeago_ts",
-      "community": 67,
+      "community": 68,
       "norm_label": "timeago.ts"
     },
     {
@@ -1242,7 +1242,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/old/client/lib/timeAgo.ts",
       "source_location": "L1",
       "id": "timeago_timeago",
-      "community": 67,
+      "community": 68,
       "norm_label": "timeago()"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/env.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_env_schema_ts",
-      "community": 136,
+      "community": 137,
       "norm_label": "env.schema.ts"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/swagger.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_swagger_types_ts",
-      "community": 137,
+      "community": 138,
       "norm_label": "swagger.types.ts"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/common-types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_common_types_ts",
-      "community": 138,
+      "community": 139,
       "norm_label": "common-types.ts"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/task.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_task_types_ts",
-      "community": 139,
+      "community": 140,
       "norm_label": "task.types.ts"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/member-invite.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_member_invite_types_ts",
-      "community": 140,
+      "community": 141,
       "norm_label": "member-invite.types.ts"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/auth.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_auth_types_ts",
-      "community": 141,
+      "community": 142,
       "norm_label": "auth.types.ts"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/sub-task.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_sub_task_types_ts",
-      "community": 142,
+      "community": 143,
       "norm_label": "sub-task.types.ts"
     },
     {
@@ -1314,7 +1314,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/index.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_index_ts",
-      "community": 143,
+      "community": 144,
       "norm_label": "index.ts"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/types/team-member.types.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_types_team_member_types_ts",
-      "community": 144,
+      "community": 145,
       "norm_label": "team-member.types.ts"
     },
     {
@@ -1332,7 +1332,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/common-schemas.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_common_schemas_ts",
-      "community": 68,
+      "community": 69,
       "norm_label": "common-schemas.ts"
     },
     {
@@ -1341,7 +1341,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/common-schemas.ts",
       "source_location": "L3",
       "id": "common_schemas_successresponseschema",
-      "community": 68,
+      "community": 69,
       "norm_label": "successresponseschema()"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/health.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_health_schema_ts",
-      "community": 145,
+      "community": 146,
       "norm_label": "health.schema.ts"
     },
     {
@@ -1359,7 +1359,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/team-member.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_team_member_schema_ts",
-      "community": 146,
+      "community": 147,
       "norm_label": "team-member.schema.ts"
     },
     {
@@ -1368,7 +1368,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/member-invite.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_member_invite_schema_ts",
-      "community": 147,
+      "community": 148,
       "norm_label": "member-invite.schema.ts"
     },
     {
@@ -1377,7 +1377,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/index.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_index_ts",
-      "community": 148,
+      "community": 149,
       "norm_label": "index.ts"
     },
     {
@@ -1386,7 +1386,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/auth.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_auth_schema_ts",
-      "community": 149,
+      "community": 150,
       "norm_label": "auth.schema.ts"
     },
     {
@@ -1395,7 +1395,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/schemas/task.schema.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_schemas_task_schema_ts",
-      "community": 150,
+      "community": 151,
       "norm_label": "task.schema.ts"
     },
     {
@@ -1404,7 +1404,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/team-member.constants.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_team_member_constants_ts",
-      "community": 151,
+      "community": 152,
       "norm_label": "team-member.constants.ts"
     },
     {
@@ -1413,7 +1413,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/swagger.constants.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_swagger_constants_ts",
-      "community": 152,
+      "community": 153,
       "norm_label": "swagger.constants.ts"
     },
     {
@@ -1422,8 +1422,44 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
-      "community": 153,
+      "community": 17,
       "norm_label": "routes.constants.ts"
+    },
+    {
+      "label": "buildInviteRoute()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L12",
+      "id": "routes_constants_buildinviteroute",
+      "community": 17,
+      "norm_label": "buildinviteroute()"
+    },
+    {
+      "label": "buildInvitePageRoute()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L16",
+      "id": "routes_constants_buildinvitepageroute",
+      "community": 17,
+      "norm_label": "buildinvitepageroute()"
+    },
+    {
+      "label": "buildSignupWithInviteRoute()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L29",
+      "id": "routes_constants_buildsignupwithinviteroute",
+      "community": 17,
+      "norm_label": "buildsignupwithinviteroute()"
+    },
+    {
+      "label": "buildLoginWithInviteRoute()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L40",
+      "id": "routes_constants_buildloginwithinviteroute",
+      "community": 17,
+      "norm_label": "buildloginwithinviteroute()"
     },
     {
       "label": "index.ts",
@@ -1485,7 +1521,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/middleware.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_middleware_ts",
-      "community": 31,
+      "community": 32,
       "norm_label": "middleware.ts"
     },
     {
@@ -1494,7 +1530,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/middleware.ts",
       "source_location": "L7",
       "id": "middleware_isauthentryroute",
-      "community": 31,
+      "community": 32,
       "norm_label": "isauthentryroute()"
     },
     {
@@ -1503,7 +1539,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/middleware.ts",
       "source_location": "L13",
       "id": "middleware_isinviteroute",
-      "community": 31,
+      "community": 32,
       "norm_label": "isinviteroute()"
     },
     {
@@ -1512,7 +1548,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_layout_tsx",
-      "community": 28,
+      "community": 29,
       "norm_label": "layout.tsx"
     },
     {
@@ -1521,7 +1557,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_page_tsx",
-      "community": 12,
+      "community": 11,
       "norm_label": "page.tsx"
     },
     {
@@ -1530,7 +1566,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/page.tsx",
       "source_location": "L10",
       "id": "page_homepage",
-      "community": 12,
+      "community": 11,
       "norm_label": "homepage()"
     },
     {
@@ -1539,7 +1575,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/providers.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_providers_tsx",
-      "community": 69,
+      "community": 70,
       "norm_label": "providers.tsx"
     },
     {
@@ -1548,7 +1584,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/providers.tsx",
       "source_location": "L15",
       "id": "providers_providers",
-      "community": 69,
+      "community": 70,
       "norm_label": "providers()"
     },
     {
@@ -1557,7 +1593,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/invite/[code]/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_invite_code_page_tsx",
-      "community": 2,
+      "community": 5,
       "norm_label": "page.tsx"
     },
     {
@@ -1566,7 +1602,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/invite/[code]/page.tsx",
       "source_location": "L8",
       "id": "page_invitepage",
-      "community": 2,
+      "community": 5,
       "norm_label": "invitepage()"
     },
     {
@@ -1575,7 +1611,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_layout_tsx",
-      "community": 70,
+      "community": 71,
       "norm_label": "layout.tsx"
     },
     {
@@ -1584,7 +1620,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/layout.tsx",
       "source_location": "L4",
       "id": "layout_privatelayout",
-      "community": 70,
+      "community": 71,
       "norm_label": "privatelayout()"
     },
     {
@@ -1593,7 +1629,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/tasks/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_tasks_page_tsx",
-      "community": 71,
+      "community": 72,
       "norm_label": "page.tsx"
     },
     {
@@ -1602,7 +1638,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/tasks/page.tsx",
       "source_location": "L5",
       "id": "page_managetaskspage",
-      "community": 71,
+      "community": 72,
       "norm_label": "managetaskspage()"
     },
     {
@@ -1611,7 +1647,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/team-members/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_team_members_page_tsx",
-      "community": 72,
+      "community": 73,
       "norm_label": "page.tsx"
     },
     {
@@ -1620,7 +1656,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/team-members/page.tsx",
       "source_location": "L5",
       "id": "page_teammemberspage",
-      "community": 72,
+      "community": 73,
       "norm_label": "teammemberspage()"
     },
     {
@@ -1629,7 +1665,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/dashboard/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_dashboard_page_tsx",
-      "community": 12,
+      "community": 11,
       "norm_label": "page.tsx"
     },
     {
@@ -1638,7 +1674,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/task/create-task/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_task_create_task_page_tsx",
-      "community": 73,
+      "community": 74,
       "norm_label": "page.tsx"
     },
     {
@@ -1647,7 +1683,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/task/create-task/page.tsx",
       "source_location": "L5",
       "id": "page_createtaskpage",
-      "community": 73,
+      "community": 74,
       "norm_label": "createtaskpage()"
     },
     {
@@ -1656,16 +1692,16 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/task/[id]/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_task_id_page_tsx",
-      "community": 8,
+      "community": 0,
       "norm_label": "page.tsx"
     },
     {
       "label": "TaskDetailsPage()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/task/[id]/page.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "id": "page_taskdetailspage",
-      "community": 8,
+      "community": 0,
       "norm_label": "taskdetailspage()"
     },
     {
@@ -1710,7 +1746,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(auth)/signup/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_auth_signup_page_tsx",
-      "community": 15,
+      "community": 14,
       "norm_label": "page.tsx"
     },
     {
@@ -1719,7 +1755,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(auth)/login/page.tsx",
       "source_location": "L3",
       "id": "page_getqueryparam",
-      "community": 15,
+      "community": 14,
       "norm_label": "getqueryparam()"
     },
     {
@@ -1728,7 +1764,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(auth)/signup/page.tsx",
       "source_location": "L13",
       "id": "page_signuppage",
-      "community": 15,
+      "community": 14,
       "norm_label": "signuppage()"
     },
     {
@@ -1737,7 +1773,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(auth)/login/page.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_auth_login_page_tsx",
-      "community": 15,
+      "community": 14,
       "norm_label": "page.tsx"
     },
     {
@@ -1746,43 +1782,34 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
-      "community": 7,
+      "community": 6,
       "norm_label": "sidenavbar.tsx"
-    },
-    {
-      "label": "formatRoleLabel()",
-      "file_type": "code",
-      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L16",
-      "id": "sidenavbar_formatrolelabel",
-      "community": 7,
-      "norm_label": "formatrolelabel()"
     },
     {
       "label": "getInitials()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L20",
+      "source_location": "L15",
       "id": "sidenavbar_getinitials",
-      "community": 7,
+      "community": 6,
       "norm_label": "getinitials()"
     },
     {
       "label": "isNavItemActive()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L29",
+      "source_location": "L24",
       "id": "sidenavbar_isnavitemactive",
-      "community": 7,
+      "community": 6,
       "norm_label": "isnavitemactive()"
     },
     {
       "label": "handleLogout()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L45",
+      "source_location": "L33",
       "id": "sidenavbar_handlelogout",
-      "community": 7,
+      "community": 6,
       "norm_label": "handlelogout()"
     },
     {
@@ -1800,7 +1827,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/Text.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_text_tsx",
-      "community": 74,
+      "community": 75,
       "norm_label": "text.tsx"
     },
     {
@@ -1809,7 +1836,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/Text.tsx",
       "source_location": "L37",
       "id": "text_basetext",
-      "community": 74,
+      "community": 75,
       "norm_label": "basetext()"
     },
     {
@@ -1890,7 +1917,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/ui/form.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_ui_form_tsx",
-      "community": 75,
+      "community": 76,
       "norm_label": "form.tsx"
     },
     {
@@ -1899,7 +1926,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/ui/form.tsx",
       "source_location": "L42",
       "id": "form_useformfield",
-      "community": 75,
+      "community": 76,
       "norm_label": "useformfield()"
     },
     {
@@ -1917,7 +1944,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/lib/utils.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_lib_utils_ts",
-      "community": 30,
+      "community": 31,
       "norm_label": "utils.ts"
     },
     {
@@ -1935,7 +1962,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_server_ts",
-      "community": 7,
+      "community": 6,
       "norm_label": "auth.server.ts"
     },
     {
@@ -1944,7 +1971,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L16",
       "id": "auth_server_getapiurl",
-      "community": 7,
+      "community": 6,
       "norm_label": "getapiurl()"
     },
     {
@@ -1953,7 +1980,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L20",
       "id": "auth_server_parseauthresponse",
-      "community": 7,
+      "community": 6,
       "norm_label": "parseauthresponse()"
     },
     {
@@ -1962,7 +1989,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L31",
       "id": "auth_server_syncbackendauthcookie",
-      "community": 7,
+      "community": 6,
       "norm_label": "syncbackendauthcookie()"
     },
     {
@@ -1971,7 +1998,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L57",
       "id": "auth_server_clearbackendauthcookie",
-      "community": 7,
+      "community": 6,
       "norm_label": "clearbackendauthcookie()"
     },
     {
@@ -1980,7 +2007,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L62",
       "id": "auth_server_loginwithbackend",
-      "community": 7,
+      "community": 6,
       "norm_label": "loginwithbackend()"
     },
     {
@@ -1989,7 +2016,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L75",
       "id": "auth_server_signupwithbackend",
-      "community": 7,
+      "community": 6,
       "norm_label": "signupwithbackend()"
     },
     {
@@ -1998,7 +2025,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L88",
       "id": "auth_server_googleauthwithbackend",
-      "community": 7,
+      "community": 6,
       "norm_label": "googleauthwithbackend()"
     },
     {
@@ -2007,7 +2034,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts",
       "source_location": "L101",
       "id": "auth_server_logoutwithbackend",
-      "community": 7,
+      "community": 6,
       "norm_label": "logoutwithbackend()"
     },
     {
@@ -2016,7 +2043,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/use-auth.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_use_auth_ts",
-      "community": 12,
+      "community": 11,
       "norm_label": "use-auth.ts"
     },
     {
@@ -2025,7 +2052,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/use-auth.ts",
       "source_location": "L5",
       "id": "use_auth_useauth",
-      "community": 12,
+      "community": 11,
       "norm_label": "useauth()"
     },
     {
@@ -2034,25 +2061,25 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.config.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_config_ts",
-      "community": 32,
+      "community": 33,
       "norm_label": "auth.config.ts"
     },
     {
       "label": "jwt()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.config.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "id": "auth_config_jwt",
-      "community": 32,
+      "community": 33,
       "norm_label": "jwt()"
     },
     {
       "label": "session()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.config.ts",
-      "source_location": "L24",
+      "source_location": "L22",
       "id": "auth_config_session",
-      "community": 32,
+      "community": 33,
       "norm_label": "session()"
     },
     {
@@ -2061,7 +2088,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.actions.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_actions_ts",
-      "community": 7,
+      "community": 6,
       "norm_label": "auth.actions.ts"
     },
     {
@@ -2070,7 +2097,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.actions.ts",
       "source_location": "L8",
       "id": "auth_actions_signupaction",
-      "community": 2,
+      "community": 6,
       "norm_label": "signupaction()"
     },
     {
@@ -2079,7 +2106,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.actions.ts",
       "source_location": "L12",
       "id": "auth_actions_logoutaction",
-      "community": 7,
+      "community": 6,
       "norm_label": "logoutaction()"
     },
     {
@@ -2106,7 +2133,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_errors_ts",
-      "community": 2,
+      "community": 6,
       "norm_label": "auth.errors.ts"
     },
     {
@@ -2115,7 +2142,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts",
       "source_location": "L4",
       "id": "auth_errors_parseapierrormessage",
-      "community": 2,
+      "community": 6,
       "norm_label": "parseapierrormessage()"
     },
     {
@@ -2124,7 +2151,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts",
       "source_location": "L17",
       "id": "auth_errors_throwcredentialserror",
-      "community": 2,
+      "community": 6,
       "norm_label": "throwcredentialserror()"
     },
     {
@@ -2133,7 +2160,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts",
       "source_location": "L29",
       "id": "auth_errors_getsigninerrormessage",
-      "community": 2,
+      "community": 6,
       "norm_label": "getsigninerrormessage()"
     },
     {
@@ -2142,7 +2169,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts",
       "source_location": "L39",
       "id": "auth_errors_geterrormessage",
-      "community": 2,
+      "community": 6,
       "norm_label": "geterrormessage()"
     },
     {
@@ -2151,7 +2178,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_ts",
-      "community": 76,
+      "community": 77,
       "norm_label": "auth.ts"
     },
     {
@@ -2160,7 +2187,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.ts",
       "source_location": "L10",
       "id": "auth_mapusertosession",
-      "community": 76,
+      "community": 77,
       "norm_label": "mapusertosession()"
     },
     {
@@ -2169,7 +2196,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/signup-avatars.constants.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_signup_avatars_constants_ts",
-      "community": 77,
+      "community": 78,
       "norm_label": "signup-avatars.constants.ts"
     },
     {
@@ -2178,7 +2205,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/signup-avatars.constants.ts",
       "source_location": "L6",
       "id": "signup_avatars_constants_getrandomsignupavatar",
-      "community": 77,
+      "community": 78,
       "norm_label": "getrandomsignupavatar()"
     },
     {
@@ -2187,7 +2214,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/signup-form.hook.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_signup_form_hook_ts",
-      "community": 78,
+      "community": 79,
       "norm_label": "signup-form.hook.ts"
     },
     {
@@ -2196,7 +2223,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/signup-form.hook.ts",
       "source_location": "L24",
       "id": "signup_form_hook_usesignupform",
-      "community": 78,
+      "community": 79,
       "norm_label": "usesignupform()"
     },
     {
@@ -2205,7 +2232,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/login-form.hook.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_login_form_hook_ts",
-      "community": 79,
+      "community": 80,
       "norm_label": "login-form.hook.ts"
     },
     {
@@ -2214,7 +2241,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/login-form.hook.ts",
       "source_location": "L21",
       "id": "login_form_hook_useloginform",
-      "community": 79,
+      "community": 80,
       "norm_label": "useloginform()"
     },
     {
@@ -2223,7 +2250,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/avatar-picker.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_avatar_picker_tsx",
-      "community": 33,
+      "community": 34,
       "norm_label": "avatar-picker.tsx"
     },
     {
@@ -2232,7 +2259,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/avatar-picker.tsx",
       "source_location": "L29",
       "id": "avatar_picker_handleselect",
-      "community": 33,
+      "community": 34,
       "norm_label": "handleselect()"
     },
     {
@@ -2241,7 +2268,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/avatar-picker.tsx",
       "source_location": "L61",
       "id": "avatar_picker_cn",
-      "community": 33,
+      "community": 34,
       "norm_label": "cn()"
     },
     {
@@ -2250,7 +2277,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/auth-layout.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_auth_layout_tsx",
-      "community": 80,
+      "community": 81,
       "norm_label": "auth-layout.tsx"
     },
     {
@@ -2259,7 +2286,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/auth-layout.tsx",
       "source_location": "L15",
       "id": "auth_layout_authlayout",
-      "community": 80,
+      "community": 81,
       "norm_label": "authlayout()"
     },
     {
@@ -2277,7 +2304,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/login-form.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_login_form_tsx",
-      "community": 2,
+      "community": 5,
       "norm_label": "login-form.tsx"
     },
     {
@@ -2286,7 +2313,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/login-form.tsx",
       "source_location": "L41",
       "id": "login_form_handlegooglesuccess",
-      "community": 2,
+      "community": 5,
       "norm_label": "handlegooglesuccess()"
     },
     {
@@ -2295,7 +2322,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/signup-form.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_signup_form_tsx",
-      "community": 2,
+      "community": 5,
       "norm_label": "signup-form.tsx"
     },
     {
@@ -2304,7 +2331,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/signup-form.tsx",
       "source_location": "L45",
       "id": "signup_form_handlegooglesuccess",
-      "community": 2,
+      "community": 5,
       "norm_label": "handlegooglesuccess()"
     },
     {
@@ -2313,7 +2340,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/google-auth-button.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_components_google_auth_button_tsx",
-      "community": 34,
+      "community": 35,
       "norm_label": "google-auth-button.tsx"
     },
     {
@@ -2322,7 +2349,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/google-auth-button.tsx",
       "source_location": "L25",
       "id": "google_auth_button_googleauthbuttoncontent",
-      "community": 34,
+      "community": 35,
       "norm_label": "googleauthbuttoncontent()"
     },
     {
@@ -2331,7 +2358,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/google-auth-button.tsx",
       "source_location": "L74",
       "id": "google_auth_button_googleauthbutton",
-      "community": 34,
+      "community": 35,
       "norm_label": "googleauthbutton()"
     },
     {
@@ -2340,7 +2367,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.utils.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_team_member_utils_ts",
-      "community": 2,
+      "community": 5,
       "norm_label": "team-member.utils.ts"
     },
     {
@@ -2349,7 +2376,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.utils.ts",
       "source_location": "L3",
       "id": "team_member_utils_buildinviteroute",
-      "community": 2,
+      "community": 5,
       "norm_label": "buildinviteroute()"
     },
     {
@@ -2358,7 +2385,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.utils.ts",
       "source_location": "L7",
       "id": "team_member_utils_buildinvitepageroute",
-      "community": 2,
+      "community": 5,
       "norm_label": "buildinvitepageroute()"
     },
     {
@@ -2367,7 +2394,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.utils.ts",
       "source_location": "L20",
       "id": "team_member_utils_buildsignupwithinviteroute",
-      "community": 2,
+      "community": 5,
       "norm_label": "buildsignupwithinviteroute()"
     },
     {
@@ -2376,7 +2403,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.utils.ts",
       "source_location": "L31",
       "id": "team_member_utils_buildloginwithinviteroute",
-      "community": 2,
+      "community": 5,
       "norm_label": "buildloginwithinviteroute()"
     },
     {
@@ -2385,7 +2412,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/member-invite.server.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_member_invite_server_ts",
-      "community": 2,
+      "community": 5,
       "norm_label": "member-invite.server.ts"
     },
     {
@@ -2394,7 +2421,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/member-invite.server.ts",
       "source_location": "L5",
       "id": "member_invite_server_fetchmemberinvitebycodeserver",
-      "community": 2,
+      "community": 5,
       "norm_label": "fetchmemberinvitebycodeserver()"
     },
     {
@@ -2403,7 +2430,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_team_member_queries_ts",
-      "community": 13,
+      "community": 12,
       "norm_label": "team-member.queries.ts"
     },
     {
@@ -2412,7 +2439,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L22",
       "id": "team_member_queries_useteammembers",
-      "community": 13,
+      "community": 12,
       "norm_label": "useteammembers()"
     },
     {
@@ -2421,7 +2448,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L29",
       "id": "team_member_queries_usememberinvite",
-      "community": 13,
+      "community": 12,
       "norm_label": "usememberinvite()"
     },
     {
@@ -2430,7 +2457,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L37",
       "id": "team_member_queries_useremoveteammember",
-      "community": 13,
+      "community": 12,
       "norm_label": "useremoveteammember()"
     },
     {
@@ -2439,7 +2466,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L53",
       "id": "team_member_queries_usecreatememberinvite",
-      "community": 13,
+      "community": 12,
       "norm_label": "usecreatememberinvite()"
     },
     {
@@ -2448,7 +2475,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L62",
       "id": "team_member_queries_usevalidatememberinvite",
-      "community": 13,
+      "community": 12,
       "norm_label": "usevalidatememberinvite()"
     },
     {
@@ -2457,7 +2484,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.queries.ts",
       "source_location": "L71",
       "id": "team_member_queries_useacceptmemberinvite",
-      "community": 13,
+      "community": 12,
       "norm_label": "useacceptmemberinvite()"
     },
     {
@@ -2466,7 +2493,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member-invite.util.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_team_member_invite_util_ts",
-      "community": 2,
+      "community": 5,
       "norm_label": "team-member-invite.util.ts"
     },
     {
@@ -2475,7 +2502,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member-invite.util.ts",
       "source_location": "L10",
       "id": "team_member_invite_util_continueteaminviteafterauth",
-      "community": 2,
+      "community": 5,
       "norm_label": "continueteaminviteafterauth()"
     },
     {
@@ -2493,7 +2520,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_team_member_api_ts",
-      "community": 2,
+      "community": 5,
       "norm_label": "team-member.api.ts"
     },
     {
@@ -2502,7 +2529,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L13",
       "id": "team_member_api_fetchteammembers",
-      "community": 2,
+      "community": 5,
       "norm_label": "fetchteammembers()"
     },
     {
@@ -2511,7 +2538,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L23",
       "id": "team_member_api_removeteammember",
-      "community": 2,
+      "community": 5,
       "norm_label": "removeteammember()"
     },
     {
@@ -2520,7 +2547,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L35",
       "id": "team_member_api_creatememberinvite",
-      "community": 2,
+      "community": 5,
       "norm_label": "creatememberinvite()"
     },
     {
@@ -2529,7 +2556,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L52",
       "id": "team_member_api_fetchmemberinvitebycode",
-      "community": 2,
+      "community": 5,
       "norm_label": "fetchmemberinvitebycode()"
     },
     {
@@ -2538,7 +2565,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L62",
       "id": "team_member_api_validatememberinvite",
-      "community": 2,
+      "community": 5,
       "norm_label": "validatememberinvite()"
     },
     {
@@ -2547,7 +2574,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/team-member.api.ts",
       "source_location": "L82",
       "id": "team_member_api_acceptmemberinvite",
-      "community": 2,
+      "community": 5,
       "norm_label": "acceptmemberinvite()"
     },
     {
@@ -2556,7 +2583,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/index.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_components_index_tsx",
-      "community": 81,
+      "community": 82,
       "norm_label": "index.tsx"
     },
     {
@@ -2565,7 +2592,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/index.tsx",
       "source_location": "L25",
       "id": "index_handleremoveconfirm",
-      "community": 81,
+      "community": 82,
       "norm_label": "handleremoveconfirm()"
     },
     {
@@ -2592,7 +2619,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/InviteJoinPage.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_components_invitejoinpage_tsx",
-      "community": 35,
+      "community": 36,
       "norm_label": "invitejoinpage.tsx"
     },
     {
@@ -2601,7 +2628,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/InviteJoinPage.tsx",
       "source_location": "L20",
       "id": "invitejoinpage_formatexpirationdate",
-      "community": 35,
+      "community": 36,
       "norm_label": "formatexpirationdate()"
     },
     {
@@ -2610,7 +2637,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/InviteJoinPage.tsx",
       "source_location": "L27",
       "id": "invitejoinpage_getinitials",
-      "community": 35,
+      "community": 36,
       "norm_label": "getinitials()"
     },
     {
@@ -2637,7 +2664,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/invite-form.hook.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_components_invite_form_hook_ts",
-      "community": 36,
+      "community": 37,
       "norm_label": "invite-form.hook.ts"
     },
     {
@@ -2646,7 +2673,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/invite-form.hook.ts",
       "source_location": "L34",
       "id": "invite_form_hook_calculateinviteexpiresat",
-      "community": 36,
+      "community": 37,
       "norm_label": "calculateinviteexpiresat()"
     },
     {
@@ -2655,7 +2682,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/invite-form.hook.ts",
       "source_location": "L61",
       "id": "invite_form_hook_useinviteform",
-      "community": 36,
+      "community": 37,
       "norm_label": "useinviteform()"
     },
     {
@@ -2664,7 +2691,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/TeamMemberEmptyState.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_team_member_components_teammemberemptystate_tsx",
-      "community": 82,
+      "community": 83,
       "norm_label": "teammemberemptystate.tsx"
     },
     {
@@ -2673,7 +2700,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/team-member/components/TeamMemberEmptyState.tsx",
       "source_location": "L5",
       "id": "teammemberemptystate_teammemberemptystate",
-      "community": 82,
+      "community": 83,
       "norm_label": "teammemberemptystate()"
     },
     {
@@ -2691,7 +2718,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.utils.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_task_utils_ts",
-      "community": 16,
+      "community": 15,
       "norm_label": "task.utils.ts"
     },
     {
@@ -2700,7 +2727,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.utils.ts",
       "source_location": "L49",
       "id": "task_utils_formattaskdate",
-      "community": 16,
+      "community": 15,
       "norm_label": "formattaskdate()"
     },
     {
@@ -2709,7 +2736,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.utils.ts",
       "source_location": "L62",
       "id": "task_utils_getsubtaskprogress",
-      "community": 16,
+      "community": 15,
       "norm_label": "getsubtaskprogress()"
     },
     {
@@ -2718,7 +2745,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.utils.ts",
       "source_location": "L74",
       "id": "task_utils_getdaysuffix",
-      "community": 16,
+      "community": 15,
       "norm_label": "getdaysuffix()"
     },
     {
@@ -2727,7 +2754,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_task_queries_ts",
-      "community": 8,
+      "community": 10,
       "norm_label": "task.queries.ts"
     },
     {
@@ -2736,7 +2763,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts",
       "source_location": "L16",
       "id": "task_queries_usetasks",
-      "community": 8,
+      "community": 0,
       "norm_label": "usetasks()"
     },
     {
@@ -2745,7 +2772,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts",
       "source_location": "L30",
       "id": "task_queries_usecreatetask",
-      "community": 8,
+      "community": 10,
       "norm_label": "usecreatetask()"
     },
     {
@@ -2754,7 +2781,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts",
       "source_location": "L47",
       "id": "task_queries_useupdatetask",
-      "community": 8,
+      "community": 10,
       "norm_label": "useupdatetask()"
     },
     {
@@ -2763,7 +2790,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts",
       "source_location": "L64",
       "id": "task_queries_usedeletetask",
-      "community": 8,
+      "community": 10,
       "norm_label": "usedeletetask()"
     },
     {
@@ -2835,7 +2862,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/index.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_index_tsx",
-      "community": 83,
+      "community": 84,
       "norm_label": "index.tsx"
     },
     {
@@ -2844,7 +2871,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/index.tsx",
       "source_location": "L41",
       "id": "index_handletaskclick",
-      "community": 83,
+      "community": 84,
       "norm_label": "handletaskclick()"
     },
     {
@@ -2853,7 +2880,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskStatusPriorityTags.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskstatusprioritytags_tsx",
-      "community": 84,
+      "community": 85,
       "norm_label": "taskstatusprioritytags.tsx"
     },
     {
@@ -2862,7 +2889,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskStatusPriorityTags.tsx",
       "source_location": "L12",
       "id": "taskstatusprioritytags_taskstatusprioritytags",
-      "community": 84,
+      "community": 85,
       "norm_label": "taskstatusprioritytags()"
     },
     {
@@ -2871,7 +2898,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskCard.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskcard_tsx",
-      "community": 85,
+      "community": 86,
       "norm_label": "taskcard.tsx"
     },
     {
@@ -2880,7 +2907,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskCard.tsx",
       "source_location": "L21",
       "id": "taskcard_taskcard",
-      "community": 85,
+      "community": 86,
       "norm_label": "taskcard()"
     },
     {
@@ -2889,7 +2916,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskProgress.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskprogress_tsx",
-      "community": 16,
+      "community": 15,
       "norm_label": "taskprogress.tsx"
     },
     {
@@ -2898,7 +2925,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskProgress.tsx",
       "source_location": "L11",
       "id": "taskprogress_taskprogress",
-      "community": 16,
+      "community": 15,
       "norm_label": "taskprogress()"
     },
     {
@@ -2916,7 +2943,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskFormPage.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskformpage_tsx",
-      "community": 86,
+      "community": 87,
       "norm_label": "taskformpage.tsx"
     },
     {
@@ -2925,7 +2952,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskFormPage.tsx",
       "source_location": "L12",
       "id": "taskformpage_taskformpage",
-      "community": 86,
+      "community": 87,
       "norm_label": "taskformpage()"
     },
     {
@@ -2934,7 +2961,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskDates.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskdates_tsx",
-      "community": 87,
+      "community": 88,
       "norm_label": "taskdates.tsx"
     },
     {
@@ -2943,7 +2970,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskDates.tsx",
       "source_location": "L10",
       "id": "taskdates_taskdates",
-      "community": 87,
+      "community": 88,
       "norm_label": "taskdates()"
     },
     {
@@ -2952,7 +2979,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_task_form_hook_ts",
-      "community": 8,
+      "community": 10,
       "norm_label": "task-form.hook.ts"
     },
     {
@@ -2961,7 +2988,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L31",
       "id": "task_form_hook_todateinputvalue",
-      "community": 8,
+      "community": 10,
       "norm_label": "todateinputvalue()"
     },
     {
@@ -2970,7 +2997,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L39",
       "id": "task_form_hook_mapsubtaskstoinput",
-      "community": 8,
+      "community": 10,
       "norm_label": "mapsubtaskstoinput()"
     },
     {
@@ -2979,7 +3006,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L46",
       "id": "task_form_hook_usetaskform",
-      "community": 8,
+      "community": 10,
       "norm_label": "usetaskform()"
     },
     {
@@ -2988,7 +3015,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/SelectMemberModal.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_selectmembermodal_tsx",
-      "community": 37,
+      "community": 38,
       "norm_label": "selectmembermodal.tsx"
     },
     {
@@ -2997,7 +3024,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/SelectMemberModal.tsx",
       "source_location": "L40",
       "id": "selectmembermodal_togglemember",
-      "community": 37,
+      "community": 38,
       "norm_label": "togglemember()"
     },
     {
@@ -3006,7 +3033,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/SelectMemberModal.tsx",
       "source_location": "L46",
       "id": "selectmembermodal_handleconfirm",
-      "community": 37,
+      "community": 38,
       "norm_label": "handleconfirm()"
     },
     {
@@ -3015,7 +3042,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskEmptyState.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskemptystate_tsx",
-      "community": 88,
+      "community": 89,
       "norm_label": "taskemptystate.tsx"
     },
     {
@@ -3024,7 +3051,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskEmptyState.tsx",
       "source_location": "L9",
       "id": "taskemptystate_taskemptystate",
-      "community": 88,
+      "community": 89,
       "norm_label": "taskemptystate()"
     },
     {
@@ -3042,7 +3069,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskFilterTabs.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskfiltertabs_tsx",
-      "community": 89,
+      "community": 90,
       "norm_label": "taskfiltertabs.tsx"
     },
     {
@@ -3051,7 +3078,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskFilterTabs.tsx",
       "source_location": "L23",
       "id": "taskfiltertabs_taskfiltertabs",
-      "community": 89,
+      "community": 90,
       "norm_label": "taskfiltertabs()"
     },
     {
@@ -3060,7 +3087,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskCardSkeleton.tsx",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_task_components_tasks_taskcardskeleton_tsx",
-      "community": 90,
+      "community": 91,
       "norm_label": "taskcardskeleton.tsx"
     },
     {
@@ -3069,7 +3096,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/TaskCardSkeleton.tsx",
       "source_location": "L3",
       "id": "taskcardskeleton_taskcardskeleton",
-      "community": 90,
+      "community": 91,
       "norm_label": "taskcardskeleton()"
     },
     {
@@ -3087,7 +3114,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/app.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_app_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "app.ts"
     },
     {
@@ -3096,7 +3123,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/app.ts",
       "source_location": "L26",
       "id": "app_createserver",
-      "community": 3,
+      "community": 2,
       "norm_label": "createserver()"
     },
     {
@@ -3105,7 +3132,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/app.ts",
       "source_location": "L48",
       "id": "app_init",
-      "community": 3,
+      "community": 2,
       "norm_label": "init()"
     },
     {
@@ -3253,12 +3280,48 @@
       "norm_label": ".down()"
     },
     {
+      "label": "1779291657296-migration.ts",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L1",
+      "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_database_migrations_1779291657296_migration_ts",
+      "community": 27,
+      "norm_label": "1779291657296-migration.ts"
+    },
+    {
+      "label": "Migration1779291657296",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L3",
+      "id": "1779291657296_migration_migration1779291657296",
+      "community": 27,
+      "norm_label": "migration1779291657296"
+    },
+    {
+      "label": ".up()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L6",
+      "id": "1779291657296_migration_migration1779291657296_up",
+      "community": 27,
+      "norm_label": ".up()"
+    },
+    {
+      "label": ".down()",
+      "file_type": "code",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L10",
+      "id": "1779291657296_migration_migration1779291657296_down",
+      "community": 27,
+      "norm_label": ".down()"
+    },
+    {
       "label": "1779214525918-migration.ts",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779214525918-migration.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_database_migrations_1779214525918_migration_ts",
-      "community": 27,
+      "community": 28,
       "norm_label": "1779214525918-migration.ts"
     },
     {
@@ -3267,7 +3330,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779214525918-migration.ts",
       "source_location": "L3",
       "id": "1779214525918_migration_migration1779214525918",
-      "community": 27,
+      "community": 28,
       "norm_label": "migration1779214525918"
     },
     {
@@ -3276,7 +3339,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779214525918-migration.ts",
       "source_location": "L6",
       "id": "1779214525918_migration_migration1779214525918_up",
-      "community": 27,
+      "community": 28,
       "norm_label": ".up()"
     },
     {
@@ -3285,7 +3348,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779214525918-migration.ts",
       "source_location": "L11",
       "id": "1779214525918_migration_migration1779214525918_down",
-      "community": 27,
+      "community": 28,
       "norm_label": ".down()"
     },
     {
@@ -3294,7 +3357,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/jwt.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_jwt_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "jwt.plugin.ts"
     },
     {
@@ -3303,7 +3366,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/jwt.plugin.ts",
       "source_location": "L6",
       "id": "jwt_plugin_registerjwt",
-      "community": 3,
+      "community": 2,
       "norm_label": "registerjwt()"
     },
     {
@@ -3312,7 +3375,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/compress.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_compress_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "compress.plugin.ts"
     },
     {
@@ -3321,7 +3384,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/compress.plugin.ts",
       "source_location": "L5",
       "id": "compress_plugin_compressplugin",
-      "community": 3,
+      "community": 2,
       "norm_label": "compressplugin()"
     },
     {
@@ -3330,7 +3393,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_swagger_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "swagger.plugin.ts"
     },
     {
@@ -3339,7 +3402,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L21",
       "id": "swagger_plugin_removeuntaggedoperations",
-      "community": 3,
+      "community": 2,
       "norm_label": "removeuntaggedoperations()"
     },
     {
@@ -3348,7 +3411,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L50",
       "id": "swagger_plugin_orderopenapitags",
-      "community": 3,
+      "community": 2,
       "norm_label": "orderopenapitags()"
     },
     {
@@ -3357,7 +3420,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L88",
       "id": "swagger_plugin_cloneswaggerexample",
-      "community": 3,
+      "community": 2,
       "norm_label": "cloneswaggerexample()"
     },
     {
@@ -3366,7 +3429,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L95",
       "id": "swagger_plugin_applyrequestbodyexamplefromrouteschema",
-      "community": 3,
+      "community": 2,
       "norm_label": "applyrequestbodyexamplefromrouteschema()"
     },
     {
@@ -3375,7 +3438,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L113",
       "id": "swagger_plugin_zodswaggertransform",
-      "community": 3,
+      "community": 2,
       "norm_label": "zodswaggertransform()"
     },
     {
@@ -3384,7 +3447,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/swagger.plugin.ts",
       "source_location": "L131",
       "id": "swagger_plugin_swaggerplugin",
-      "community": 3,
+      "community": 2,
       "norm_label": "swaggerplugin()"
     },
     {
@@ -3393,7 +3456,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/cors.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_cors_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "cors.plugin.ts"
     },
     {
@@ -3402,7 +3465,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/cors.plugin.ts",
       "source_location": "L7",
       "id": "cors_plugin_registercors",
-      "community": 3,
+      "community": 2,
       "norm_label": "registercors()"
     },
     {
@@ -3411,7 +3474,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/request-context.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_request_context_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "request-context.plugin.ts"
     },
     {
@@ -3420,7 +3483,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/request-context.plugin.ts",
       "source_location": "L4",
       "id": "request_context_plugin_registerrequestcontext",
-      "community": 3,
+      "community": 2,
       "norm_label": "registerrequestcontext()"
     },
     {
@@ -3438,7 +3501,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/error.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_error_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "error.plugin.ts"
     },
     {
@@ -3447,7 +3510,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/error.plugin.ts",
       "source_location": "L49",
       "id": "error_plugin_registererrorhandler",
-      "community": 3,
+      "community": 2,
       "norm_label": "registererrorhandler()"
     },
     {
@@ -3456,7 +3519,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/rate-limit.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_rate_limit_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "rate-limit.plugin.ts"
     },
     {
@@ -3465,7 +3528,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/rate-limit.plugin.ts",
       "source_location": "L5",
       "id": "rate_limit_plugin_ratelimitplugin",
-      "community": 3,
+      "community": 2,
       "norm_label": "ratelimitplugin()"
     },
     {
@@ -3474,7 +3537,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/helmet.plugin.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_plugins_helmet_plugin_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "helmet.plugin.ts"
     },
     {
@@ -3483,7 +3546,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/plugins/helmet.plugin.ts",
       "source_location": "L4",
       "id": "helmet_plugin_registerhelmet",
-      "community": 3,
+      "community": 2,
       "norm_label": "registerhelmet()"
     },
     {
@@ -3492,7 +3555,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/error-handler.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_lib_error_handler_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "error-handler.ts"
     },
     {
@@ -3501,7 +3564,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/error-handler.ts",
       "source_location": "L31",
       "id": "error_handler_constructor",
-      "community": 4,
+      "community": 3,
       "norm_label": "constructor()"
     },
     {
@@ -3510,7 +3573,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/error-handler.ts",
       "source_location": "L41",
       "id": "error_handler_tojson",
-      "community": 4,
+      "community": 3,
       "norm_label": "tojson()"
     },
     {
@@ -3519,7 +3582,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/cookie.util.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_lib_cookie_util_ts",
-      "community": 38,
+      "community": 39,
       "norm_label": "cookie.util.ts"
     },
     {
@@ -3528,7 +3591,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/cookie.util.ts",
       "source_location": "L6",
       "id": "cookie_util_setauthcookie",
-      "community": 38,
+      "community": 39,
       "norm_label": "setauthcookie()"
     },
     {
@@ -3537,7 +3600,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/cookie.util.ts",
       "source_location": "L16",
       "id": "cookie_util_clearauthcookie",
-      "community": 38,
+      "community": 39,
       "norm_label": "clearauthcookie()"
     },
     {
@@ -3546,7 +3609,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/get-request-id.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_lib_get_request_id_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "get-request-id.ts"
     },
     {
@@ -3555,7 +3618,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/get-request-id.ts",
       "source_location": "L5",
       "id": "get_request_id_getrequestid",
-      "community": 4,
+      "community": 3,
       "norm_label": "getrequestid()"
     },
     {
@@ -3564,7 +3627,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/api-response.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_lib_api_response_ts",
-      "community": 39,
+      "community": 40,
       "norm_label": "api-response.ts"
     },
     {
@@ -3573,7 +3636,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/api-response.ts",
       "source_location": "L3",
       "id": "api_response_successresponse",
-      "community": 39,
+      "community": 40,
       "norm_label": "successresponse()"
     },
     {
@@ -3582,7 +3645,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/lib/api-response.ts",
       "source_location": "L7",
       "id": "api_response_messageresponse",
-      "community": 39,
+      "community": 40,
       "norm_label": "messageresponse()"
     },
     {
@@ -3627,7 +3690,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.controller.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_auth_auth_controller_ts",
-      "community": 91,
+      "community": 92,
       "norm_label": "auth.controller.ts"
     },
     {
@@ -3636,7 +3699,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.controller.ts",
       "source_location": "L8",
       "id": "auth_controller_authcontroller",
-      "community": 91,
+      "community": 92,
       "norm_label": "authcontroller"
     },
     {
@@ -3652,7 +3715,7 @@
       "label": "AuthService",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L19",
+      "source_location": "L18",
       "id": "auth_service_authservice",
       "community": 1,
       "norm_label": "authservice"
@@ -3661,7 +3724,7 @@
       "label": ".signup()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L20",
+      "source_location": "L19",
       "id": "auth_service_authservice_signup",
       "community": 1,
       "norm_label": ".signup()"
@@ -3670,7 +3733,7 @@
       "label": ".login()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L29",
+      "source_location": "L28",
       "id": "auth_service_authservice_login",
       "community": 1,
       "norm_label": ".login()"
@@ -3679,7 +3742,7 @@
       "label": ".googleAuth()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L49",
+      "source_location": "L48",
       "id": "auth_service_authservice_googleauth",
       "community": 1,
       "norm_label": ".googleauth()"
@@ -3688,7 +3751,7 @@
       "label": ".getCurrentUser()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L76",
+      "source_location": "L75",
       "id": "auth_service_authservice_getcurrentuser",
       "community": 1,
       "norm_label": ".getcurrentuser()"
@@ -3697,7 +3760,7 @@
       "label": ".buildJwtPayload()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L80",
+      "source_location": "L79",
       "id": "auth_service_authservice_buildjwtpayload",
       "community": 1,
       "norm_label": ".buildjwtpayload()"
@@ -3706,7 +3769,7 @@
       "label": ".verifyGoogleCredential()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L88",
+      "source_location": "L86",
       "id": "auth_service_authservice_verifygooglecredential",
       "community": 1,
       "norm_label": ".verifygooglecredential()"
@@ -3771,7 +3834,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.router.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_auth_auth_router_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "auth.router.ts"
     },
     {
@@ -3780,7 +3843,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.router.ts",
       "source_location": "L13",
       "id": "auth_router_authrouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "authrouter()"
     },
     {
@@ -3789,7 +3852,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_auth_auth_error_ts",
-      "community": 9,
+      "community": 8,
       "norm_label": "auth.error.ts"
     },
     {
@@ -3798,7 +3861,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L4",
       "id": "auth_error_usernotfounderror",
-      "community": 9,
+      "community": 8,
       "norm_label": "usernotfounderror"
     },
     {
@@ -3807,7 +3870,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L5",
       "id": "auth_error_usernotfounderror_constructor",
-      "community": 9,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -3816,7 +3879,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L16",
       "id": "auth_error_useremailalreadyexistserror",
-      "community": 9,
+      "community": 8,
       "norm_label": "useremailalreadyexistserror"
     },
     {
@@ -3825,7 +3888,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L17",
       "id": "auth_error_useremailalreadyexistserror_constructor",
-      "community": 9,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -3834,7 +3897,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L28",
       "id": "auth_error_invalidcredentialserror",
-      "community": 9,
+      "community": 8,
       "norm_label": "invalidcredentialserror"
     },
     {
@@ -3843,7 +3906,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L29",
       "id": "auth_error_invalidcredentialserror_constructor",
-      "community": 9,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -3852,7 +3915,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L40",
       "id": "auth_error_unauthorizederror",
-      "community": 9,
+      "community": 8,
       "norm_label": "unauthorizederror"
     },
     {
@@ -3861,7 +3924,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L41",
       "id": "auth_error_unauthorizederror_constructor",
-      "community": 9,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -3870,7 +3933,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L52",
       "id": "auth_error_googleautherror",
-      "community": 9,
+      "community": 8,
       "norm_label": "googleautherror"
     },
     {
@@ -3879,7 +3942,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.error.ts",
       "source_location": "L53",
       "id": "auth_error_googleautherror_constructor",
-      "community": 9,
+      "community": 8,
       "norm_label": ".constructor()"
     },
     {
@@ -3951,7 +4014,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.reader.ts",
       "source_location": "L49",
       "id": "user_reader_userreader_getusersbyids",
-      "community": 1,
+      "community": 7,
       "norm_label": ".getusersbyids()"
     },
     {
@@ -3960,7 +4023,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.reader.ts",
       "source_location": "L64",
       "id": "user_reader_userreader_userexists",
-      "community": 6,
+      "community": 1,
       "norm_label": ".userexists()"
     },
     {
@@ -3994,7 +4057,7 @@
       "label": ".createGoogleUser()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L32",
+      "source_location": "L31",
       "id": "user_writer_userwriter_creategoogleuser",
       "community": 1,
       "norm_label": ".creategoogleuser()"
@@ -4003,7 +4066,7 @@
       "label": ".updateGoogleProfile()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L48",
+      "source_location": "L46",
       "id": "user_writer_userwriter_updategoogleprofile",
       "community": 1,
       "norm_label": ".updategoogleprofile()"
@@ -4012,7 +4075,7 @@
       "label": ".syncTaskAssignments()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L64",
+      "source_location": "L62",
       "id": "user_writer_userwriter_synctaskassignments",
       "community": 1,
       "norm_label": ".synctaskassignments()"
@@ -4021,7 +4084,7 @@
       "label": ".addTaskToUsers()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L81",
+      "source_location": "L79",
       "id": "user_writer_userwriter_addtasktousers",
       "community": 1,
       "norm_label": ".addtasktousers()"
@@ -4030,7 +4093,7 @@
       "label": ".removeTaskFromUsers()",
       "file_type": "code",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L94",
+      "source_location": "L92",
       "id": "user_writer_userwriter_removetaskfromusers",
       "community": 1,
       "norm_label": ".removetaskfromusers()"
@@ -4041,7 +4104,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.entity.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_auth_internal_user_entity_ts",
-      "community": 92,
+      "community": 93,
       "norm_label": "user.entity.ts"
     },
     {
@@ -4050,7 +4113,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.entity.ts",
       "source_location": "L12",
       "id": "user_entity_userentity",
-      "community": 92,
+      "community": 93,
       "norm_label": "userentity"
     },
     {
@@ -4086,7 +4149,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_sub_task_sub_task_service_ts",
-      "community": 14,
+      "community": 13,
       "norm_label": "sub-task.service.ts"
     },
     {
@@ -4095,7 +4158,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L12",
       "id": "sub_task_service_subtaskservice",
-      "community": 14,
+      "community": 13,
       "norm_label": "subtaskservice"
     },
     {
@@ -4104,7 +4167,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L13",
       "id": "sub_task_service_subtaskservice_createfortask",
-      "community": 14,
+      "community": 13,
       "norm_label": ".createfortask()"
     },
     {
@@ -4113,7 +4176,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L17",
       "id": "sub_task_service_subtaskservice_getbytaskid",
-      "community": 14,
+      "community": 13,
       "norm_label": ".getbytaskid()"
     },
     {
@@ -4122,7 +4185,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L21",
       "id": "sub_task_service_subtaskservice_getbytaskids",
-      "community": 14,
+      "community": 13,
       "norm_label": ".getbytaskids()"
     },
     {
@@ -4131,7 +4194,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L25",
       "id": "sub_task_service_subtaskservice_replacefortask",
-      "community": 14,
+      "community": 13,
       "norm_label": ".replacefortask()"
     },
     {
@@ -4140,7 +4203,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/sub-task.service.ts",
       "source_location": "L29",
       "id": "sub_task_service_subtaskservice_deletebytaskid",
-      "community": 14,
+      "community": 13,
       "norm_label": ".deletebytaskid()"
     },
     {
@@ -4239,7 +4302,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/internal/sub-task.entity.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_sub_task_internal_sub_task_entity_ts",
-      "community": 93,
+      "community": 94,
       "norm_label": "sub-task.entity.ts"
     },
     {
@@ -4248,7 +4311,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/internal/sub-task.entity.ts",
       "source_location": "L12",
       "id": "sub_task_entity_subtaskentity",
-      "community": 93,
+      "community": 94,
       "norm_label": "subtaskentity"
     },
     {
@@ -4257,7 +4320,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/internal/sub-task.serializer.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_sub_task_internal_sub_task_serializer_ts",
-      "community": 94,
+      "community": 95,
       "norm_label": "sub-task.serializer.ts"
     },
     {
@@ -4266,7 +4329,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/sub-task/internal/sub-task.serializer.ts",
       "source_location": "L5",
       "id": "sub_task_serializer_serializesubtask",
-      "community": 94,
+      "community": 95,
       "norm_label": "serializesubtask()"
     },
     {
@@ -4284,7 +4347,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/health/health.router.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_health_health_router_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "health.router.ts"
     },
     {
@@ -4293,7 +4356,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/health/health.router.ts",
       "source_location": "L6",
       "id": "health_router_healthrouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "healthrouter()"
     },
     {
@@ -4311,7 +4374,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.router.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_team_member_router_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "team-member.router.ts"
     },
     {
@@ -4320,7 +4383,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.router.ts",
       "source_location": "L12",
       "id": "team_member_router_teammemberrouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "teammemberrouter()"
     },
     {
@@ -4374,7 +4437,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.controller.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_team_member_controller_ts",
-      "community": 95,
+      "community": 96,
       "norm_label": "team-member.controller.ts"
     },
     {
@@ -4383,7 +4446,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.controller.ts",
       "source_location": "L7",
       "id": "team_member_controller_teammembercontroller",
-      "community": 95,
+      "community": 96,
       "norm_label": "teammembercontroller"
     },
     {
@@ -4392,7 +4455,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_team_member_service_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "team-member.service.ts"
     },
     {
@@ -4401,7 +4464,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L6",
       "id": "team_member_service_teammemberservice",
-      "community": 6,
+      "community": 7,
       "norm_label": "teammemberservice"
     },
     {
@@ -4410,7 +4473,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L7",
       "id": "team_member_service_teammemberservice_getall",
-      "community": 6,
+      "community": 7,
       "norm_label": ".getall()"
     },
     {
@@ -4419,7 +4482,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L11",
       "id": "team_member_service_teammemberservice_addmember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".addmember()"
     },
     {
@@ -4428,7 +4491,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L15",
       "id": "team_member_service_teammemberservice_removemember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".removemember()"
     },
     {
@@ -4437,7 +4500,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/team-member.service.ts",
       "source_location": "L19",
       "id": "team_member_service_teammemberservice_ismember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".ismember()"
     },
     {
@@ -4455,7 +4518,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.serializer.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_internal_team_member_serializer_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "team-member.serializer.ts"
     },
     {
@@ -4464,7 +4527,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.serializer.ts",
       "source_location": "L14",
       "id": "team_member_serializer_serializeteammemberuser",
-      "community": 6,
+      "community": 7,
       "norm_label": "serializeteammemberuser()"
     },
     {
@@ -4473,7 +4536,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.serializer.ts",
       "source_location": "L27",
       "id": "team_member_serializer_serializeteammemberslist",
-      "community": 6,
+      "community": 7,
       "norm_label": "serializeteammemberslist()"
     },
     {
@@ -4491,7 +4554,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.reader.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_internal_team_member_reader_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "team-member.reader.ts"
     },
     {
@@ -4500,7 +4563,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.reader.ts",
       "source_location": "L8",
       "id": "team_member_reader_teammemberreader",
-      "community": 6,
+      "community": 7,
       "norm_label": "teammemberreader"
     },
     {
@@ -4509,7 +4572,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.reader.ts",
       "source_location": "L9",
       "id": "team_member_reader_teammemberreader_getallmembers",
-      "community": 6,
+      "community": 7,
       "norm_label": ".getallmembers()"
     },
     {
@@ -4518,7 +4581,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.reader.ts",
       "source_location": "L18",
       "id": "team_member_reader_teammemberreader_ismember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".ismember()"
     },
     {
@@ -4527,7 +4590,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.entity.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_internal_team_member_entity_ts",
-      "community": 96,
+      "community": 97,
       "norm_label": "team-member.entity.ts"
     },
     {
@@ -4536,7 +4599,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.entity.ts",
       "source_location": "L11",
       "id": "team_member_entity_teammemberentity",
-      "community": 96,
+      "community": 97,
       "norm_label": "teammemberentity"
     },
     {
@@ -4545,7 +4608,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_team_member_internal_team_member_writer_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "team-member.writer.ts"
     },
     {
@@ -4554,7 +4617,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L11",
       "id": "team_member_writer_teammemberwriter",
-      "community": 6,
+      "community": 7,
       "norm_label": "teammemberwriter"
     },
     {
@@ -4563,7 +4626,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L12",
       "id": "team_member_writer_teammemberwriter_addmember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".addmember()"
     },
     {
@@ -4572,7 +4635,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L36",
       "id": "team_member_writer_teammemberwriter_removemember",
-      "community": 6,
+      "community": 7,
       "norm_label": ".removemember()"
     },
     {
@@ -4581,7 +4644,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L50",
       "id": "team_member_writer_teammemberwriter_getorcreaterecord",
-      "community": 6,
+      "community": 7,
       "norm_label": ".getorcreaterecord()"
     },
     {
@@ -4590,7 +4653,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/team-member/internal/team-member.writer.ts",
       "source_location": "L63",
       "id": "team_member_writer_teammemberwriter_serializememberlist",
-      "community": 6,
+      "community": 7,
       "norm_label": ".serializememberlist()"
     },
     {
@@ -4599,7 +4662,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.controller.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_task_task_controller_ts",
-      "community": 97,
+      "community": 98,
       "norm_label": "task.controller.ts"
     },
     {
@@ -4608,7 +4671,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.controller.ts",
       "source_location": "L7",
       "id": "task_controller_taskcontroller",
-      "community": 97,
+      "community": 98,
       "norm_label": "taskcontroller"
     },
     {
@@ -4617,7 +4680,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.error.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_task_task_error_ts",
-      "community": 40,
+      "community": 41,
       "norm_label": "task.error.ts"
     },
     {
@@ -4626,7 +4689,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.error.ts",
       "source_location": "L4",
       "id": "task_error_tasknotfounderror",
-      "community": 40,
+      "community": 41,
       "norm_label": "tasknotfounderror"
     },
     {
@@ -4635,7 +4698,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.error.ts",
       "source_location": "L5",
       "id": "task_error_tasknotfounderror_constructor",
-      "community": 40,
+      "community": 41,
       "norm_label": ".constructor()"
     },
     {
@@ -4662,7 +4725,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.service.ts",
       "source_location": "L16",
       "id": "task_service_taskservice_getall",
-      "community": 4,
+      "community": 0,
       "norm_label": ".getall()"
     },
     {
@@ -4680,7 +4743,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.service.ts",
       "source_location": "L26",
       "id": "task_service_taskservice_create",
-      "community": 11,
+      "community": 0,
       "norm_label": ".create()"
     },
     {
@@ -4716,7 +4779,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.service.ts",
       "source_location": "L51",
       "id": "task_service_taskservice_unassignmemberfromownertasks",
-      "community": 0,
+      "community": 1,
       "norm_label": ".unassignmemberfromownertasks()"
     },
     {
@@ -4725,7 +4788,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.service.ts",
       "source_location": "L58",
       "id": "task_service_taskservice_buildtaskslistdata",
-      "community": 1,
+      "community": 0,
       "norm_label": ".buildtaskslistdata()"
     },
     {
@@ -4743,7 +4806,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.router.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_task_task_router_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "task.router.ts"
     },
     {
@@ -4752,7 +4815,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/task.router.ts",
       "source_location": "L14",
       "id": "task_router_taskrouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "taskrouter()"
     },
     {
@@ -4779,7 +4842,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_task_internal_task_reader_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "task.reader.ts"
     },
     {
@@ -4788,7 +4851,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L10",
       "id": "task_reader_taskreader",
-      "community": 4,
+      "community": 3,
       "norm_label": "taskreader"
     },
     {
@@ -4797,7 +4860,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L11",
       "id": "task_reader_taskreader_getalltasks",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getalltasks()"
     },
     {
@@ -4806,7 +4869,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L20",
       "id": "task_reader_taskreader_getassignmentstatsbymemberids",
-      "community": 4,
+      "community": 3,
       "norm_label": ".getassignmentstatsbymemberids()"
     },
     {
@@ -4824,7 +4887,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L64",
       "id": "task_reader_taskreader_serializetaskswithsubtasks",
-      "community": 4,
+      "community": 3,
       "norm_label": ".serializetaskswithsubtasks()"
     },
     {
@@ -4833,7 +4896,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L78",
       "id": "task_reader_taskreader_createemptystatsmap",
-      "community": 4,
+      "community": 3,
       "norm_label": ".createemptystatsmap()"
     },
     {
@@ -4842,7 +4905,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.reader.ts",
       "source_location": "L88",
       "id": "task_reader_taskreader_groupsubtasksbytaskid",
-      "community": 4,
+      "community": 3,
       "norm_label": ".groupsubtasksbytaskid()"
     },
     {
@@ -4851,7 +4914,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.entity.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_task_internal_task_entity_ts",
-      "community": 98,
+      "community": 99,
       "norm_label": "task.entity.ts"
     },
     {
@@ -4860,7 +4923,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.entity.ts",
       "source_location": "L13",
       "id": "task_entity_taskentity",
-      "community": 98,
+      "community": 99,
       "norm_label": "taskentity"
     },
     {
@@ -4905,7 +4968,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/task/internal/task.writer.ts",
       "source_location": "L82",
       "id": "task_writer_taskwriter_unassignmemberfromallownertasks",
-      "community": 0,
+      "community": 1,
       "norm_label": ".unassignmemberfromallownertasks()"
     },
     {
@@ -4950,7 +5013,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.controller.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_member_invite_controller_ts",
-      "community": 99,
+      "community": 100,
       "norm_label": "member-invite.controller.ts"
     },
     {
@@ -4959,7 +5022,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.controller.ts",
       "source_location": "L12",
       "id": "member_invite_controller_memberinvitecontroller",
-      "community": 99,
+      "community": 100,
       "norm_label": "memberinvitecontroller"
     },
     {
@@ -4968,7 +5031,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.util.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_member_invite_util_ts",
-      "community": 5,
+      "community": 4,
       "norm_label": "member-invite.util.ts"
     },
     {
@@ -4977,7 +5040,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.util.ts",
       "source_location": "L9",
       "id": "member_invite_util_generateuniqueinvitecode",
-      "community": 5,
+      "community": 4,
       "norm_label": "generateuniqueinvitecode()"
     },
     {
@@ -5031,7 +5094,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_member_invite_service_ts",
-      "community": 5,
+      "community": 4,
       "norm_label": "member-invite.service.ts"
     },
     {
@@ -5040,7 +5103,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L14",
       "id": "member_invite_service_memberinviteservice",
-      "community": 5,
+      "community": 4,
       "norm_label": "memberinviteservice"
     },
     {
@@ -5049,7 +5112,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L15",
       "id": "member_invite_service_memberinviteservice_createinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": ".createinvite()"
     },
     {
@@ -5058,7 +5121,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L22",
       "id": "member_invite_service_memberinviteservice_getinvitebycode",
-      "community": 5,
+      "community": 4,
       "norm_label": ".getinvitebycode()"
     },
     {
@@ -5067,7 +5130,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L26",
       "id": "member_invite_service_memberinviteservice_validateinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": ".validateinvite()"
     },
     {
@@ -5076,7 +5139,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.service.ts",
       "source_location": "L40",
       "id": "member_invite_service_memberinviteservice_acceptinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": ".acceptinvite()"
     },
     {
@@ -5085,7 +5148,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.router.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_member_invite_router_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "member-invite.router.ts"
     },
     {
@@ -5094,7 +5157,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/member-invite.router.ts",
       "source_location": "L13",
       "id": "member_invite_router_memberinviterouter",
-      "community": 4,
+      "community": 3,
       "norm_label": "memberinviterouter()"
     },
     {
@@ -5112,7 +5175,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.serializer.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_internal_member_invite_serializer_ts",
-      "community": 5,
+      "community": 4,
       "norm_label": "member-invite.serializer.ts"
     },
     {
@@ -5121,7 +5184,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.serializer.ts",
       "source_location": "L10",
       "id": "member_invite_serializer_serializeteaminviteinviter",
-      "community": 5,
+      "community": 4,
       "norm_label": "serializeteaminviteinviter()"
     },
     {
@@ -5130,7 +5193,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.serializer.ts",
       "source_location": "L19",
       "id": "member_invite_serializer_serializememberinvitepreview",
-      "community": 5,
+      "community": 4,
       "norm_label": "serializememberinvitepreview()"
     },
     {
@@ -5139,7 +5202,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.serializer.ts",
       "source_location": "L34",
       "id": "member_invite_serializer_serializecreatedmemberinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": "serializecreatedmemberinvite()"
     },
     {
@@ -5148,7 +5211,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.reader.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_internal_member_invite_reader_ts",
-      "community": 5,
+      "community": 4,
       "norm_label": "member-invite.reader.ts"
     },
     {
@@ -5157,7 +5220,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.reader.ts",
       "source_location": "L10",
       "id": "member_invite_reader_memberinvitereader",
-      "community": 5,
+      "community": 4,
       "norm_label": "memberinvitereader"
     },
     {
@@ -5166,7 +5229,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.reader.ts",
       "source_location": "L11",
       "id": "member_invite_reader_memberinvitereader_getinviteentitybycode",
-      "community": 5,
+      "community": 4,
       "norm_label": ".getinviteentitybycode()"
     },
     {
@@ -5175,7 +5238,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.reader.ts",
       "source_location": "L20",
       "id": "member_invite_reader_memberinvitereader_getinvitepreviewbycode",
-      "community": 5,
+      "community": 4,
       "norm_label": ".getinvitepreviewbycode()"
     },
     {
@@ -5193,7 +5256,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_internal_member_invite_writer_ts",
-      "community": 5,
+      "community": 4,
       "norm_label": "member-invite.writer.ts"
     },
     {
@@ -5202,7 +5265,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L20",
       "id": "member_invite_writer_memberinvitewriter",
-      "community": 5,
+      "community": 4,
       "norm_label": "memberinvitewriter"
     },
     {
@@ -5211,7 +5274,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L21",
       "id": "member_invite_writer_memberinvitewriter_createinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": ".createinvite()"
     },
     {
@@ -5220,7 +5283,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L53",
       "id": "member_invite_writer_memberinvitewriter_acceptinvite",
-      "community": 5,
+      "community": 4,
       "norm_label": ".acceptinvite()"
     },
     {
@@ -5229,7 +5292,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L91",
       "id": "member_invite_writer_memberinvitewriter_validateinviteforemail",
-      "community": 5,
+      "community": 4,
       "norm_label": ".validateinviteforemail()"
     },
     {
@@ -5238,7 +5301,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L107",
       "id": "member_invite_writer_memberinvitewriter_assertinviteemailrestriction",
-      "community": 5,
+      "community": 4,
       "norm_label": ".assertinviteemailrestriction()"
     },
     {
@@ -5247,7 +5310,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.writer.ts",
       "source_location": "L114",
       "id": "member_invite_writer_memberinvitewriter_assertinviteusable",
-      "community": 5,
+      "community": 4,
       "norm_label": ".assertinviteusable()"
     },
     {
@@ -5256,7 +5319,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.entity.ts",
       "source_location": "L1",
       "id": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_member_invite_internal_member_invite_entity_ts",
-      "community": 100,
+      "community": 101,
       "norm_label": "member-invite.entity.ts"
     },
     {
@@ -5265,7 +5328,7 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/member-invite/internal/member-invite.entity.ts",
       "source_location": "L10",
       "id": "member_invite_entity_memberinviteentity",
-      "community": 100,
+      "community": 101,
       "norm_label": "memberinviteentity"
     }
   ],
@@ -6353,6 +6416,66 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "_tgt": "routes_constants_buildinviteroute",
+      "source": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "target": "routes_constants_buildinviteroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "_tgt": "routes_constants_buildinvitepageroute",
+      "source": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "target": "routes_constants_buildinvitepageroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "_tgt": "routes_constants_buildsignupwithinviteroute",
+      "source": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "target": "routes_constants_buildsignupwithinviteroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_src": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "_tgt": "routes_constants_buildloginwithinviteroute",
+      "source": "users_satyajeetsingh_project_trello_task_management_packages_shared_src_constant_routes_constants_ts",
+      "target": "routes_constants_buildloginwithinviteroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/packages/shared/src/constant/routes.constants.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "routes_constants_buildinvitepageroute",
+      "_tgt": "routes_constants_buildinviteroute",
+      "source": "routes_constants_buildinviteroute",
+      "target": "routes_constants_buildinvitepageroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/middleware.ts",
       "source_location": "L7",
       "weight": 1.0,
@@ -6498,7 +6621,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/task/[id]/page.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_app_private_task_id_page_tsx",
       "_tgt": "page_taskdetailspage",
@@ -6618,19 +6741,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
-      "_tgt": "sidenavbar_formatrolelabel",
-      "source": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
-      "target": "sidenavbar_formatrolelabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L20",
+      "source_location": "L15",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
       "_tgt": "sidenavbar_getinitials",
@@ -6642,7 +6753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L29",
+      "source_location": "L24",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
       "_tgt": "sidenavbar_isnavitemactive",
@@ -6654,7 +6765,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/components/SideNavBar.tsx",
-      "source_location": "L45",
+      "source_location": "L33",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_components_sidenavbar_tsx",
       "_tgt": "sidenavbar_handlelogout",
@@ -6990,7 +7101,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.config.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_config_ts",
       "_tgt": "auth_config_jwt",
@@ -7002,7 +7113,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.config.ts",
-      "source_location": "L24",
+      "source_location": "L22",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_frontend_src_modules_auth_auth_config_ts",
       "_tgt": "auth_config_session",
@@ -7749,8 +7860,8 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L47",
       "weight": 1.0,
-      "_src": "task_form_hook_usetaskform",
-      "_tgt": "task_queries_usecreatetask",
+      "_src": "task_queries_usecreatetask",
+      "_tgt": "task_form_hook_usetaskform",
       "source": "task_queries_usecreatetask",
       "target": "task_form_hook_usetaskform"
     },
@@ -7761,8 +7872,8 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L48",
       "weight": 1.0,
-      "_src": "task_form_hook_usetaskform",
-      "_tgt": "task_queries_useupdatetask",
+      "_src": "task_queries_useupdatetask",
+      "_tgt": "task_form_hook_usetaskform",
       "source": "task_queries_useupdatetask",
       "target": "task_form_hook_usetaskform"
     },
@@ -7773,8 +7884,8 @@
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
       "source_location": "L49",
       "weight": 1.0,
-      "_src": "task_form_hook_usetaskform",
-      "_tgt": "task_queries_usedeletetask",
+      "_src": "task_queries_usedeletetask",
+      "_tgt": "task_form_hook_usetaskform",
       "source": "task_queries_usedeletetask",
       "target": "task_form_hook_usetaskform"
     },
@@ -7950,7 +8061,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts",
-      "source_location": "L69",
+      "source_location": "L67",
       "weight": 1.0,
       "_src": "task_form_hook_usetaskform",
       "_tgt": "task_form_hook_todateinputvalue",
@@ -8268,6 +8379,42 @@
       "_tgt": "1779245682604_migration_migration1779245682604_down",
       "source": "1779245682604_migration_migration1779245682604",
       "target": "1779245682604_migration_migration1779245682604_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_database_migrations_1779291657296_migration_ts",
+      "_tgt": "1779291657296_migration_migration1779291657296",
+      "source": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_database_migrations_1779291657296_migration_ts",
+      "target": "1779291657296_migration_migration1779291657296",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "1779291657296_migration_migration1779291657296",
+      "_tgt": "1779291657296_migration_migration1779291657296_up",
+      "source": "1779291657296_migration_migration1779291657296",
+      "target": "1779291657296_migration_migration1779291657296_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/database/migrations/1779291657296-migration.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "1779291657296_migration_migration1779291657296",
+      "_tgt": "1779291657296_migration_migration1779291657296_down",
+      "source": "1779291657296_migration_migration1779291657296",
+      "target": "1779291657296_migration_migration1779291657296_down",
       "confidence_score": 1.0
     },
     {
@@ -8658,7 +8805,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_src": "users_satyajeetsingh_project_trello_task_management_apps_backend_src_modules_auth_auth_service_ts",
       "_tgt": "auth_service_authservice",
@@ -8670,7 +8817,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_signup",
@@ -8682,7 +8829,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L29",
+      "source_location": "L28",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_login",
@@ -8694,7 +8841,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L49",
+      "source_location": "L48",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_googleauth",
@@ -8706,7 +8853,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L76",
+      "source_location": "L75",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_getcurrentuser",
@@ -8718,7 +8865,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L80",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_buildjwtpayload",
@@ -8730,7 +8877,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L88",
+      "source_location": "L86",
       "weight": 1.0,
       "_src": "auth_service_authservice",
       "_tgt": "auth_service_authservice_verifygooglecredential",
@@ -8742,7 +8889,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0,
       "_src": "auth_service_authservice_signup",
       "_tgt": "auth_service_authservice_buildjwtpayload",
@@ -8778,7 +8925,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L44",
+      "source_location": "L43",
       "weight": 1.0,
       "_src": "auth_service_authservice_login",
       "_tgt": "auth_service_authservice_buildjwtpayload",
@@ -8802,7 +8949,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L52",
+      "source_location": "L51",
       "weight": 1.0,
       "_src": "auth_service_authservice_googleauth",
       "_tgt": "auth_service_authservice_verifygooglecredential",
@@ -8814,7 +8961,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/auth.service.ts",
-      "source_location": "L61",
+      "source_location": "L60",
       "weight": 1.0,
       "_src": "auth_service_authservice_googleauth",
       "_tgt": "auth_service_authservice_buildjwtpayload",
@@ -9294,7 +9441,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L32",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "user_writer_userwriter",
       "_tgt": "user_writer_userwriter_creategoogleuser",
@@ -9306,7 +9453,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L48",
+      "source_location": "L46",
       "weight": 1.0,
       "_src": "user_writer_userwriter",
       "_tgt": "user_writer_userwriter_updategoogleprofile",
@@ -9318,7 +9465,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L64",
+      "source_location": "L62",
       "weight": 1.0,
       "_src": "user_writer_userwriter",
       "_tgt": "user_writer_userwriter_synctaskassignments",
@@ -9330,7 +9477,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L81",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "user_writer_userwriter",
       "_tgt": "user_writer_userwriter_addtasktousers",
@@ -9342,7 +9489,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L94",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "user_writer_userwriter",
       "_tgt": "user_writer_userwriter_removetaskfromusers",
@@ -9390,7 +9537,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L74",
+      "source_location": "L72",
       "weight": 1.0,
       "_src": "user_writer_userwriter_synctaskassignments",
       "_tgt": "user_writer_userwriter_addtasktousers",
@@ -9402,7 +9549,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "/Users/satyajeetsingh/Project/trello-task-management/apps/backend/src/modules/auth/internal/user.writer.ts",
-      "source_location": "L77",
+      "source_location": "L75",
       "weight": 1.0,
       "_src": "user_writer_userwriter_synctaskassignments",
       "_tgt": "user_writer_userwriter_removetaskfromusers",

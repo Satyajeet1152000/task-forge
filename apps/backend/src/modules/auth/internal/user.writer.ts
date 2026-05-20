@@ -1,5 +1,5 @@
 import { hashPassword } from "@lib/password.util";
-import { AuthProvider, UserRole, type SignupInput, type User } from "@task-forge/shared/types";
+import { AuthProvider, type SignupInput, type User } from "@task-forge/shared/types";
 import { In } from "typeorm";
 
 import { UserEntity } from "./user.entity";
@@ -21,7 +21,6 @@ export default class UserWriter {
     user.password = await hashPassword(input.password);
     user.image = input.image ?? null;
     user.provider = AuthProvider.CREDENTIALS;
-    user.role = input?.inviteToken ? UserRole.USER : UserRole.ADMIN;
     user.assignedTasks = [];
 
     const saved = await UserRepository.save(user);
@@ -37,7 +36,6 @@ export default class UserWriter {
     user.password = null;
     user.image = params.image;
     user.provider = AuthProvider.GOOGLE;
-    user.role = UserRole.USER;
     user.assignedTasks = [];
 
     const saved = await UserRepository.save(user);
