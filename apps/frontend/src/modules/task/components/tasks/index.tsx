@@ -1,10 +1,12 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { Routes } from "@task-forge/shared/constant";
 import type { Task } from "@task-forge/shared/types";
 import { TaskStatus } from "@task-forge/shared/types";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 
 import { useTasks } from "../../task.queries";
 import type { TaskFilterKey } from "../../task.utils";
@@ -15,6 +17,8 @@ import TaskEmptyState from "./TaskEmptyState";
 import TaskFilterTabs from "./TaskFilterTabs";
 import TaskViewModal from "./TaskViewModal";
 
+import { Button } from "@/components/ui/button";
+import generateReport from "@/lib/report-generator";
 import { useAuth } from "@/modules/auth/use-auth";
 
 const TasksIndex: React.FC = () => {
@@ -54,11 +58,45 @@ const TasksIndex: React.FC = () => {
     router.push(Routes.TASK_DETAILS.replace(":id", String(task.id)));
   };
 
+  const handleDownloadReport = (): void => {
+    if (filteredTasks.length === 0) {
+      toast.error("No tasks to export for the current filter");
+      return;
+    }
+    const filterSlug =
+      activeFilter === "ALL" ? "all" : activeFilter.toLowerCase().replaceAll("_", "-");
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    try {
+      generateReport({
+        reportFor: "task-report",
+        fileName: `task-report-${filterSlug}-${dateStamp}`,
+        data: {
+          tasks: filteredTasks,
+          assignedMembers,
+        },
+      });
+      toast.success("Task report downloaded successfully");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to download report");
+    }
+  };
+
   return (
     <div className="space-y-6 p-1">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-slate-900">My Tasks</h1>
-        <TaskFilterTabs activeFilter={activeFilter} counts={counts} onChange={setActiveFilter} />
+        <div className="flex items-center gap-4">
+          <TaskFilterTabs activeFilter={activeFilter} counts={counts} onChange={setActiveFilter} />
+          <Button
+            type="button"
+            className="bg-lime-200 text-slate-900 hover:bg-lime-300"
+            onClick={handleDownloadReport}
+            disabled={isLoading || isError}
+          >
+            <Icon icon="qlementine-icons:file-text-16" className="mr-2 h-5 w-5" />
+            Download Report
+          </Button>
+        </div>
       </div>
 
       {isError && (
