@@ -34,6 +34,7 @@ export function useLoginForm() {
 
     toast.success("Logged in successfully");
     router.push(Routes.DASHBOARD);
+    router.refresh();
   });
   return { form, onSubmit, isSubmitting: form.formState.isSubmitting };
 }
