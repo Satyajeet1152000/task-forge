@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import type { TeamMemberUser } from "@task-forge/shared/types";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 
 import { useRemoveTeamMember, useTeamMembers } from "../team-member.queries";
 
@@ -13,6 +14,7 @@ import TeamMemberCardSkeleton from "./TeamMemberCardSkeleton";
 import TeamMemberEmptyState from "./TeamMemberEmptyState";
 
 import { Button } from "@/components/ui/button";
+import generateReport from "@/lib/report-generator";
 
 const TeamMembersIndex: React.FC = () => {
   const { data, isLoading, isError } = useTeamMembers();
@@ -34,18 +36,49 @@ const TeamMembersIndex: React.FC = () => {
     });
   };
 
+  const handleDownloadReport = (): void => {
+    if (members.length === 0) {
+      toast.error("No team members to export");
+      return;
+    }
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    try {
+      generateReport({
+        reportFor: "team-report",
+        fileName: `team-report-${dateStamp}`,
+        data: {
+          members,
+        },
+      });
+      toast.success("Task report downloaded successfully");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to download report");
+    }
+  };
+
   return (
     <div className="space-y-6 p-1">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-slate-900">Team Members</h1>
-        <Button
-          type="button"
-          className="bg-lime-200 text-slate-900 hover:bg-lime-300"
-          onClick={() => setIsInviteModalOpen(true)}
-        >
-          <Icon icon="mdi:account-plus-outline" className="mr-2 h-5 w-5" />
-          Invite
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button
+            type="button"
+            className="bg-lime-200 text-slate-900 hover:bg-lime-300"
+            onClick={() => setIsInviteModalOpen(true)}
+          >
+            <Icon icon="mdi:account-plus-outline" className="mr-2 h-5 w-5" />
+            Invite
+          </Button>
+          <Button
+            type="button"
+            className="bg-lime-200 text-slate-900 hover:bg-lime-300"
+            onClick={handleDownloadReport}
+            disabled={isLoading || isError}
+          >
+            <Icon icon="qlementine-icons:file-text-16" className="mr-2 h-5 w-5" />
+            Download Report
+          </Button>
+        </div>
       </div>
 
       {isError && (

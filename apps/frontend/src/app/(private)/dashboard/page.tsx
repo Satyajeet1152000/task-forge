@@ -1,9 +1,9 @@
+"use client";
+
+import { DashboardIndex } from "@/modules/dashboard";
+
 const DashboardPage: React.FC = () => {
-  return (
-    <div>
-      <h1 className="text-2xl font-semibold">Hello from Dashboard</h1>
-    </div>
-  );
+  return <DashboardIndex />;
 };
 
 export default DashboardPage;
