@@ -14,13 +14,12 @@ interface ProvidersProps {
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "";
+
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider>
-        <GoogleOAuthProvider clientId={googleClientId}>
-          {children}
-          <Toaster richColors position="top-right" />
-        </GoogleOAuthProvider>
+        <GoogleOAuthProvider clientId={googleClientId}>{children}</GoogleOAuthProvider>
+        <Toaster richColors position="top-right" />
       </SessionProvider>
     </QueryClientProvider>
   );

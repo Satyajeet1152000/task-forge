@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-interface PasswordInputProps extends React.ComponentProps<typeof Input> {}
+interface PasswordInputProps extends React.ComponentProps<typeof Input> {
+  placeholder: string;
+  autoComplete: string;
+}
 
 const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(
   ({ className, ...props }, ref) => {
