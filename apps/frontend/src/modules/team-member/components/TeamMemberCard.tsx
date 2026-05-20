@@ -1,10 +1,9 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { TEAM_MEMBER_STAT_STYLES } from "@task-forge/shared/constant";
 import type { TeamMemberUser } from "@task-forge/shared/types";
 import Image from "next/image";
-
-import { TEAM_MEMBER_STAT_STYLES } from "../team-member.utils";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";

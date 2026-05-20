@@ -25,11 +25,9 @@ const TasksIndex: React.FC = () => {
     return {
       ALL: tasks.length,
       [TaskStatus.PENDING]: tasks.filter((task) => task.status === TaskStatus.PENDING).length,
-      [TaskStatus.IN_PROGRESS]: tasks.filter(
-        (task) => task.status === TaskStatus.IN_PROGRESS,
-      ).length,
-      [TaskStatus.COMPLETED]: tasks.filter((task) => task.status === TaskStatus.COMPLETED)
+      [TaskStatus.IN_PROGRESS]: tasks.filter((task) => task.status === TaskStatus.IN_PROGRESS)
         .length,
+      [TaskStatus.COMPLETED]: tasks.filter((task) => task.status === TaskStatus.COMPLETED).length,
     };
   }, [tasks]);
 
@@ -45,7 +43,7 @@ const TasksIndex: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 bg-[#F8F9FA] p-1">
+    <div className="space-y-6 p-1">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-slate-900">My Tasks</h1>
         <TaskFilterTabs activeFilter={activeFilter} counts={counts} onChange={setActiveFilter} />

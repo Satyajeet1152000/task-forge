@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { Routes } from "@task-forge/shared/constant";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -34,7 +35,9 @@ const TaskDetailsPage: React.FC = () => {
   return (
     <div className="space-y-4">
       <Button asChild variant="ghost" className="px-0 text-slate-600 hover:text-slate-900">
-        <Link href={Routes.TASKS}>← Back to tasks</Link>
+        <Link href={Routes.TASKS}>
+          <Icon icon="mdi:arrow-left" className="h-4 w-4" /> Back to tasks
+        </Link>
       </Button>
       <TaskFormPage mode="edit" task={task} />
     </div>

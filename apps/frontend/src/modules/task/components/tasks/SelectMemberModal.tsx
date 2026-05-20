@@ -1,6 +1,5 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import type { TeamMemberUser } from "@task-forge/shared/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -40,9 +39,7 @@ const SelectMemberModal: React.FC<SelectMemberModalProps> = ({
 
   const toggleMember = (memberId: number): void => {
     setDraftSelectedIds((current) =>
-      current.includes(memberId)
-        ? current.filter((id) => id !== memberId)
-        : [...current, memberId],
+      current.includes(memberId) ? current.filter((id) => id !== memberId) : [...current, memberId],
     );
   };
 
@@ -56,14 +53,6 @@ const SelectMemberModal: React.FC<SelectMemberModalProps> = ({
       <DialogContent className="max-h-[80vh] max-w-md overflow-hidden p-0">
         <DialogHeader className="flex flex-row items-center justify-between border-b px-6 py-4">
           <DialogTitle className="text-lg font-semibold">Select member</DialogTitle>
-          <button
-            type="button"
-            onClick={() => onOpenChange(false)}
-            className="rounded-md p-1 text-slate-500 hover:bg-slate-100"
-            aria-label="Close"
-          >
-            <Icon icon="mdi:close" className="h-5 w-5" />
-          </button>
         </DialogHeader>
 
         <div className="max-h-96 overflow-y-auto px-2 py-2">

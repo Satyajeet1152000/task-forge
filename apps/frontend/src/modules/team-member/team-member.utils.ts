@@ -1,22 +1,40 @@
-import type { TeamMemberTaskStats } from "@task-forge/shared/types";
+import { Routes } from "@task-forge/shared/constant";
 
-export const EMPTY_TEAM_MEMBER_TASK_STATS: TeamMemberTaskStats = {
-  pending: 0,
-  inProgress: 0,
-  completed: 0,
-};
+export function buildInviteRoute(code: string): string {
+  return `${Routes.INVITE}/${code}`;
+}
 
-export const TEAM_MEMBER_STAT_STYLES = {
-  pending: {
-    valueClass: "text-purple-600",
-    labelClass: "text-purple-400",
-  },
-  inProgress: {
-    valueClass: "text-cyan-500",
-    labelClass: "text-cyan-400",
-  },
-  completed: {
-    valueClass: "text-blue-500",
-    labelClass: "text-blue-400",
-  },
-} as const;
+export function buildInvitePageRoute(code: string, email?: string): string {
+  const path = buildInviteRoute(code);
+  const normalizedEmail = email?.trim().toLowerCase();
+
+  if (!normalizedEmail) {
+    return path;
+  }
+
+  const params = new URLSearchParams({ email: normalizedEmail });
+
+  return `${path}?${params.toString()}`;
+}
+
+export function buildSignupWithInviteRoute(code: string, email?: string): string {
+  const params = new URLSearchParams({ invite: code });
+  const normalizedEmail = email?.trim().toLowerCase();
+
+  if (normalizedEmail) {
+    params.set("email", normalizedEmail);
+  }
+
+  return `${Routes.SIGNUP}?${params.toString()}`;
+}
+
+export function buildLoginWithInviteRoute(code: string, email?: string): string {
+  const params = new URLSearchParams({ invite: code });
+  const normalizedEmail = email?.trim().toLowerCase();
+
+  if (normalizedEmail) {
+    params.set("email", normalizedEmail);
+  }
+
+  return `${Routes.LOGIN}?${params.toString()}`;
+}

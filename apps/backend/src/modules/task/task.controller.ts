@@ -32,6 +32,10 @@ export class TaskController {
   delete = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
     const params = request.params as TaskParams;
     await TaskService.delete(params.id, request.userId);
-    return reply.status(204).send();
+    return reply.status(200).send({
+      success: true,
+      message: "Task deleted successfully",
+      data: null,
+    });
   };
 }

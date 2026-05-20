@@ -3,20 +3,25 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createTaskBodySchema } from "@task-forge/shared/schemas";
 import type { CreateTaskInput, SubTask, SubTaskInput, Task } from "@task-forge/shared/types";
-import { TaskPriority, TaskStatus } from "@task-forge/shared/types";
+import { TaskPriority } from "@task-forge/shared/types";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
-export interface TaskFormValues {
-  title: string;
-  description?: string;
-  status?: TaskStatus;
-  priority?: TaskPriority;
-  dueDate?: string;
-  assignedMembers?: number[];
-  attachments?: string[];
-  subTasks?: SubTaskInput[];
-}
+import { useCreateTask, useDeleteTask, useUpdateTask } from "../../task.queries";
+
+const taskFormSchema = createTaskBodySchema
+  .pick({
+    title: true,
+    description: true,
+    priority: true,
+  })
+  .extend({
+    dueDate: z.string().optional(),
+  });
+
+export type TaskFormValues = z.infer<typeof taskFormSchema>;
 
 interface UseTaskFormParams {
   mode: "create" | "edit";
@@ -27,6 +32,7 @@ function toDateInputValue(isoDate: string | null | undefined): string {
   if (!isoDate) {
     return "";
   }
+
   return isoDate.slice(0, 10);
 }
 
@@ -38,20 +44,22 @@ function mapSubTasksToInput(subTasks: SubTask[]): SubTaskInput[] {
 }
 
 export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
+  const createMutation = useCreateTask();
+  const updateMutation = useUpdateTask(initialTask?.id ?? 0);
+  const deleteMutation = useDeleteTask(initialTask?.id ?? 0);
+
   const [assignedMemberIds, setAssignedMemberIds] = useState<number[]>(
     initialTask?.assignedMembers ?? [],
   );
   const [subTaskItems, setSubTaskItems] = useState<SubTaskInput[]>(
     initialTask ? mapSubTasksToInput(initialTask.subTasks) : [],
   );
-  const [attachmentLinks, setAttachmentLinks] = useState<string[]>(
-    initialTask?.attachments ?? [],
-  );
+  const [attachmentLinks, setAttachmentLinks] = useState<string[]>(initialTask?.attachments ?? []);
   const [newSubTaskTitle, setNewSubTaskTitle] = useState("");
   const [newAttachmentLink, setNewAttachmentLink] = useState("");
 
   const form = useForm<TaskFormValues>({
-    resolver: zodResolver(createTaskBodySchema),
+    resolver: zodResolver(taskFormSchema),
     defaultValues: {
       title: initialTask?.title ?? "",
       description: initialTask?.description ?? "",
@@ -64,6 +72,7 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
     if (!initialTask) {
       return;
     }
+
     form.reset({
       title: initialTask.title,
       description: initialTask.description ?? "",
@@ -76,13 +85,14 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
   }, [initialTask, form]);
 
   const buildPayload = (values: TaskFormValues): CreateTaskInput => {
-    const dueDate = values.dueDate
-      ? new Date(`${values.dueDate}T00:00:00.000Z`).toISOString()
+    const trimmedDueDate = values.dueDate?.trim();
+    const dueDate = trimmedDueDate
+      ? new Date(`${trimmedDueDate}T00:00:00.000Z`).toISOString()
       : undefined;
 
     return {
-      title: values.title,
-      description: values.description,
+      title: values.title.trim(),
+      description: values.description?.trim() || undefined,
       priority: values.priority,
       dueDate,
       assignedMembers: assignedMemberIds,
@@ -91,11 +101,35 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
     };
   };
 
+  const onSubmit = form.handleSubmit(
+    (values) => {
+      const payload = buildPayload(values);
+
+      if (mode === "create") {
+        createMutation.mutate(payload);
+        return;
+      }
+
+      if (initialTask) {
+        updateMutation.mutate(payload);
+      }
+    },
+    (errors) => {
+      const firstError = Object.values(errors)[0]?.message;
+      toast.error(firstError ? String(firstError) : "Please fix the form errors");
+    },
+  );
+
+  const handleDelete = (): void => {
+    deleteMutation.mutate();
+  };
+
   const addSubTaskItem = (): void => {
     const title = newSubTaskTitle.trim();
     if (!title) {
       return;
     }
+
     setSubTaskItems((current) => [...current, { title, isCompleted: false }]);
     setNewSubTaskTitle("");
   };
@@ -109,6 +143,7 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
     if (!link) {
       return;
     }
+
     setAttachmentLinks((current) => [...current, link]);
     setNewAttachmentLink("");
   };
@@ -116,6 +151,9 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
   const removeAttachmentLink = (index: number): void => {
     setAttachmentLinks((current) => current.filter((_, itemIndex) => itemIndex !== index));
   };
+
+  const isSubmitting =
+    createMutation.isPending || updateMutation.isPending || deleteMutation.isPending;
 
   return {
     form,
@@ -132,6 +170,8 @@ export function useTaskForm({ mode, initialTask }: UseTaskFormParams) {
     addAttachmentLink,
     removeAttachmentLink,
     attachmentLinks,
-    buildPayload,
+    onSubmit,
+    handleDelete,
+    isSubmitting,
   };
 }

@@ -14,4 +14,11 @@ export default class TeamMemberReader {
 
     return serializeTeamMembersList(members, statsByMemberId);
   }
+
+  public static async isMember(ownerUserId: number, memberId: number): Promise<boolean> {
+    const record = await TeamMemberRepository.findOne({ where: { userId: ownerUserId } });
+    const normalizedMemberId = Number(memberId);
+
+    return (record?.members ?? []).some((id) => Number(id) === normalizedMemberId);
+  }
 }

@@ -127,6 +127,6 @@ export const deleteTaskRouteSchema = {
   description: "Delete a task and its subtasks",
   params: taskParamsSchema,
   response: {
-    204: z.null(),
+    200: successResponseSchema(z.null()),
   },
 };

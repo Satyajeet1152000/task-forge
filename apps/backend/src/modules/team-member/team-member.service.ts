@@ -15,4 +15,8 @@ export default class TeamMemberService {
   public static async removeMember(userId: number, memberId: number): Promise<TeamMembersList> {
     return TeamMemberWriter.removeMember(userId, memberId);
   }
+
+  public static async isMember(ownerUserId: number, memberId: number): Promise<boolean> {
+    return TeamMemberReader.isMember(ownerUserId, memberId);
+  }
 }

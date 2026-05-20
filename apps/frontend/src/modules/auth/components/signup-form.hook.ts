@@ -5,16 +5,26 @@ import { Routes } from "@task-forge/shared/constant";
 import { signupBodySchema } from "@task-forge/shared/schemas";
 import type { SignupInput } from "@task-forge/shared/types";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { signupAction } from "../auth.actions";
-import { getErrorMessage } from "../auth.errors";
+import { getErrorMessage, getSignInErrorMessage } from "../auth.errors";
 import { getRandomSignupAvatar } from "../signup-avatars.constants";
 
-export function useSignupForm() {
+import { buildInvitePageRoute, buildLoginWithInviteRoute } from "@/modules/team-member";
+
+interface UseSignupFormParams {
+  inviteCode?: string;
+  inviteEmail?: string;
+}
+
+export function useSignupForm(params: UseSignupFormParams = {}) {
   const router = useRouter();
+  const inviteCode = params.inviteCode?.trim();
+  const inviteEmail = params.inviteEmail?.trim().toLowerCase();
   const initialAvatar = useMemo(() => getRandomSignupAvatar(), []);
   const [selectedAvatar, setSelectedAvatar] = useState(initialAvatar);
 
@@ -22,9 +32,9 @@ export function useSignupForm() {
     resolver: zodResolver(signupBodySchema),
     defaultValues: {
       name: "",
-      email: "",
+      email: inviteEmail ?? "",
       password: "",
-      inviteToken: "",
+      inviteToken: inviteCode ?? "",
       image: initialAvatar,
     },
   });
@@ -43,10 +53,33 @@ export function useSignupForm() {
         ...(values.inviteToken ? { inviteToken: values.inviteToken } : {}),
         image: values.image ?? selectedAvatar,
       };
+
+      const email = values.email.trim().toLowerCase();
+
       try {
         await signupAction(payload);
+
+        const loginResult = await signIn("credentials", {
+          email: values.email,
+          password: values.password,
+          redirect: false,
+        });
+
+        if (loginResult?.error) {
+          toast.error(getSignInErrorMessage(loginResult));
+          router.push(inviteCode ? buildLoginWithInviteRoute(inviteCode, email) : Routes.LOGIN);
+          router.refresh();
+          return;
+        }
+
+        if (inviteCode) {
+          router.push(buildInvitePageRoute(inviteCode, email));
+          router.refresh();
+          return;
+        }
+
         toast.success("Account created successfully");
-        router.push(Routes.LOGIN);
+        router.push(Routes.DASHBOARD);
         router.refresh();
       } catch (error) {
         toast.error(getErrorMessage(error, "Signup failed"));

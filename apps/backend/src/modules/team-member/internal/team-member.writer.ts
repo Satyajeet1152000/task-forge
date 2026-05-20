@@ -15,18 +15,19 @@ export default class TeamMemberWriter {
     }
 
     const record = await TeamMemberWriter.getOrCreateRecord(userId);
-    const memberIds = [...(record.members ?? [])];
+    const normalizedMemberId = Number(memberId);
+    const memberIds = [...new Set((record.members ?? []).map((id) => Number(id)))];
 
-    if (memberIds.includes(memberId)) {
+    if (memberIds.includes(normalizedMemberId)) {
       return TeamMemberWriter.serializeMemberList(userId, memberIds);
     }
 
-    const memberExists = await UserService.userExists(memberId);
+    const memberExists = await UserService.userExists(normalizedMemberId);
     if (!memberExists) {
       throw new TeamMemberBadRequestError("User does not exist");
     }
 
-    record.members = [...memberIds, memberId];
+    record.members = [...memberIds, normalizedMemberId];
     await TeamMemberRepository.save(record);
 
     return TeamMemberWriter.serializeMemberList(userId, record.members);

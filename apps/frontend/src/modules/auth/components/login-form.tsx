@@ -5,7 +5,7 @@ import { Routes } from "@task-forge/shared/constant";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { toast } from "sonner";
 
 import { getSignInErrorMessage } from "../auth.errors";
@@ -26,10 +26,17 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { buildSignupWithInviteRoute, buildInvitePageRoute } from "@/modules/team-member";
 
-const LoginForm: React.FC = () => {
-  const { form, onSubmit, isSubmitting } = useLoginForm();
+interface LoginFormProps {
+  inviteCode?: string;
+  inviteEmail?: string;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ inviteCode, inviteEmail }) => {
+  const { form, onSubmit, isSubmitting } = useLoginForm({ inviteCode, inviteEmail });
   const router = useRouter();
+  const watchedEmail = form.watch("email");
 
   const handleGoogleSuccess = async (credential: string): Promise<void> => {
     const result = await signIn("google", { credential, redirect: false });
@@ -37,13 +44,36 @@ const LoginForm: React.FC = () => {
       toast.error(getSignInErrorMessage(result));
       return;
     }
+
+    if (inviteCode) {
+      router.push(buildInvitePageRoute(inviteCode, inviteEmail ?? watchedEmail));
+      router.refresh();
+      return;
+    }
+
     toast.success("Authenticated with Google");
     router.push(Routes.DASHBOARD);
     router.refresh();
   };
 
+  const signupHref = inviteCode
+    ? buildSignupWithInviteRoute(inviteCode, watchedEmail || inviteEmail)
+    : Routes.SIGNUP;
+
+  useEffect(() => {
+    if (inviteEmail) {
+      form.setValue("email", inviteEmail);
+    }
+  }, [inviteEmail, form]);
   return (
-    <AuthLayout title="Welcome Back" subtitle="Please enter your details to log in">
+    <AuthLayout
+      title={inviteCode ? "Log in to join the team" : "Welcome Back"}
+      subtitle={
+        inviteCode
+          ? "Sign in to continue to the team invite page."
+          : "Please enter your details to log in"
+      }
+    >
       <div className="space-y-6">
         <Form {...form}>
           <form
@@ -65,6 +95,7 @@ const LoginForm: React.FC = () => {
                       type="email"
                       placeholder="john@example.com"
                       autoComplete="email"
+                      disabled={Boolean(inviteEmail)}
                       {...field}
                     />
                   </FormControl>
@@ -118,7 +149,10 @@ const LoginForm: React.FC = () => {
         />
         <p className="text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
-          <Link href="/signup" className="font-medium text-blue-600 underline underline-offset-4">
+          <Link
+            href={signupHref}
+            className="font-medium text-blue-600 underline underline-offset-4"
+          >
             SignUp
           </Link>
         </p>

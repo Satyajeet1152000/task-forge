@@ -8,6 +8,7 @@ export enum Routes {
   CREATE_TASK = "/task/create-task",
   TASK_DETAILS = "/task/:id",
   TEAM_MEMBERS = "/team-members",
+  INVITE = "/invite",
 }
 
 export const NAV_ITEMS: { href: string; label: string; icon: string; userRoles: UserRole[] }[] = [

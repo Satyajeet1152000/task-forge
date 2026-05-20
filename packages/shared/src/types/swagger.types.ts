@@ -3,5 +3,6 @@ export enum RouteTags {
   AUTH = "auth",
   TASKS = "tasks",
   TEAM_MEMBERS = "team-members",
+  MEMBER_INVITES = "member-invites",
   HEALTH = "health",
 }

@@ -17,21 +17,9 @@ import { useTeamMembers } from "@/modules/team-member";
 interface TaskFormProps {
   mode: "create" | "edit";
   initialTask?: Task;
-  children: (handlers: {
-    submit: () => void;
-    isSubmitting: boolean;
-  }) => React.ReactNode;
-  onSubmit: (payload: ReturnType<ReturnType<typeof useTaskForm>["buildPayload"]>) => void;
-  isSubmitting: boolean;
 }
 
-const TaskForm: React.FC<TaskFormProps> = ({
-  mode,
-  initialTask,
-  children,
-  onSubmit,
-  isSubmitting,
-}) => {
+const TaskForm: React.FC<TaskFormProps> = ({ mode, initialTask }) => {
   const [isMemberModalOpen, setIsMemberModalOpen] = useState(false);
   const { data: teamData } = useTeamMembers();
 
@@ -49,7 +37,9 @@ const TaskForm: React.FC<TaskFormProps> = ({
     addAttachmentLink,
     removeAttachmentLink,
     attachmentLinks,
-    buildPayload,
+    onSubmit,
+    handleDelete,
+    isSubmitting,
   } = useTaskForm({ mode, initialTask });
 
   const assignedMembersMap = useMemo((): Record<string, TaskMemberSummary> => {
@@ -57,19 +47,20 @@ const TaskForm: React.FC<TaskFormProps> = ({
     for (const member of teamData?.members ?? []) {
       map[String(member.id)] = member;
     }
+
     return map;
   }, [teamData?.members]);
 
-  const handleSubmit = form.handleSubmit((values) => {
-    onSubmit(buildPayload(values));
-  });
+  const minDueDate = useMemo((): string => {
+    return new Date().toLocaleDateString("en-CA");
+  }, []);
 
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          void handleSubmit();
+          void onSubmit();
         }}
         className="space-y-6 rounded-xl border border-slate-100 bg-white p-6 shadow-sm"
       >
@@ -80,6 +71,9 @@ const TaskForm: React.FC<TaskFormProps> = ({
         <div className="space-y-2">
           <Label htmlFor="title">Task Title</Label>
           <Input id="title" placeholder="Create App UI" {...form.register("title")} />
+          {form.formState.errors.title && (
+            <p className="text-sm text-red-600">{form.formState.errors.title.message}</p>
+          )}
         </div>
 
         <div className="space-y-2">
@@ -109,26 +103,38 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
           <div className="space-y-2">
             <Label htmlFor="dueDate">Due Date</Label>
-            <Input id="dueDate" type="date" {...form.register("dueDate")} />
+            <Input
+              id="dueDate"
+              type="date"
+              min={minDueDate}
+              className="relative bg-slate-50 pr-10 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-3 [&::-webkit-calendar-picker-indicator]:top-1/2 [&::-webkit-calendar-picker-indicator]:-translate-y-1/2 [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+              {...form.register("dueDate")}
+            />
           </div>
 
           <div className="space-y-2">
             <Label>Assign To</Label>
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full justify-start gap-2 bg-slate-50"
-              onClick={() => setIsMemberModalOpen(true)}
-            >
-              <Icon icon="mdi:account-plus-outline" className="h-4 w-4" />
-              Add Members
-            </Button>
-            {assignedMemberIds.length > 0 && (
-              <MemberAvatars
-                memberIds={assignedMemberIds}
-                assignedMembers={assignedMembersMap}
-                maxVisible={3}
-              />
+            {assignedMemberIds.length > 0 ? (
+              <div
+                className="flex h-10 w-fit cursor-pointer items-center"
+                onClick={() => setIsMemberModalOpen(true)}
+              >
+                <MemberAvatars
+                  memberIds={assignedMemberIds}
+                  assignedMembers={assignedMembersMap}
+                  maxVisible={3}
+                />
+              </div>
+            ) : (
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full justify-start gap-2 bg-slate-50"
+                onClick={() => setIsMemberModalOpen(true)}
+              >
+                <Icon icon="mdi:account-plus-outline" className="h-4 w-4" />
+                Add Members
+              </Button>
             )}
           </div>
         </div>
@@ -203,7 +209,36 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
         </div>
 
-        {children({ submit: () => void handleSubmit(), isSubmitting })}
+        <div className="space-y-3 pt-2">
+          {mode === "create" ? (
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="h-12 w-full bg-sky-200 text-sm font-semibold uppercase tracking-wide text-sky-900 hover:bg-sky-300"
+            >
+              {isSubmitting ? "Creating..." : "Create Task"}
+            </Button>
+          ) : (
+            <>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="h-12 w-full bg-sky-200 text-sm font-semibold uppercase tracking-wide text-sky-900 hover:bg-sky-300"
+              >
+                {isSubmitting ? "Updating..." : "Update Task"}
+              </Button>
+              <Button
+                type="button"
+                variant="destructive"
+                disabled={isSubmitting}
+                className="h-12 w-full text-sm font-semibold uppercase tracking-wide"
+                onClick={handleDelete}
+              >
+                Delete Task
+              </Button>
+            </>
+          )}
+        </div>
       </form>
 
       <SelectMemberModal
