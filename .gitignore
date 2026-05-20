@@ -8,3 +8,4 @@ node_modules
 .cursor/mcp.json
 
 graphify-out/cache
+.DS_Store

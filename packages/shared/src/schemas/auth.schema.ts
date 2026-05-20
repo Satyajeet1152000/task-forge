@@ -4,8 +4,6 @@ import { RouteTags } from "../types/swagger.types";
 
 import { successResponseSchema } from "./common-schemas";
 
-export const userRoleSchema = z.enum(["USER", "ADMIN"]);
-
 export const authProviderSchema = z.enum(["CREDENTIALS", "GOOGLE"]);
 
 export const userSchema = z.object({
@@ -13,8 +11,8 @@ export const userSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   image: z.string().nullable(),
-  role: userRoleSchema,
   provider: authProviderSchema,
+  assignedTasks: z.array(z.number()),
   createdAt: z.string(),
   updatedAt: z.string(),
 });
@@ -22,8 +20,8 @@ export const userSchema = z.object({
 export const signupBodySchema = userSchema
   .omit({
     id: true,
-    role: true,
     provider: true,
+    assignedTasks: true,
     createdAt: true,
     updatedAt: true,
   })

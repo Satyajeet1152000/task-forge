@@ -27,10 +27,20 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { buildInvitePageRoute, buildLoginWithInviteRoute } from "@/modules/team-member";
 
-const SignupForm: React.FC = () => {
-  const { form, onSubmit, isSubmitting, selectedAvatar, handleAvatarSelect } = useSignupForm();
+interface SignupFormProps {
+  inviteCode?: string;
+  inviteEmail?: string;
+}
+
+const SignupForm: React.FC<SignupFormProps> = ({ inviteCode, inviteEmail }) => {
+  const { form, onSubmit, isSubmitting, selectedAvatar, handleAvatarSelect } = useSignupForm({
+    inviteCode,
+    inviteEmail,
+  });
   const router = useRouter();
+  const watchedEmail = form.watch("email");
 
   const handleGoogleSuccess = async (credential: string): Promise<void> => {
     const result = await signIn("google", { credential, redirect: false });
@@ -38,13 +48,31 @@ const SignupForm: React.FC = () => {
       toast.error(getSignInErrorMessage(result));
       return;
     }
+
+    if (inviteCode) {
+      router.push(buildInvitePageRoute(inviteCode, inviteEmail ?? watchedEmail));
+      router.refresh();
+      return;
+    }
+
     toast.success("Authenticated with Google");
     router.push(Routes.DASHBOARD);
     router.refresh();
   };
 
+  const loginHref = inviteCode
+    ? buildLoginWithInviteRoute(inviteCode, watchedEmail || inviteEmail)
+    : Routes.LOGIN;
+
   return (
-    <AuthLayout title="Create an Account" subtitle="Join us today by entering your details below.">
+    <AuthLayout
+      title={"Create an Account"}
+      subtitle={
+        inviteCode
+          ? "Complete signup to continue to the team invite page."
+          : "Join us today by entering your details below."
+      }
+    >
       <div className="space-y-6">
         <Form {...form}>
           <form
@@ -110,7 +138,7 @@ const SignupForm: React.FC = () => {
                 name="inviteToken"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Admin Invite Token</FormLabel>
+                    <FormLabel>Invite Code</FormLabel>
                     <FormControl>
                       <Input placeholder="6 Digit Code" {...field} />
                     </FormControl>
@@ -148,7 +176,7 @@ const SignupForm: React.FC = () => {
         />
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link href="/login" className="font-medium text-blue-600 underline underline-offset-4">
+          <Link href={loginHref} className="font-medium text-blue-600 underline underline-offset-4">
             Login
           </Link>
         </p>

@@ -59,7 +59,7 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ selectedAvatar, onSelect })
                   type="button"
                   onClick={() => handleSelect(avatarPath)}
                   className={cn(
-                    "relative rounded-full p-0.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                    "flex shrink-0 items-center justify-center relative rounded-full p-0.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                     isSelected && "ring-2 ring-green-500 ring-offset-2",
                   )}
                   aria-label={`Select avatar ${avatarPath}`}
@@ -70,7 +70,7 @@ const AvatarPicker: React.FC<AvatarPickerProps> = ({ selectedAvatar, onSelect })
                     alt=""
                     width={56}
                     height={56}
-                    className="h-14 w-14 rounded-full object-cover"
+                    className="size-16 rounded-full object-cover"
                   />
                 </button>
               );

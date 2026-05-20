@@ -1,5 +1,4 @@
 import { Routes } from "@task-forge/shared/constant";
-import type { UserRole } from "@task-forge/shared/types";
 import type { NextAuthConfig } from "next-auth";
 
 export default {
@@ -17,7 +16,6 @@ export default {
         token.name = user.name;
         token.email = user.email;
         token.picture = user.image;
-        token.role = user.role;
       }
       return token;
     },
@@ -27,7 +25,6 @@ export default {
         session.user.name = token.name;
         session.user.email = token.email as string;
         session.user.image = token.picture ?? null;
-        session.user.role = token.role as UserRole;
       }
       return session;
     },

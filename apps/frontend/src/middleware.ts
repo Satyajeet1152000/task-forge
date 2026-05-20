@@ -2,12 +2,16 @@ import { Routes } from "@task-forge/shared/constant";
 
 import { auth } from "@/modules/auth/auth";
 
-const publicRoutes = [Routes.LOGIN, Routes.SIGNUP];
+const authEntryRoutes = [Routes.LOGIN, Routes.SIGNUP];
 
-function isPublicRoute(pathname: string): boolean {
-  return publicRoutes.some(
+function isAuthEntryRoute(pathname: string): boolean {
+  return authEntryRoutes.some(
     (route) => pathname === (route as string) || pathname.startsWith(`${route as string}/`),
   );
+}
+
+function isInviteRoute(pathname: string): boolean {
+  return pathname.startsWith(`${Routes.INVITE}/`);
 }
 
 export default auth((request) => {
@@ -15,7 +19,11 @@ export default auth((request) => {
   const isLoggedIn = Boolean(request.auth);
   const { pathname } = nextUrl;
 
-  if (isPublicRoute(pathname)) {
+  if (isInviteRoute(pathname)) {
+    return;
+  }
+
+  if (isAuthEntryRoute(pathname)) {
     if (isLoggedIn) {
       return Response.redirect(new URL(Routes.DASHBOARD, nextUrl));
     }

@@ -1,9 +1,9 @@
+"use client";
+
+import { TasksIndex } from "@/modules/task";
+
 const ManageTasksPage: React.FC = () => {
-  return (
-    <div>
-      <h1 className="text-2xl font-semibold">Hello from Manage Tasks</h1>
-    </div>
-  );
+  return <TasksIndex />;
 };
 
 export default ManageTasksPage;
