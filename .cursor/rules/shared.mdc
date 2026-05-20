@@ -1,0 +1,279 @@
+---
+description: Shared package rules for Task Forge — Zod schemas, TypeScript types, and env validation in packages/shared. Apply when working with shared types, schemas, env vars, or deciding whether code belongs in shared vs backend/frontend.
+alwaysApply: false
+---
+# Shared Package Rules
+
+## 1. Purpose and Responsibility
+
+`packages/shared` is the single source of truth for:
+- **All Zod validation schemas** for domain and API shapes (HTTP or not) — backend, frontend, and any `safeParse` / OpenAPI usage import from here
+- **All TypeScript types** that describe payloads, DTOs, params, enums, and API data — in `packages/shared/src/types/` (prefer `z.infer` when a Zod schema exists)
+- Environment schema — validates all env vars at startup
+- Shared constants — values used across apps (e.g. Swagger tag order), via `@task-forge/shared/constant`
+
+### 1.1 The golden rule (types and schemas live in shared)
+**Declare every feature type and Zod schema in `packages/shared`** (`src/types/<feature>.types.ts` and `src/schemas/<feature>.schema.ts`). Do **not** add `*.types.ts` or `*.schema.ts` under `apps/backend/src/modules/` for DTOs, request bodies, service params, or integration payloads — import from `@task-forge/shared/types` and `@task-forge/shared/schemas` instead.
+
+  ✓ belongs in `packages/shared`
+    Any DTO / param / response / enum used by backend services or routes
+    Zod schemas for validation, OpenAPI, or shared forms
+    Types inferred from those schemas
+    env, constants
+
+  ✗ stays outside shared (not “shared types/schemas”)
+    TypeORM **entities** — `apps/backend/.../internal/*.entity.ts` only
+    Fastify **`FastifyRequest` / route handler generics** — backend only
+    React **component props** and hooks — frontend only
+    **`AppError` subclasses** — `apps/backend/.../<feature>.error.ts` only (classes, not data shapes)
+
+---
+
+## 2. File Structure
+
+### 2.1 Folder structure
+```
+packages/shared/
+├── src/
+│   ├── env.schema.ts         Zod env validation — stays at root, never moves
+│   ├── constant/
+│   │   ├── index.ts          barrel — re-exports constants only
+│   │   └── *.constants.ts    named constant modules (e.g. swagger.constants.ts)
+│   ├── schemas/
+│   │   ├── index.ts          barrel — exports all schemas
+│   │   ├── common-schemas.ts error response schemas, pagination schema
+│   │   ├── auth.schema.ts
+│   │   ├── task.schema.ts
+│   │   └── <feature>.schema.ts
+│   └── types/
+│       ├── index.ts          barrel — exports all types
+│       ├── common-types.ts   ApiResponse, PaginationMeta, RouterConfig, LogType etc
+│       ├── auth.types.ts
+│       ├── task.types.ts
+│       └── <feature>.types.ts
+```
+
+Note: There is no src/index.ts — import via sub-paths only.
+
+### 2.2 File naming
+All files use kebab-case:
+  common-schemas.ts   ✓
+  common-types.ts     ✓
+  common.types.ts     ✗ — dot separator not allowed
+  commonTypes.ts      ✗ — camelCase not allowed
+
+### 2.3 Adding a new feature to shared
+Backend work on a feature should start from shared types/schemas when introducing or changing payloads — do not add `*.types.ts` / `*.schema.ts` under `apps/backend/src/modules/<feature>/`.
+
+```
+1. Create src/schemas/<feature>.schema.ts (when Zod is needed)
+2. Create or extend src/types/<feature>.types.ts (infer from Zod and/or plain types)
+3. Export from src/schemas/index.ts
+4. Export from src/types/index.ts
+5. Rebuild: cd packages/shared && pnpm tsc
+```
+
+### 2.4 index.ts files are barrel exports only — no logic
+`src/schemas/index.ts`, `src/types/index.ts`, and `src/constant/index.ts` must only contain
+export statements. Never add logic, functions, or class definitions here.
+There is no `src/index.ts`.
+
+### 2.5 Comments
+- **Do not** add unnecessary comments in schemas or types files (no restating field names or Zod chains).
+- **Do** comment **only** when a rule encodes **non-obvious business or cross-app contract** (e.g. why a constraint exists for both FE and BE) and that context cannot live in the schema message alone.
+
+---
+
+## 3. Import Sub-paths
+
+Four import paths are available — no main path:
+
+  @task-forge/shared/schemas   — schemas only
+  @task-forge/shared/types     — types only
+  @task-forge/shared/env       — env object only (backend only)
+  @task-forge/shared/constant  — shared constants (barrel)
+
+### 3.1 Always use specific sub-paths — no main path import
+
+  import { createTaskSchema } from '@task-forge/shared/schemas'    ✓
+  import type { Task } from '@task-forge/shared/types'             ✓
+  import { SWAGGER_TAG_DISPLAY_ORDER } from '@task-forge/shared/constant'   ✓
+  import { createTaskSchema } from '@task-forge/shared'            ✗ — no main path
+  import { createTaskSchema } from '../../packages/shared/src/...' ✗ — never direct
+
+### 3.2 env sub-path is backend only
+  import { env } from '@task-forge/shared/env'   ✓ backend only
+  import { env } from '@task-forge/shared/env'   ✗ never in frontend
+
+### 3.3 Never import env from main path or schemas path
+  import { env } from '@task-forge/shared'          ✗
+  import { env } from '@task-forge/shared/schemas'  ✗
+
+---
+
+## 4. Schema Rules (src/schemas/)
+
+### 4.1 Always use Zod for schemas — never TypeBox or Joi
+`src/schemas/` holds **Zod** definitions only. When runtime validation, OpenAPI, Fastify wiring, or `safeParse` is **not** needed for a shape, define a plain **`type` / `interface` in `src/types/`** only — never put that shape in `apps/backend` module files (see §5.1 and backend §6.1).
+
+### 4.2 Schema file structure — schemas only in schemas/
+src/schemas/ contains ONLY Zod schema definitions.
+No types, no classes, no functions beyond schema definitions.
+
+### 4.3 Schema naming convention
+camelCase + Schema suffix:
+  createTaskSchema   ✓
+  updateTaskSchema   ✓
+  taskParamsSchema   ✓
+  CreateTaskSchema   ✗ — PascalCase wrong
+  createTask         ✗ — missing Schema suffix
+
+### 4.4 common-schemas.ts contains shared error and response schemas
+These schemas are reused across ALL modules — never redefine per module:
+  errorResponseSchema
+  validationErrorResponseSchema
+  unauthorizedResponseSchema
+  forbiddenResponseSchema
+  notFoundResponseSchema
+  paginationMetaSchema
+  successResponseSchema (factory that wraps a data schema into `{ success: true, data }`)
+
+### 4.5 Base schema and derived request/DTO schemas
+- Define one **base** Zod object per API entity (e.g. `userSchema`, `accountSchema`) with all field rules.
+- Derive create/update/PATCH bodies with **`.pick()`**, **`.omit()`**, **`.extend()`**, and **`.partial()`** so validators are not duplicated in a new `z.object({ ... })`.
+- Typical patterns: create = `.pick({ ... }).partial({ optionalFields })`; PATCH = `.omit({ id, ... }).partial()` (or `.pick().partial()` when only a subset is patchable).
+- Keep derived schemas **next to** the base in the same file; name them `createXBodySchema`, `patchXBodySchema`, etc.
+- If a request field is **not** on the entity (e.g. a one-off flag), add it with **`.extend({ flag: z.boolean().optional() })`** on a picked/omitted base — still avoid re-stating base field validators.
+- When the wire shape cannot be expressed as pick/omit/partial of the base (e.g. required payload where the entity column is nullable), reuse pieces via a **shared inner schema** or **`base.shape.field`** instead of redefining the same constraints.
+
+### 4.6 Always add meaningful validation messages
+  z.string().min(2, 'Name must be at least 2 characters')   ✓
+  z.string().min(2)                                          ✗
+
+### 4.7 Route schemas per feature
+
+- Each `<feature>.schema.ts` file MAY also export route-level schemas for Swagger,
+  but only as plain objects that reference existing Zod schemas.
+- Name route schemas with HTTP method + name, e.g.:
+
+```ts
+import { RouteTags } from '../types/openapi-route.types'
+
+export const getHealthRouteSchema = {
+  tags: [RouteTags.HEALTH],
+  summary: 'Health Check',
+  description: 'Returns server health status including database connection state',
+  response: {
+    200: successResponseSchema(healthDataSchema),
+  },
+}
+```
+
+- Use the **`RouteTags`** enum from `src/types/openapi-route.types.ts` for `tags` (never raw
+  strings) so names stay aligned with OpenAPI. When adding a new area, extend **`RouteTags`**
+  and append it to **`SWAGGER_TAG_DISPLAY_ORDER`** in `src/constant/swagger.constants.ts`.
+- Always place these route schema exports at the **end of the file**, after all
+  Zod schema definitions, to keep structure consistent across features.
+- Optional **`requestBodyExample`**: inline a plain object (same shape as `body`) on the
+  route schema object — do **not** extract a separate exported example constant. The
+  backend Swagger plugin copies it to OpenAPI `example` for Swagger UI **Try it out**.
+  See `OpenapiRouteSchemaExtension` in `src/types/openapi-route.types.ts`.
+
+### 4.8 UUID validation for ID params
+  id: z.string().uuid('Invalid ID format')   ✓
+  id: z.string()                              ✗
+
+### 4.9 Schema field ordering and readability
+
+Keep Zod objects and route schema objects easy to scan. Order fields consistently across create/update/response schemas for the same entity.
+
+**Preferred field order in entity-shaped schemas:**
+
+1. Identifiers (`id`, `userId`, foreign keys)
+2. Core metadata (title, name, status, priority, role)
+3. Descriptive content (description, body)
+4. Dates (`startDate`, `dueDate`, `createdAt`, `updatedAt`)
+5. Relations and collections (`subTasks`, `assignedMembers`, nested arrays)
+6. Attachments and auxiliary arrays
+
+- Group related validators together; use `.pick()` / `.omit()` / `.partial()` on a single base schema instead of duplicating field blocks.
+- One blank line between logical groups in large `z.object({ ... })` definitions.
+- Place route schema exports (`getXRouteSchema`, `postXRouteSchema`) at the **end** of the file after all Zod schemas.
+
+---
+
+## 5. Type Rules (src/types/)
+
+### 5.1 Infer from Zod when a schema exists; otherwise plain types (always under `packages/shared`)
+- **When a Zod schema exists** for the shape: **`export type X = z.infer<typeof xSchema>`** in `packages/shared/src/types/` ✓
+- **When no schema is needed** (no validation / OpenAPI / `safeParse`): a plain **`interface` / `type`** in **`packages/shared/src/types/<feature>.types.ts`** ✓ — do not invent a Zod schema only to derive the type, and **do not** define the shape in `apps/backend/src/modules/`.
+
+### 5.2 Type file structure — types only in types/
+src/types/ contains ONLY TypeScript type definitions.
+No Zod schemas, no classes, no functions.
+
+### 5.3 Type naming convention
+PascalCase, no I prefix, no Type suffix:
+  CreateTaskInput   ✓
+  TaskParams        ✓
+  ICreateTask       ✗ — no I prefix
+  CreateTaskType    ✗ — no Type suffix
+
+### 5.4 common-types.ts contains shared utility types
+  ApiResponse<T>
+  PaginationMeta
+  RouterConfig
+  LogType
+  ApiErrorResponse
+
+### 5.5 Always use string for dates — never Date
+TypeORM returns Date objects but JSON serialization converts them to strings.
+  createdAt: string   ✓
+  createdAt: Date     ✗
+
+### 5.6 Type and params interface ordering
+
+Apply the same logical grouping as schemas (§4.9) to **`interface`** / **`type`** definitions in `src/types/<feature>.types.ts`:
+
+1. Identifiers
+2. Input / params interfaces used by services (`CreateTaskParams`, `GetTaskByIdParams`)
+3. Enums
+4. Inferred types from schemas (`Task`, `SubTask`, `CreateTaskInput`)
+
+Within a params interface, order fields: ids → payload fields → optional filters.
+
+- One blank line between unrelated interfaces in the same file.
+- Do not mix Zod schemas into types files (§5.2).
+
+---
+
+## 6. Environment Schema Rules
+
+### 6.1 env.schema.ts stays at src/ root — never moves to schemas/
+It has a dedicated sub-path export and is intentionally separated.
+
+### 6.2 Adding a new environment variable
+```
+Step 1 — add to src/env.schema.ts
+Step 2 — add to apps/backend/.env.development
+Step 3 — add to apps/backend/.env.uat
+Step 4 — add to apps/backend/.env.example (empty value + comment)
+Step 5 — rebuild: cd packages/shared && pnpm tsc
+Step 6 — use: import { env } from '@task-forge/shared/env'
+```
+
+---
+
+## 7. Build Rules
+
+### 7.1 Always rebuild after any change to packages/shared/src/
+  cd packages/shared && pnpm tsc
+
+### 7.2 Never commit dist/ folder
+packages/shared/dist/ is git ignored. Always generated locally or in CI.
+
+### 7.3 Verify dist structure after build
+  packages/shared/dist/schemas/index.js ✓
+  packages/shared/dist/types/index.js   ✓
+  packages/shared/dist/env.schema.js    ✓
+  packages/shared/dist/index.js         ✗ — must NOT exist

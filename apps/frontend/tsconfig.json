@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@task-forge/shared/schemas": ["../../packages/shared/src/schemas/index.ts"],
+      "@task-forge/shared/types": ["../../packages/shared/src/types/index.ts"],
+      "@task-forge/shared/constant": ["../../packages/shared/src/constant/index.ts"]
+    },
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*",
+    ".next/types/**/*.ts",
+    "next.config.ts",
+    "tailwind.config.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
+}
