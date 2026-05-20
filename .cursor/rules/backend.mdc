@@ -126,22 +126,28 @@ Primary Column Should be always of type 'bigInt' number, no uuid.
 
 **Foreign keys:** Do **not** declare database-level FK constraints in TypeORM entities or migrations (no `@ManyToOne` / `@JoinColumn` for DB FK, and no `REFERENCES` in raw SQL migrations). Enforce relationships and integrity in application code (services) instead.
 
-**Timestamp columns (`created_at` / `updated_at`):** Use `@CreateDateColumn` and `@UpdateDateColumn` with DB names `created_at` and `updated_at`, `type: 'timestamp'`, `nullable: false`, and `default: () => 'CURRENT_TIMESTAMP'`. Task names are camelCase `createdAt` and `updatedAt`, both typed as `Date`.
+**Timestamp columns:** Always use PostgreSQL `TIMESTAMP WITH TIME ZONE` via TypeORM `type: 'timestamptz'`. Never use `timestamp` or `timestamp without time zone` for persisted datetimes.
+
+- **`created_at` / `updated_at`:** Use `@CreateDateColumn` and `@UpdateDateColumn` with DB names `created_at` and `updated_at`, `type: 'timestamptz'`, `nullable: false`, and `default: () => 'CURRENT_TIMESTAMP'`. Property names are camelCase `createdAt` and `updatedAt`, both typed as `Date`.
+- **Other datetime columns** (e.g. `start_date`, `due_date`): Use `@Column({ type: 'timestamptz', name: 'snake_case_name', ... })`.
 
 ```ts
+  @Column({ type: "timestamptz", name: "start_date", nullable: true })
+  startDate: Date | null;
+
   @CreateDateColumn({
-    type: 'timestamp',
-    name: 'created_at',
+    type: "timestamptz",
+    name: "created_at",
     nullable: false,
-    default: () => 'CURRENT_TIMESTAMP',
+    default: () => "CURRENT_TIMESTAMP",
   })
   createdAt: Date;
 
   @UpdateDateColumn({
-    type: 'timestamp',
-    name: 'updated_at',
+    type: "timestamptz",
+    name: "updated_at",
     nullable: false,
-    default: () => 'CURRENT_TIMESTAMP',
+    default: () => "CURRENT_TIMESTAMP",
   })
   updatedAt: Date;
 ```
@@ -172,7 +178,7 @@ export class Task {
   status: TaskStatus;
 
   @CreateDateColumn({
-    type: "timestamp",
+    type: "timestamptz",
     name: "created_at",
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",
@@ -180,7 +186,7 @@ export class Task {
   createdAt: Date;
 
   @UpdateDateColumn({
-    type: "timestamp",
+    type: "timestamptz",
     name: "updated_at",
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",
@@ -210,6 +216,8 @@ Do not implement DB operation directly in other than these file.
 
 1. Reader file -> (/modules/<feature>/internal/<feature>.reader.ts)
 2. writer file -> (/modules/<feature>/internal/<feature>.writer.ts)
+
+Follow **§5.6** for method structure, spacing, normalization order, and grouping in reader/writer implementations.
 
 ```ts
 export class TaskReader {
@@ -442,6 +450,107 @@ const task = await TaskReader.getTaskById({ id });
 ### 5.5 Reuse service methods internally
 
 Reuse private and public static methods internally if required.
+
+### 5.6 Service, reader, and writer formatting (readability)
+
+Apply these rules in **`*.service.ts`**, **`internal/*.writer.ts`**, and **`internal/*.reader.ts`** whenever a method orchestrates business logic or persistence. Keep functions visually scannable and production-grade.
+
+**Logical block order (top to bottom):**
+
+1. Input parsing / destructuring
+2. Validation and guards (not found, forbidden, conflict)
+3. Early normalization (trim strings, parse dates, apply defaults)
+4. Entity creation or mutation (in-memory only)
+5. Database operations (save, update, delete, find)
+6. Relation sync (subtasks, assignments, cross-module calls)
+7. Serialize and return (single return at the end)
+
+**Service method flow (orchestration):**
+
+1. Normalize input
+2. Create or load entity
+3. Persist entity
+4. Process relations / subtasks
+5. Sync dependencies (other modules via their service only)
+6. Serialize response
+
+**Variable and field grouping**
+
+- Keep related fields together: task metadata → dates → relations → attachments.
+- Group object assignments logically; avoid scattering fields across the function.
+- Use meaningful names (`savedTask`, `previousMembers`, `subTasks`) — not abbreviations unless standard (`id`, `params`).
+
+**Spacing and structure**
+
+- One empty line between major blocks (normalization, entity build, DB call, relation sync, return).
+- One empty line after variable declaration groups before the next block.
+- Separate DB saves from transformation logic — do not interleave `Repository.save` with field assignment unless updating the same entity in one pass.
+- Avoid long crowded functions; extract private static helpers when a method exceeds ~25–30 lines or has more than one responsibility.
+- Avoid inline complex expressions when readability suffers; assign to a named variable first.
+- Keep a **single return** at the end of the function (early throws for errors are fine).
+
+**Early normalization (before entity assignment)**
+
+```ts
+const title = params.title.trim();
+const description = params.description?.trim() ?? null;
+const startDate = params.startDate ? new Date(params.startDate) : null;
+const status = params.status ?? TaskStatus.PENDING;
+```
+
+**Writer example (create flow)**
+
+```ts
+public static async createTask(params: CreateTaskParams): Promise<Task> {
+  const title = params.title.trim();
+  const description = params.description?.trim() ?? null;
+  const startDate = params.startDate ? new Date(params.startDate) : null;
+  const dueDate = params.dueDate ? new Date(params.dueDate) : null;
+  const status = params.status ?? TaskStatus.PENDING;
+  const priority = params.priority ?? TaskPriority.MEDIUM;
+  const assignedMembers = params.assignedMembers ?? [];
+  const attachments = params.attachments ?? [];
+
+  const task = new TaskEntity();
+  task.userId = params.userId;
+  task.title = title;
+  task.description = description;
+  task.status = status;
+  task.priority = priority;
+  task.startDate = startDate;
+  task.dueDate = dueDate;
+  task.assignedMembers = assignedMembers;
+  task.attachments = attachments;
+  task.subTasks = [];
+
+  const savedTask = await TaskRepository.save(task);
+
+  const subTasks = await SubTaskService.createForTask({
+    taskId: Number(savedTask.id),
+    userId: params.userId,
+    subTasks: params.subTasks ?? [],
+  });
+
+  savedTask.subTasks = subTasks.map((subTask) => subTask.id);
+  await TaskRepository.save(savedTask);
+
+  await UserService.syncTaskAssignments(savedTask.id, [], savedTask.assignedMembers);
+
+  return serializeTask(savedTask, subTasks);
+}
+```
+
+```ts
+// ✗ crowded — mixed normalization, save, and sync with no visual breaks
+public static async createTask(params: CreateTaskParams): Promise<Task> {
+  const task = new TaskEntity();
+  task.title = params.title.trim();
+  const savedTask = await TaskRepository.save(task);
+  const subTasks = await SubTaskService.createForTask({ taskId: Number(savedTask.id), userId: params.userId, subTasks: params.subTasks ?? [] });
+  await UserService.syncTaskAssignments(savedTask.id, [], savedTask.assignedMembers);
+  return serializeTask(savedTask, subTasks);
+}
+```
 
 ---
 

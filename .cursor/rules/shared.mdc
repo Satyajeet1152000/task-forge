@@ -183,6 +183,23 @@ export const getHealthRouteSchema = {
   id: z.string().uuid('Invalid ID format')   ✓
   id: z.string()                              ✗
 
+### 4.9 Schema field ordering and readability
+
+Keep Zod objects and route schema objects easy to scan. Order fields consistently across create/update/response schemas for the same entity.
+
+**Preferred field order in entity-shaped schemas:**
+
+1. Identifiers (`id`, `userId`, foreign keys)
+2. Core metadata (title, name, status, priority, role)
+3. Descriptive content (description, body)
+4. Dates (`startDate`, `dueDate`, `createdAt`, `updatedAt`)
+5. Relations and collections (`subTasks`, `assignedMembers`, nested arrays)
+6. Attachments and auxiliary arrays
+
+- Group related validators together; use `.pick()` / `.omit()` / `.partial()` on a single base schema instead of duplicating field blocks.
+- One blank line between logical groups in large `z.object({ ... })` definitions.
+- Place route schema exports (`getXRouteSchema`, `postXRouteSchema`) at the **end** of the file after all Zod schemas.
+
 ---
 
 ## 5. Type Rules (src/types/)
@@ -213,6 +230,20 @@ PascalCase, no I prefix, no Type suffix:
 TypeORM returns Date objects but JSON serialization converts them to strings.
   createdAt: string   ✓
   createdAt: Date     ✗
+
+### 5.6 Type and params interface ordering
+
+Apply the same logical grouping as schemas (§4.9) to **`interface`** / **`type`** definitions in `src/types/<feature>.types.ts`:
+
+1. Identifiers
+2. Input / params interfaces used by services (`CreateTaskParams`, `GetTaskByIdParams`)
+3. Enums
+4. Inferred types from schemas (`Task`, `SubTask`, `CreateTaskInput`)
+
+Within a params interface, order fields: ids → payload fields → optional filters.
+
+- One blank line between unrelated interfaces in the same file.
+- Do not mix Zod schemas into types files (§5.2).
 
 ---
 

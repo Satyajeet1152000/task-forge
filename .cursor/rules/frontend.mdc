@@ -311,6 +311,52 @@ onError: (error) => {
 },
 ```
 
+### 4.7 API, query, and hook formatting (readability)
+
+Mirror backend service-layer clarity in **`*.api.ts`**, **`*.queries.ts`**, and **form hooks** (`*.hook.ts`). Keep functions visually scannable; one primary responsibility per function.
+
+**API methods (`*.api.ts`) — block order:**
+
+1. Normalize / build request input (trim, coerce ids)
+2. HTTP call (`this.apiClient`)
+3. Unwrap response and return typed data
+
+```ts
+static async createTask(input: CreateTaskInput): Promise<Task> {
+  const payload = {
+    ...input,
+    title: input.title.trim(),
+  };
+
+  const { data } = await this.apiClient.post<ApiResponse<Task>>("/tasks", payload);
+
+  return data.data;
+}
+```
+
+**Mutation hooks (`*.queries.ts`) — `onSuccess` / `onError` flow:**
+
+1. Invalidate queries (group related keys together)
+2. User feedback (`toast`)
+3. Keep `mutationFn` a single API call — no inline business logic in the hook
+
+Separate invalidation, toast, and `mutationFn` with a blank line inside callbacks when more than one step.
+
+**Form hooks (`*.hook.ts`) — block order:**
+
+1. Default values / schema
+2. Early normalization in `onSubmit` (trim strings, parse dates)
+3. Call mutation or API
+4. Return form instance and handlers at the end
+
+**General rules (all frontend service-like code)**
+
+- One empty line between major blocks (setup, request, side effects, return).
+- Meaningful variable names; avoid long chained expressions — assign intermediate values.
+- Single return at the end where practical (hooks may return an object once at the bottom).
+- Group related fields: metadata → dates → relations → attachments when building payloads.
+- Extract helpers when a function exceeds ~25–30 lines.
+
 ---
 
 ## 5. Component Rules

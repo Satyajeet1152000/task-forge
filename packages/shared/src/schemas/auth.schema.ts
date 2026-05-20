@@ -15,6 +15,7 @@ export const userSchema = z.object({
   image: z.string().nullable(),
   role: userRoleSchema,
   provider: authProviderSchema,
+  assignedTasks: z.array(z.number()),
   createdAt: z.string(),
   updatedAt: z.string(),
 });
@@ -24,6 +25,7 @@ export const signupBodySchema = userSchema
     id: true,
     role: true,
     provider: true,
+    assignedTasks: true,
     createdAt: true,
     updatedAt: true,
   })

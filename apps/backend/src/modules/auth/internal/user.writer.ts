@@ -1,5 +1,6 @@
 import { hashPassword } from "@lib/password.util";
 import { AuthProvider, UserRole, type SignupInput, type User } from "@task-forge/shared/types";
+import { In } from "typeorm";
 
 import { UserEntity } from "./user.entity";
 import UserRepository from "./user.repository";
@@ -21,6 +22,7 @@ export default class UserWriter {
     user.image = input.image ?? null;
     user.provider = AuthProvider.CREDENTIALS;
     user.role = input?.inviteToken ? UserRole.USER : UserRole.ADMIN;
+    user.assignedTasks = [];
 
     const saved = await UserRepository.save(user);
 
@@ -36,6 +38,7 @@ export default class UserWriter {
     user.image = params.image;
     user.provider = AuthProvider.GOOGLE;
     user.role = UserRole.USER;
+    user.assignedTasks = [];
 
     const saved = await UserRepository.save(user);
 
@@ -56,5 +59,45 @@ export default class UserWriter {
     const saved = await UserRepository.save(user);
 
     return serializeUser(saved);
+  }
+
+  public static async syncTaskAssignments(
+    taskId: number,
+    previousMemberIds: number[],
+    nextMemberIds: number[],
+  ): Promise<void> {
+    const previousSet = new Set(previousMemberIds.map((id) => Number(id)));
+    const nextSet = new Set(nextMemberIds.map((id) => Number(id)));
+    const addedMemberIds = [...nextSet].filter((memberId) => !previousSet.has(memberId));
+    const removedMemberIds = [...previousSet].filter((memberId) => !nextSet.has(memberId));
+    if (addedMemberIds.length > 0) {
+      await this.addTaskToUsers(taskId, addedMemberIds);
+    }
+    if (removedMemberIds.length > 0) {
+      await this.removeTaskFromUsers(taskId, removedMemberIds);
+    }
+  }
+
+  private static async addTaskToUsers(taskId: number, userIds: number[]): Promise<void> {
+    const users = await UserRepository.findBy({ id: In(userIds) });
+    for (const user of users) {
+      const assignedTasks = user.assignedTasks ?? [];
+      if (!assignedTasks.includes(taskId)) {
+        user.assignedTasks = [...assignedTasks, taskId];
+      }
+    }
+    if (users.length > 0) {
+      await UserRepository.save(users);
+    }
+  }
+
+  private static async removeTaskFromUsers(taskId: number, userIds: number[]): Promise<void> {
+    const users = await UserRepository.findBy({ id: In(userIds) });
+    for (const user of users) {
+      user.assignedTasks = (user.assignedTasks ?? []).filter((id) => Number(id) !== taskId);
+    }
+    if (users.length > 0) {
+      await UserRepository.save(users);
+    }
   }
 }

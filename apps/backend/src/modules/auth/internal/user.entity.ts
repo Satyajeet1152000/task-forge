@@ -32,8 +32,11 @@ export class UserEntity {
   @Column({ type: "character varying", length: 20, default: AuthProvider.CREDENTIALS })
   provider: AuthProvider;
 
+  @Column({ type: "bigint", array: true, name: "assigned_tasks", default: [] })
+  assignedTasks: number[];
+
   @CreateDateColumn({
-    type: "timestamp",
+    type: "timestamptz",
     name: "created_at",
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",
@@ -41,7 +44,7 @@ export class UserEntity {
   createdAt: Date;
 
   @UpdateDateColumn({
-    type: "timestamp",
+    type: "timestamptz",
     name: "updated_at",
     nullable: false,
     default: () => "CURRENT_TIMESTAMP",

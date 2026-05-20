@@ -1,9 +1,9 @@
+"use client";
+
+import { TaskFormPage } from "@/modules/task";
+
 const CreateTaskPage: React.FC = () => {
-  return (
-    <div>
-      <h1 className="text-2xl font-semibold">Hello from Create Task</h1>
-    </div>
-  );
+  return <TaskFormPage mode="create" />;
 };
 
 export default CreateTaskPage;
