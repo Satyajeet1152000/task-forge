@@ -1,4 +1,5 @@
-import type { User } from "@task-forge/shared/types";
+import type { TaskMemberSummary, User } from "@task-forge/shared/types";
+import { In } from "typeorm";
 
 import { UserEmailAlreadyExistsError, UserNotFoundError } from "../auth.error";
 
@@ -43,5 +44,21 @@ export default class UserReader {
     if (await this.emailExists(email)) {
       throw new UserEmailAlreadyExistsError("An account with this email already exists");
     }
+  }
+
+  public static async getUsersByIds(userIds: number[]): Promise<TaskMemberSummary[]> {
+    if (userIds.length === 0) {
+      return [];
+    }
+
+    const users = await UserRepository.findBy({ id: In(userIds) });
+
+    return users.map(serializeUser);
+  }
+
+  public static async userExists(userId: number): Promise<boolean> {
+    const count = await UserRepository.count({ where: { id: userId } });
+
+    return count > 0;
   }
 }

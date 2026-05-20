@@ -21,6 +21,5 @@ export function verifyToken(token: string): AuthTokenPayload {
   return {
     sub: Number(payload.sub),
     email: payload.email,
-    role: payload.role,
   };
 }

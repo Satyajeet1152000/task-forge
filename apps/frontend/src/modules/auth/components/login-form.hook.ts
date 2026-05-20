@@ -11,12 +11,22 @@ import { toast } from "sonner";
 
 import { getSignInErrorMessage } from "../auth.errors";
 
-export function useLoginForm() {
+import { buildInvitePageRoute } from "@/modules/team-member";
+
+interface UseLoginFormParams {
+  inviteCode?: string;
+  inviteEmail?: string;
+}
+
+export function useLoginForm(params: UseLoginFormParams = {}) {
   const router = useRouter();
+  const inviteCode = params.inviteCode?.trim();
+  const inviteEmail = params.inviteEmail?.trim().toLowerCase();
+
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginBodySchema),
     defaultValues: {
-      email: "",
+      email: inviteEmail ?? "",
       password: "",
     },
   });
@@ -32,8 +42,18 @@ export function useLoginForm() {
       return;
     }
 
+    const email = values.email.trim().toLowerCase();
+
+    if (inviteCode) {
+      router.push(buildInvitePageRoute(inviteCode, email));
+      router.refresh();
+      return;
+    }
+
     toast.success("Logged in successfully");
     router.push(Routes.DASHBOARD);
+    router.refresh();
   });
-  return { form, onSubmit, isSubmitting: form.formState.isSubmitting };
+
+  return { form, onSubmit, isSubmitting: form.formState.isSubmitting, inviteCode };
 }

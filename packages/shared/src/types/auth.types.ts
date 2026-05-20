@@ -7,11 +7,6 @@ import type {
   userSchema,
 } from "../schemas/auth.schema";
 
-export enum UserRole {
-  USER = "USER",
-  ADMIN = "ADMIN",
-}
-
 export enum AuthProvider {
   CREDENTIALS = "CREDENTIALS",
   GOOGLE = "GOOGLE",
@@ -28,5 +23,4 @@ export type GoogleAuthInput = z.infer<typeof googleAuthBodySchema>;
 export interface AuthTokenPayload {
   sub: number;
   email: string;
-  role: UserRole;
 }
