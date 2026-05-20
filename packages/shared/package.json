@@ -17,6 +17,10 @@
     "./types": {
       "types": "./dist/types/index.d.ts",
       "default": "./dist/types/index.js"
+    },
+    "./constant": {
+      "types": "./dist/constant/index.d.ts",
+      "default": "./dist/constant/index.js"
     }
   },
   "scripts": {

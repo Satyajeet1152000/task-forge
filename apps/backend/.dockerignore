@@ -1,0 +1,3 @@
+# Backend image is built from the repository root:
+#   docker build -f apps/backend/Dockerfile .
+# See /.dockerignore at the repo root for the active ignore rules.
