@@ -4,11 +4,18 @@ import { RouteTags } from "../types/swagger.types";
 
 import { successResponseSchema } from "./common-schemas";
 
+export const teamMemberTaskStatsSchema = z.object({
+  pending: z.number(),
+  inProgress: z.number(),
+  completed: z.number(),
+});
+
 export const teamMemberUserSchema = z.object({
   id: z.number(),
   name: z.string(),
   email: z.string(),
   image: z.string().nullable(),
+  taskStats: teamMemberTaskStatsSchema,
 });
 
 export const teamMembersListSchema = z.object({

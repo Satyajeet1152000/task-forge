@@ -1,4 +1,4 @@
-import type { TeamMemberUser } from "@task-forge/shared/types";
+import type { TaskMemberSummary } from "@task-forge/shared/types";
 
 import UserReader from "./internal/user.reader";
 import UserWriter from "./internal/user.writer";
@@ -12,7 +12,7 @@ export default class UserService {
     await UserWriter.syncTaskAssignments(taskId, previousMemberIds, nextMemberIds);
   }
 
-  public static async getUsersByIds(userIds: number[]): Promise<TeamMemberUser[]> {
+  public static async getUsersByIds(userIds: number[]): Promise<TaskMemberSummary[]> {
     return UserReader.getUsersByIds(userIds);
   }
 

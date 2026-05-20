@@ -5,6 +5,7 @@ import type {
   Task,
   TaskMemberSummary,
   TasksListData,
+  TeamMemberTaskStats,
   UpdateTaskInput,
 } from "@task-forge/shared/types";
 
@@ -38,6 +39,20 @@ export default class TaskService {
     await TaskReader.getTaskById(taskId, userId);
 
     await TaskWriter.deleteTask(taskId, userId);
+  }
+
+  public static async getAssignmentStatsByMemberIds(
+    ownerUserId: number,
+    memberIds: number[],
+  ): Promise<Record<number, TeamMemberTaskStats>> {
+    return TaskReader.getAssignmentStatsByMemberIds(ownerUserId, memberIds);
+  }
+
+  public static async unassignMemberFromOwnerTasks(
+    ownerUserId: number,
+    memberId: number,
+  ): Promise<void> {
+    await TaskWriter.unassignMemberFromAllOwnerTasks(ownerUserId, memberId);
   }
 
   private static async buildTasksListData(tasks: Task[]): Promise<TasksListData> {

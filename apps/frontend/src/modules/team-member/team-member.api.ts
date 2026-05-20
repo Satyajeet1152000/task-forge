@@ -11,3 +11,15 @@ export async function fetchTeamMembers(): Promise<TeamMembersList> {
 
   return data.data;
 }
+
+export async function removeTeamMember(memberId: number): Promise<TeamMembersList> {
+  const { data } = await apiClient.delete<ApiResponse<TeamMembersList>>(
+    `/team-members/${memberId}`,
+  );
+
+  if (!data.data) {
+    throw new Error("Failed to remove team member");
+  }
+
+  return data.data;
+}

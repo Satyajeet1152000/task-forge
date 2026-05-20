@@ -1,5 +1,6 @@
 import { SubTaskService } from "@modules/sub-task";
-import type { SubTask, Task } from "@task-forge/shared/types";
+import type { SubTask, Task, TeamMemberTaskStats } from "@task-forge/shared/types";
+import { TaskStatus } from "@task-forge/shared/types";
 
 import { TaskNotFoundError } from "../task.error";
 
@@ -14,6 +15,39 @@ export default class TaskReader {
     });
 
     return TaskReader.serializeTasksWithSubTasks(tasks);
+  }
+
+  public static async getAssignmentStatsByMemberIds(
+    ownerUserId: number,
+    memberIds: number[],
+  ): Promise<Record<number, TeamMemberTaskStats>> {
+    const statsByMemberId = TaskReader.createEmptyStatsMap(memberIds);
+    if (memberIds.length === 0) {
+      return statsByMemberId;
+    }
+
+    const memberIdSet = new Set(memberIds.map((memberId) => Number(memberId)));
+    const tasks = await TaskRepository.find({ where: { userId: ownerUserId } });
+
+    for (const task of tasks) {
+      for (const assignedMemberId of task.assignedMembers) {
+        const memberId = Number(assignedMemberId);
+        if (!memberIdSet.has(memberId)) {
+          continue;
+        }
+
+        const stats = statsByMemberId[memberId];
+        if (task.status === TaskStatus.PENDING) {
+          stats.pending += 1;
+        } else if (task.status === TaskStatus.IN_PROGRESS) {
+          stats.inProgress += 1;
+        } else if (task.status === TaskStatus.COMPLETED) {
+          stats.completed += 1;
+        }
+      }
+    }
+
+    return statsByMemberId;
   }
 
   public static async getTaskById(taskId: number, userId: number): Promise<Task> {
@@ -39,6 +73,16 @@ export default class TaskReader {
     const subTasksByTaskId = TaskReader.groupSubTasksByTaskId(allSubTasks);
 
     return tasks.map((task) => serializeTask(task, subTasksByTaskId.get(Number(task.id)) ?? []));
+  }
+
+  private static createEmptyStatsMap(memberIds: number[]): Record<number, TeamMemberTaskStats> {
+    const statsByMemberId: Record<number, TeamMemberTaskStats> = {};
+
+    for (const memberId of memberIds) {
+      statsByMemberId[Number(memberId)] = { pending: 0, inProgress: 0, completed: 0 };
+    }
+
+    return statsByMemberId;
   }
 
   private static groupSubTasksByTaskId(subTasks: SubTask[]): Map<number, SubTask[]> {

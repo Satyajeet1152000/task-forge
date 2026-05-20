@@ -79,6 +79,30 @@ export default class TaskWriter {
     return serializeTask(savedTask, subTasks);
   }
 
+  public static async unassignMemberFromAllOwnerTasks(
+    ownerUserId: number,
+    memberId: number,
+  ): Promise<void> {
+    const tasks = await TaskRepository.find({ where: { userId: ownerUserId } });
+    const normalizedMemberId = Number(memberId);
+
+    for (const task of tasks) {
+      const previousMembers = task.assignedMembers.map((id) => Number(id));
+      if (!previousMembers.includes(normalizedMemberId)) {
+        continue;
+      }
+
+      task.assignedMembers = previousMembers.filter((id) => id !== normalizedMemberId);
+      const savedTask = await TaskRepository.save(task);
+
+      await UserService.syncTaskAssignments(
+        Number(savedTask.id),
+        previousMembers,
+        savedTask.assignedMembers.map((id) => Number(id)),
+      );
+    }
+  }
+
   public static async deleteTask(taskId: number, userId: number): Promise<void> {
     const task = await TaskRepository.findOne({ where: { id: taskId, userId } });
     if (!task) {

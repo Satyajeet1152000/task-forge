@@ -1,3 +1,4 @@
+import { TaskService } from "@modules/task";
 import UserService from "@modules/auth/user.service";
 import type { TeamMembersList } from "@task-forge/shared/types";
 
@@ -17,7 +18,7 @@ export default class TeamMemberWriter {
     const memberIds = [...(record.members ?? [])];
 
     if (memberIds.includes(memberId)) {
-      return TeamMemberWriter.serializeMemberList(memberIds);
+      return TeamMemberWriter.serializeMemberList(userId, memberIds);
     }
 
     const memberExists = await UserService.userExists(memberId);
@@ -28,19 +29,21 @@ export default class TeamMemberWriter {
     record.members = [...memberIds, memberId];
     await TeamMemberRepository.save(record);
 
-    return TeamMemberWriter.serializeMemberList(record.members);
+    return TeamMemberWriter.serializeMemberList(userId, record.members);
   }
 
   public static async removeMember(userId: number, memberId: number): Promise<TeamMembersList> {
+    await TaskService.unassignMemberFromOwnerTasks(userId, memberId);
+
     const record = await TeamMemberRepository.findOne({ where: { userId } });
     if (!record) {
-      return serializeTeamMembersList([]);
+      return TeamMemberWriter.serializeMemberList(userId, []);
     }
 
     record.members = (record.members ?? []).filter((id) => Number(id) !== memberId);
     await TeamMemberRepository.save(record);
 
-    return TeamMemberWriter.serializeMemberList(record.members);
+    return TeamMemberWriter.serializeMemberList(userId, record.members);
   }
 
   private static async getOrCreateRecord(userId: number): Promise<TeamMemberEntity> {
@@ -56,9 +59,17 @@ export default class TeamMemberWriter {
     return TeamMemberRepository.save(record);
   }
 
-  private static async serializeMemberList(memberIds: number[]): Promise<TeamMembersList> {
-    const members = await UserService.getUsersByIds(memberIds);
+  private static async serializeMemberList(
+    ownerUserId: number,
+    memberIds: number[],
+  ): Promise<TeamMembersList> {
+    const normalizedMemberIds = memberIds.map((memberId) => Number(memberId));
+    const members = await UserService.getUsersByIds(normalizedMemberIds);
+    const statsByMemberId = await TaskService.getAssignmentStatsByMemberIds(
+      ownerUserId,
+      normalizedMemberIds,
+    );
 
-    return serializeTeamMembersList(members);
+    return serializeTeamMembersList(members, statsByMemberId);
   }
 }

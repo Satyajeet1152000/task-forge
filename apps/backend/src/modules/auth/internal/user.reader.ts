@@ -1,4 +1,4 @@
-import type { TeamMemberUser, User } from "@task-forge/shared/types";
+import type { TaskMemberSummary, User } from "@task-forge/shared/types";
 import { In } from "typeorm";
 
 import { UserEmailAlreadyExistsError, UserNotFoundError } from "../auth.error";
@@ -46,7 +46,7 @@ export default class UserReader {
     }
   }
 
-  public static async getUsersByIds(userIds: number[]): Promise<TeamMemberUser[]> {
+  public static async getUsersByIds(userIds: number[]): Promise<TaskMemberSummary[]> {
     if (userIds.length === 0) {
       return [];
     }

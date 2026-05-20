@@ -3,9 +3,12 @@ import type { z } from "zod";
 import type {
   addTeamMemberBodySchema,
   removeTeamMemberParamsSchema,
+  teamMemberTaskStatsSchema,
   teamMemberUserSchema,
   teamMembersListSchema,
 } from "../schemas/team-member.schema";
+
+export type TeamMemberTaskStats = z.infer<typeof teamMemberTaskStatsSchema>;
 
 export type TeamMemberUser = z.infer<typeof teamMemberUserSchema>;
 
