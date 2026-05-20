@@ -1,6 +1,7 @@
 "use client";
 
 import { Routes } from "@task-forge/shared/constant";
+import type { Task } from "@task-forge/shared/types";
 import { TaskStatus } from "@task-forge/shared/types";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -12,12 +13,18 @@ import TaskCard from "./TaskCard";
 import TaskCardSkeleton from "./TaskCardSkeleton";
 import TaskEmptyState from "./TaskEmptyState";
 import TaskFilterTabs from "./TaskFilterTabs";
+import TaskViewModal from "./TaskViewModal";
+
+import { useAuth } from "@/modules/auth/use-auth";
 
 const TasksIndex: React.FC = () => {
   const router = useRouter();
+  const { user } = useAuth();
   const [activeFilter, setActiveFilter] = useState<TaskFilterKey>("ALL");
+  const [viewTaskId, setViewTaskId] = useState<number | null>(null);
   const { data, isLoading, isError } = useTasks();
 
+  const currentUserId = user?.id ? Number(user.id) : null;
   const tasks = useMemo(() => data?.tasks ?? [], [data?.tasks]);
   const assignedMembers = data?.assignedMembers ?? {};
 
@@ -38,8 +45,13 @@ const TasksIndex: React.FC = () => {
     return tasks.filter((task) => task.status === activeFilter);
   }, [tasks, activeFilter]);
 
-  const handleTaskClick = (taskId: number): void => {
-    router.push(Routes.TASK_DETAILS.replace(":id", String(taskId)));
+  const handleTaskClick = (task: Task): void => {
+    if (currentUserId !== null && task.userId !== currentUserId) {
+      setViewTaskId(task.id);
+      return;
+    }
+
+    router.push(Routes.TASK_DETAILS.replace(":id", String(task.id)));
   };
 
   return (
@@ -77,6 +89,17 @@ const TasksIndex: React.FC = () => {
           ))}
         </div>
       )}
+
+      <TaskViewModal
+        taskId={viewTaskId}
+        open={viewTaskId !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setViewTaskId(null);
+          }
+        }}
+        currentUserId={currentUserId}
+      />
     </div>
   );
 };

@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 interface TaskCardProps {
   task: Task;
   assignedMembers: Record<string, TaskMemberSummary>;
-  onClick: (taskId: number) => void;
+  onClick: (task: Task) => void;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, assignedMembers, onClick }) => {
@@ -25,7 +25,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, assignedMembers, onClick }) =
   return (
     <button
       type="button"
-      onClick={() => onClick(task.id)}
+      onClick={() => onClick(task)}
       className="flex w-full cursor-pointer overflow-hidden rounded-xl border border-slate-100 bg-white text-left shadow-sm transition-shadow hover:shadow-md"
     >
       <div className={cn("w-1 shrink-0", statusStyle.accentClass)} />
@@ -38,7 +38,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, assignedMembers, onClick }) =
           )}
         </div>
         <TaskProgress subTasks={task.subTasks} />
-        <TaskDates startDate={task.startDate} dueDate={task.dueDate} />
+        <TaskDates createdAt={task.createdAt} dueDate={task.dueDate} />
         <div className="flex items-center justify-between">
           <MemberAvatars
             memberIds={task.assignedMembers}

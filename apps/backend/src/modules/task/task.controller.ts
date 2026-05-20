@@ -1,5 +1,5 @@
 import { successResponse } from "@lib/api-response";
-import type { CreateTaskInput, TaskParams, UpdateTaskInput } from "@task-forge/shared/types";
+import type { CreateTaskInput, SubTaskParams, TaskParams, UpdateTaskInput, UpdateSubTaskCompletionInput } from "@task-forge/shared/types";
 import type { FastifyReply, FastifyRequest } from "fastify";
 
 import TaskService from "./task.service";
@@ -37,5 +37,19 @@ export class TaskController {
       message: "Task deleted successfully",
       data: null,
     });
+  };
+
+  updateSubTaskCompletion = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
+    const params = request.params as SubTaskParams;
+    const body = request.body as UpdateSubTaskCompletionInput;
+    const taskData = await TaskService.updateSubTaskCompletion(
+      params.id,
+      params.subTaskId,
+      request.userId,
+      body.isCompleted,
+    );
+    return reply
+      .status(200)
+      .send(successResponse(taskData, "Subtask updated successfully"));
   };
 }

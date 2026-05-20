@@ -19,3 +19,10 @@ export interface DeleteSubTasksByTaskIdParams {
   taskId: number;
   userId: number;
 }
+
+export interface UpdateSubTaskCompletionParams {
+  taskId: number;
+  subTaskId: number;
+  userId: number;
+  isCompleted: boolean;
+}

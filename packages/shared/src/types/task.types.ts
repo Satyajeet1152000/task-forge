@@ -4,10 +4,13 @@ import type {
   createTaskBodySchema,
   subTaskInputSchema,
   subTaskSchema,
+  taskListDataSchema,
   taskMemberSummarySchema,
   taskParamsSchema,
+  subTaskParamsSchema,
   taskSchema,
   tasksListDataSchema,
+  updateSubTaskCompletionBodySchema,
   updateTaskBodySchema,
 } from "../schemas/task.schema";
 
@@ -33,11 +36,17 @@ export type TaskMemberSummary = z.infer<typeof taskMemberSummarySchema>;
 
 export type TasksListData = z.infer<typeof tasksListDataSchema>;
 
+export type TaskListData = z.infer<typeof taskListDataSchema>;
+
 export type CreateTaskInput = z.infer<typeof createTaskBodySchema>;
 
 export type UpdateTaskInput = z.infer<typeof updateTaskBodySchema>;
 
+export type UpdateSubTaskCompletionInput = z.infer<typeof updateSubTaskCompletionBodySchema>;
+
 export type TaskParams = z.infer<typeof taskParamsSchema>;
+
+export type SubTaskParams = z.infer<typeof subTaskParamsSchema>;
 
 export interface GetAllTasksParams {
   userId: number;

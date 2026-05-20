@@ -1,9 +1,11 @@
 import { SubTaskService } from "@modules/sub-task";
 import type { SubTask, Task, TeamMemberTaskStats } from "@task-forge/shared/types";
 import { TaskStatus } from "@task-forge/shared/types";
+import { In } from "typeorm";
 
 import { TaskNotFoundError } from "../task.error";
 
+import { TaskEntity } from "./task.entity";
 import TaskRepository from "./task.repository";
 import { serializeTask } from "./task.serializer";
 
@@ -51,14 +53,41 @@ export default class TaskReader {
   }
 
   public static async getTaskById(taskId: number, userId: number): Promise<Task> {
-    const task = await TaskRepository.findOne({ where: { id: taskId, userId } });
+    const task = await TaskRepository.findOne({ where: { id: taskId } });
     if (!task) {
+      throw new TaskNotFoundError(`Task with id ${taskId} not found`);
+    }
+
+    const normalizedUserId = Number(userId);
+    const isOwner = Number(task.userId) === normalizedUserId;
+    const isAssigned = task.assignedMembers.map((memberId) => Number(memberId)).includes(normalizedUserId);
+
+    if (!isOwner && !isAssigned) {
       throw new TaskNotFoundError(`Task with id ${taskId} not found`);
     }
 
     const subTasks = await SubTaskService.getByTaskId({ taskId: task.id, userId: task.userId });
 
     return serializeTask(task, subTasks);
+  }
+
+  public static async getTaskEntityById(taskId: number): Promise<TaskEntity> {
+    const task = await TaskRepository.findOne({ where: { id: taskId } });
+    if (!task) {
+      throw new TaskNotFoundError(`Task with id ${taskId} not found`);
+    }
+
+    return task;
+  }
+
+  public static async getTasksByIds(taskIds: number[]): Promise<Task[]> {
+    if (taskIds.length === 0) {
+      return [];
+    }
+
+    const tasks = await TaskRepository.find({ where: { id: In(taskIds) } });
+
+    return TaskReader.serializeTasksWithSubTasks(tasks);
   }
 
   private static async serializeTasksWithSubTasks(

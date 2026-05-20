@@ -10,7 +10,6 @@ export const serializeTask = (task: TaskEntity, subTasks: SubTask[]): Task => {
     description: task.description,
     status: task.status,
     priority: task.priority,
-    startDate: task.startDate ? task.startDate.toISOString() : null,
     dueDate: task.dueDate ? task.dueDate.toISOString() : null,
     subTasks,
     assignedMembers: task.assignedMembers.map((memberId) => Number(memberId)),

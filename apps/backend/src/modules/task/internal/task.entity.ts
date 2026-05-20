@@ -29,9 +29,6 @@ export class TaskEntity {
   @Column({ type: "character varying", length: 20, default: TaskPriority.MEDIUM })
   priority: TaskPriority;
 
-  @Column({ type: "timestamptz", name: "start_date", nullable: true })
-  startDate: Date | null;
-
   @Column({ type: "timestamptz", name: "due_date", nullable: true })
   dueDate: Date | null;
 

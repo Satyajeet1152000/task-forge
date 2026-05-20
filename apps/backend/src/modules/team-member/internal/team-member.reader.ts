@@ -1,5 +1,5 @@
-import { TaskService } from "@modules/task";
 import UserService from "@modules/auth/user.service";
+import { TaskService } from "@modules/task";
 import type { TeamMembersList } from "@task-forge/shared/types";
 
 import TeamMemberRepository from "./team-member.repository";

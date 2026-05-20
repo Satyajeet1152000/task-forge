@@ -1,4 +1,9 @@
-import type { CreateSubTasksForTaskParams, DeleteSubTasksByTaskIdParams, SubTask } from "@task-forge/shared/types";
+import type {
+  CreateSubTasksForTaskParams,
+  DeleteSubTasksByTaskIdParams,
+  SubTask,
+  UpdateSubTaskCompletionParams,
+} from "@task-forge/shared/types";
 
 import { SubTaskEntity } from "./sub-task.entity";
 import SubTaskRepository from "./sub-task.repository";
@@ -42,5 +47,23 @@ export default class SubTaskWriter {
     const { taskId, userId } = params;
 
     await SubTaskRepository.delete({ taskId, userId });
+  }
+
+  public static async updateCompletion(params: UpdateSubTaskCompletionParams): Promise<SubTask> {
+    const { taskId, subTaskId, userId, isCompleted } = params;
+
+    const subTask = await SubTaskRepository.findOne({
+      where: { id: subTaskId, taskId, userId },
+    });
+
+    if (!subTask) {
+      throw new Error(`Subtask with id ${subTaskId} not found`);
+    }
+
+    subTask.isCompleted = isCompleted;
+
+    const savedSubTask = await SubTaskRepository.save(subTask);
+
+    return serializeSubTask(savedSubTask);
   }
 }

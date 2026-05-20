@@ -45,7 +45,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ mode, initialTask }) => {
   const assignedMembersMap = useMemo((): Record<string, TaskMemberSummary> => {
     const map: Record<string, TaskMemberSummary> = {};
     for (const member of teamData?.members ?? []) {
-      map[String(member.id)] = member;
+      map[String(member.id)] = {
+        id: member.id,
+        name: member.name,
+        email: member.email,
+        image: member.image,
+        assignedTasks: [],
+      };
     }
 
     return map;

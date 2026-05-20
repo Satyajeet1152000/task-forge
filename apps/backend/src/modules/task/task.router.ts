@@ -3,6 +3,7 @@ import {
   deleteTaskRouteSchema,
   getTaskByIdRouteSchema,
   getTasksRouteSchema,
+  patchUpdateSubTaskCompletionRouteSchema,
   postCreateTaskRouteSchema,
   putUpdateTaskRouteSchema,
 } from "@task-forge/shared/schemas";
@@ -18,6 +19,11 @@ const taskRouter: FastifyPluginAsync = async (app) => {
   app.post("/", { schema: postCreateTaskRouteSchema, ...authenticate }, controller.create);
   app.get("/", { schema: getTasksRouteSchema, ...authenticate }, controller.getAll);
   app.get("/:id", { schema: getTaskByIdRouteSchema, ...authenticate }, controller.getById);
+  app.patch(
+    "/:id/sub-tasks/:subTaskId",
+    { schema: patchUpdateSubTaskCompletionRouteSchema, ...authenticate },
+    controller.updateSubTaskCompletion,
+  );
   app.put("/:id", { schema: putUpdateTaskRouteSchema, ...authenticate }, controller.update);
   app.delete("/:id", { schema: deleteTaskRouteSchema, ...authenticate }, controller.delete);
 };

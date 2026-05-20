@@ -53,12 +53,7 @@ export default class UserReader {
 
     const users = await UserRepository.findBy({ id: In(userIds) });
 
-    return users.map((user) => ({
-      id: Number(user.id),
-      name: user.name,
-      email: user.email,
-      image: user.image,
-    }));
+    return users.map(serializeUser);
   }
 
   public static async userExists(userId: number): Promise<boolean> {

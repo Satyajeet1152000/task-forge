@@ -3,16 +3,16 @@
 import { formatTaskDate } from "../../task.utils";
 
 interface TaskDatesProps {
-  startDate: string | null;
+  createdAt: string;
   dueDate: string | null;
 }
 
-const TaskDates: React.FC<TaskDatesProps> = ({ startDate, dueDate }) => {
+const TaskDates: React.FC<TaskDatesProps> = ({ createdAt, dueDate }) => {
   return (
     <div className="grid grid-cols-2 gap-4">
       <div>
-        <p className="text-xs text-slate-500">Start Date</p>
-        <p className="text-sm font-semibold text-slate-900">{formatTaskDate(startDate)}</p>
+        <p className="text-xs text-slate-500">Created Date</p>
+        <p className="text-sm font-semibold text-slate-900">{formatTaskDate(createdAt)}</p>
       </div>
       <div>
         <p className="text-xs text-slate-500">Due Date</p>

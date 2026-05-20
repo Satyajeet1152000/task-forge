@@ -1,26 +1,42 @@
+import { UserNotFoundError } from "@modules/auth/auth.error";
 import UserService from "@modules/auth/user.service";
+import { SubTaskService } from "@modules/sub-task";
 import type {
   CreateTaskInput,
   SubTask,
   Task,
+  TaskListData,
   TaskMemberSummary,
   TasksListData,
   TeamMemberTaskStats,
   UpdateTaskInput,
 } from "@task-forge/shared/types";
 
+import { deriveTaskStatusFromSubTasks } from "./internal/task-status.util";
 import TaskReader from "./internal/task.reader";
 import TaskWriter from "./internal/task.writer";
+import { TaskNotFoundError } from "./task.error";
 
 export default class TaskService {
   public static async getAll(userId: number): Promise<TasksListData> {
-    const tasks = await TaskReader.getAllTasks(userId);
+    const user = (await UserService.getUsersByIds([userId]))[0];
+    if (!user) {
+      throw new UserNotFoundError("User not found");
+    }
 
-    return TaskService.buildTasksListData(tasks);
+    const tasks = await TaskReader.getTasksByIds(user.assignedTasks);
+
+    const selfCreatedTasks = await TaskReader.getAllTasks(userId);
+
+    const mergedTasks = TaskService.mergeTasksById([...tasks, ...selfCreatedTasks]);
+
+    return TaskService.buildTasksListData(mergedTasks);
   }
 
-  public static async getById(taskId: number, userId: number): Promise<Task> {
-    return TaskReader.getTaskById(taskId, userId);
+  public static async getById(taskId: number, userId: number): Promise<TaskListData> {
+    const task = await TaskReader.getTaskById(taskId, userId);
+
+    return TaskService.buildTaskListData(task);
   }
 
   public static async create(userId: number, input: CreateTaskInput): Promise<Task> {
@@ -36,9 +52,41 @@ export default class TaskService {
   }
 
   public static async delete(taskId: number, userId: number): Promise<void> {
-    await TaskReader.getTaskById(taskId, userId);
-
     await TaskWriter.deleteTask(taskId, userId);
+  }
+
+  public static async updateSubTaskCompletion(
+    taskId: number,
+    subTaskId: number,
+    userId: number,
+    isCompleted: boolean,
+  ): Promise<TaskListData> {
+    const taskEntity = await TaskReader.getTaskEntityById(taskId);
+    const normalizedUserId = Number(userId);
+    const assignedMemberIds = taskEntity.assignedMembers.map((memberId) => Number(memberId));
+
+    if (!assignedMemberIds.includes(normalizedUserId)) {
+      throw new TaskNotFoundError(`Task with id ${taskId} not found`);
+    }
+
+    await SubTaskService.updateCompletion({
+      taskId,
+      subTaskId,
+      userId: taskEntity.userId,
+      isCompleted,
+    });
+
+    const subTasks = await SubTaskService.getByTaskId({
+      taskId: taskEntity.id,
+      userId: taskEntity.userId,
+    });
+
+    taskEntity.status = deriveTaskStatusFromSubTasks(subTasks);
+    await TaskWriter.saveTaskEntity(taskEntity);
+
+    const task = await TaskReader.getTaskById(taskId, userId);
+
+    return TaskService.buildTaskListData(task);
   }
 
   public static async getAssignmentStatsByMemberIds(
@@ -53,6 +101,26 @@ export default class TaskService {
     memberId: number,
   ): Promise<void> {
     await TaskWriter.unassignMemberFromAllOwnerTasks(ownerUserId, memberId);
+  }
+
+  private static mergeTasksById(tasks: Task[]): Task[] {
+    const tasksById = new Map<number, Task>();
+
+    for (const task of tasks) {
+      tasksById.set(task.id, task);
+    }
+
+    return [...tasksById.values()];
+  }
+
+  private static async buildTaskListData(task: Task): Promise<TaskListData> {
+    const listData = await TaskService.buildTasksListData([task]);
+
+    return {
+      task: listData.tasks[0],
+      assignedMembers: listData.assignedMembers,
+      subTasks: listData.subTasks,
+    };
   }
 
   private static async buildTasksListData(tasks: Task[]): Promise<TasksListData> {

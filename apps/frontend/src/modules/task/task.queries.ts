@@ -2,15 +2,27 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Routes } from "@task-forge/shared/constant";
-import type { CreateTaskInput, UpdateTaskInput } from "@task-forge/shared/types";
+import type {
+  CreateTaskInput,
+  UpdateTaskInput,
+  UpdateSubTaskCompletionInput,
+} from "@task-forge/shared/types";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { createTask, deleteTask, fetchTasks, updateTask } from "./task.api";
+import {
+  createTask,
+  deleteTask,
+  fetchTaskById,
+  fetchTasks,
+  updateSubTaskCompletion,
+  updateTask,
+} from "./task.api";
 import { useTaskStore } from "./task.store";
 
 export const TASK_KEYS = {
   all: ["tasks"] as const,
+  byId: (taskId: number) => ["tasks", taskId] as const,
 };
 
 export function useTasks() {
@@ -24,6 +36,14 @@ export function useTasks() {
 
       return data;
     },
+  });
+}
+
+export function useTask(taskId: number, enabled = true) {
+  return useQuery({
+    queryKey: TASK_KEYS.byId(taskId),
+    queryFn: () => fetchTaskById(taskId),
+    enabled: enabled && !Number.isNaN(taskId) && taskId > 0,
   });
 }
 
@@ -52,6 +72,7 @@ export function useUpdateTask(taskId: number) {
     mutationFn: (input: UpdateTaskInput) => updateTask(taskId, input),
     onSuccess: () => {
       void queryClient.invalidateQueries({ queryKey: TASK_KEYS.all });
+      void queryClient.invalidateQueries({ queryKey: TASK_KEYS.byId(taskId) });
       toast.success("Task updated successfully");
       router.push(Routes.TASKS);
     },
@@ -74,6 +95,28 @@ export function useDeleteTask(taskId: number) {
     },
     onError: (error) => {
       toast.error(error instanceof Error ? error.message : "Failed to delete task");
+    },
+  });
+}
+
+export function useUpdateSubTaskCompletion(taskId: number) {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({
+      subTaskId,
+      input,
+    }: {
+      subTaskId: number;
+      input: UpdateSubTaskCompletionInput;
+    }) => updateSubTaskCompletion(taskId, subTaskId, input),
+    onSuccess: (data) => {
+      void queryClient.invalidateQueries({ queryKey: TASK_KEYS.all });
+      void queryClient.setQueryData(TASK_KEYS.byId(taskId), data);
+      toast.success("Task updated successfully");
+    },
+    onError: (error) => {
+      toast.error(error instanceof Error ? error.message : "Failed to update subtask");
     },
   });
 }

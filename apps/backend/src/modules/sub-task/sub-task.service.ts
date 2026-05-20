@@ -4,6 +4,7 @@ import type {
   GetSubTasksByTaskIdParams,
   GetSubTasksByTaskIdsParams,
   SubTask,
+  UpdateSubTaskCompletionParams,
 } from "@task-forge/shared/types";
 
 import SubTaskReader from "./internal/sub-task.reader";
@@ -28,5 +29,9 @@ export default class SubTaskService {
 
   public static async deleteByTaskId(params: DeleteSubTasksByTaskIdParams): Promise<void> {
     return SubTaskWriter.deleteByTaskId(params);
+  }
+
+  public static async updateCompletion(params: UpdateSubTaskCompletionParams): Promise<SubTask> {
+    return SubTaskWriter.updateCompletion(params);
   }
 }

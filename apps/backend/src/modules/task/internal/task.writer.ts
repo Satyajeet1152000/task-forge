@@ -5,6 +5,7 @@ import { TaskPriority, TaskStatus } from "@task-forge/shared/types";
 
 import { TaskNotFoundError } from "../task.error";
 
+import { deriveTaskStatusFromSubTasks } from "./task-status.util";
 import { TaskEntity } from "./task.entity";
 import TaskRepository from "./task.repository";
 import { serializeTask } from "./task.serializer";
@@ -13,9 +14,7 @@ export default class TaskWriter {
   public static async createTask(params: CreateTaskParams): Promise<Task> {
     const title = params.title.trim();
     const description = params.description?.trim() ?? null;
-    const status = params.status ?? TaskStatus.PENDING;
     const priority = params.priority ?? TaskPriority.MEDIUM;
-    const startDate = params.startDate ? new Date(params.startDate) : null;
     const dueDate = params.dueDate ? new Date(params.dueDate) : null;
     const assignedMembers = params.assignedMembers ?? [];
     const attachments = params.attachments ?? [];
@@ -25,9 +24,8 @@ export default class TaskWriter {
     task.userId = params.userId;
     task.title = title;
     task.description = description;
-    task.status = status;
+    task.status = params.status ?? TaskStatus.PENDING;
     task.priority = priority;
-    task.startDate = startDate;
     task.dueDate = dueDate;
     task.assignedMembers = assignedMembers;
     task.attachments = attachments;
@@ -42,6 +40,7 @@ export default class TaskWriter {
     });
 
     savedTask.subTasks = TaskWriter.toSubTaskIds(subTasks);
+    savedTask.status = deriveTaskStatusFromSubTasks(subTasks);
     await TaskRepository.save(savedTask);
 
     await UserService.syncTaskAssignments(savedTask.id, [], savedTask.assignedMembers);
@@ -70,6 +69,7 @@ export default class TaskWriter {
         subTasks: input.subTasks,
       });
       task.subTasks = TaskWriter.toSubTaskIds(subTasks);
+      task.status = deriveTaskStatusFromSubTasks(subTasks);
     }
 
     const savedTask = await TaskRepository.save(task);
@@ -114,6 +114,10 @@ export default class TaskWriter {
     await TaskRepository.delete({ id: taskId });
   }
 
+  public static async saveTaskEntity(task: TaskEntity): Promise<TaskEntity> {
+    return TaskRepository.save(task);
+  }
+
   private static applyTaskInput(task: TaskEntity, input: UpdateTaskInput): void {
     if (input.title !== undefined) {
       task.title = input.title.trim();
@@ -126,9 +130,6 @@ export default class TaskWriter {
     }
     if (input.priority !== undefined) {
       task.priority = input.priority;
-    }
-    if (input.startDate !== undefined) {
-      task.startDate = input.startDate ? new Date(input.startDate) : null;
     }
     if (input.dueDate !== undefined) {
       task.dueDate = input.dueDate ? new Date(input.dueDate) : null;

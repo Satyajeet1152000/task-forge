@@ -15,6 +15,7 @@ export const taskMemberSummarySchema = z.object({
   name: z.string(),
   email: z.string(),
   image: z.string().nullable(),
+  assignedTasks: z.array(z.number()),
 });
 
 export const subTaskSchema = z.object({
@@ -34,7 +35,6 @@ export const taskSchema = z.object({
   description: z.string().nullable(),
   status: z.nativeEnum(TaskStatus),
   priority: z.nativeEnum(TaskPriority),
-  startDate: z.string().nullable(),
   dueDate: z.string().nullable(),
   subTasks: z.array(subTaskSchema),
   assignedMembers: z.array(z.number()),
@@ -48,7 +48,6 @@ export const createTaskBodySchema = z.object({
   description: z.string().max(5000, "Description is too long").optional(),
   status: z.nativeEnum(TaskStatus).optional(),
   priority: z.nativeEnum(TaskPriority).optional(),
-  startDate: z.string().datetime({ message: "Start date must be a valid ISO date" }).optional(),
   dueDate: z.string().datetime({ message: "Due date must be a valid ISO date" }).optional(),
   assignedMembers: z.array(z.number().int().positive()).optional(),
   attachments: z.array(z.string().url("Each attachment must be a valid URL")).optional(),
@@ -63,8 +62,22 @@ export const tasksListDataSchema = z.object({
   subTasks: z.record(z.string(), subTaskSchema),
 });
 
+export const taskListDataSchema = z.object({
+  task: taskSchema,
+  assignedMembers: z.record(z.string(), taskMemberSummarySchema),
+  subTasks: z.record(z.string(), subTaskSchema),
+});
+
 export const taskParamsSchema = z.object({
   id: z.coerce.number().int().positive("Task id must be a positive integer"),
+});
+
+export const subTaskParamsSchema = taskParamsSchema.extend({
+  subTaskId: z.coerce.number().int().positive("Subtask id must be a positive integer"),
+});
+
+export const updateSubTaskCompletionBodySchema = z.object({
+  isCompleted: z.boolean(),
 });
 
 export const postCreateTaskRouteSchema = {
@@ -77,7 +90,6 @@ export const postCreateTaskRouteSchema = {
     description: "Create a clean and modern homepage layout using Tailwind CSS.",
     status: "IN_PROGRESS",
     priority: "HIGH",
-    startDate: "2025-03-16T00:00:00.000Z",
     dueDate: "2025-03-31T00:00:00.000Z",
     assignedMembers: [1, 2],
     attachments: ["https://example.com/spec.pdf"],
@@ -103,10 +115,21 @@ export const getTasksRouteSchema = {
 export const getTaskByIdRouteSchema = {
   tags: [RouteTags.TASKS],
   summary: "Get task by id",
-  description: "Return a single task by id",
+  description: "Return a single task with assigned member and subtask lookup maps",
   params: taskParamsSchema,
   response: {
-    200: successResponseSchema(taskSchema),
+    200: successResponseSchema(taskListDataSchema),
+  },
+};
+
+export const patchUpdateSubTaskCompletionRouteSchema = {
+  tags: [RouteTags.TASKS],
+  summary: "Update subtask completion",
+  description: "Toggle subtask completion for an assigned member and auto-update task status",
+  params: subTaskParamsSchema,
+  body: updateSubTaskCompletionBodySchema,
+  response: {
+    200: successResponseSchema(taskListDataSchema),
   },
 };
 
