@@ -3,13 +3,13 @@
 import { Icon } from "@iconify/react";
 import { Routes } from "@task-forge/shared/constant";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 import React from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { logoutAction } from "@/modules/auth/auth.actions";
-import { getErrorMessage } from "@/modules/auth/auth.errors";
 import { useAuth } from "@/modules/auth/use-auth";
 
 const DashboardPage: React.FC = () => {
@@ -19,12 +19,11 @@ const DashboardPage: React.FC = () => {
   const handleLogout = async (): Promise<void> => {
     try {
       await logoutAction();
-      toast.success("Logged out successfully");
-      router.push(Routes.LOGIN);
-      router.refresh();
-    } catch (error) {
-      toast.error(getErrorMessage(error, "Logout failed"));
+    } finally {
+      await signOut({ redirect: false });
     }
+    toast.success("Logged out successfully");
+    router.push(Routes.LOGIN);
   };
 
   if (isLoading) {

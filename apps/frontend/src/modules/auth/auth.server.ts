@@ -102,11 +102,13 @@ export async function logoutWithBackend(): Promise<void> {
   const cookieStore = await cookies();
   const token = cookieStore.get(AUTH_COOKIE_NAME)?.value;
 
-  await fetch(getApiUrl("/auth/logout"), {
-    method: "POST",
-    headers: token ? { Cookie: `${AUTH_COOKIE_NAME}=${token}` } : undefined,
-    cache: "no-store",
-  });
+  try {
+    await fetch(getApiUrl("/auth/logout"), {
+      method: "POST",
+      headers: token ? { Cookie: `${AUTH_COOKIE_NAME}=${token}` } : undefined,
+      cache: "no-store",
+    });
+  } catch {}
 
   await clearBackendAuthCookie();
 }
