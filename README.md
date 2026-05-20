@@ -1,6 +1,16 @@
 # Task Forge
 
-Task Forge is a full-stack task management application inspired by Trello. Teams can create and organize tasks, assign members, track status and priority, manage subtasks, invite collaborators, and view analytics from a modern dashboard.
+Task Forge is a full-stack task management platform inspired by **Trello**. It brings a familiar card-based workflow—create tasks, organize work, and collaborate with your team—while adding structured tracking, reporting, and a dedicated dashboard beyond a simple board view.
+
+### Important features
+
+- **Task management** — Create, edit, and filter tasks by status (Pending, In Progress, Completed) and priority (Low, Medium, High), with due dates, descriptions, and file attachments
+- **Subtasks** — Break work into checklists with completion progress on each task card
+- **Team collaboration** — Assign members to tasks, manage a team roster, and invite new members via shareable links
+- **Dashboard** — Greeting with live counts, status distribution and priority charts, plus a recent-tasks table
+- **Reports** — Download filtered task lists and team member summaries as Excel files
+- **Authentication** — Email/password sign-up and Google OAuth, with role-aware views for task owners vs assigned members
+- **API & docs** — REST backend with Swagger documentation and shared Zod schemas for end-to-end type safety
 
 This repository is a **pnpm monorepo** managed with **Turborepo**, containing a shared TypeScript package, a Fastify API, and a Next.js web app.
 
@@ -87,15 +97,6 @@ pnpm dev
 - [packages/shared](./packages/shared/README.md) — shared contracts and validation
 - [apps/backend](./apps/backend/README.md) — API server, database, Docker
 - [apps/frontend](./apps/frontend/README.md) — web UI and client architecture
-
-## Features
-
-- Email/password and Google OAuth authentication
-- Task CRUD with status, priority, due dates, attachments, and subtasks
-- Team members and invite links
-- Dashboard with task stats, charts, and recent tasks
-- Excel report export for tasks and team members
-- Role-aware task views (owner vs assigned member)
 
 ## Docker (backend)
 
