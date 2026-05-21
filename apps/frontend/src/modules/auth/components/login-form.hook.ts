@@ -9,7 +9,7 @@ import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { getSignInErrorMessage } from "../auth.errors";
+import { parseSignInResult } from "../auth.errors";
 
 import { buildInvitePageRoute } from "@/modules/team-member";
 
@@ -36,9 +36,10 @@ export function useLoginForm(params: UseLoginFormParams = {}) {
       ...values,
       redirect: false,
     });
+    const signInOutcome = parseSignInResult(result);
 
-    if (result?.error) {
-      toast.error(getSignInErrorMessage(result));
+    if (!signInOutcome.success) {
+      toast.error(signInOutcome.message);
       return;
     }
 
