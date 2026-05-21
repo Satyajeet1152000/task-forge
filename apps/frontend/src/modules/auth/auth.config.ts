@@ -5,6 +5,7 @@ export default {
   providers: [],
   pages: {
     signIn: Routes.LOGIN,
+    error: Routes.LOGIN,
   },
   session: {
     strategy: "jwt",

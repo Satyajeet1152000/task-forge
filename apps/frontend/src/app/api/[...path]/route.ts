@@ -53,6 +53,9 @@ async function proxyRequest(request: NextRequest, pathSegments: string[]): Promi
 
 async function handle(request: NextRequest, context: RouteContext): Promise<NextResponse> {
   const { path } = await context.params;
+  if (path[0] === "auth") {
+    return NextResponse.json({ error: "Not Found" }, { status: 404 });
+  }
   return proxyRequest(request, path);
 }
 

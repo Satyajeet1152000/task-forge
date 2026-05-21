@@ -8,7 +8,7 @@ import { signIn } from "next-auth/react";
 import React from "react";
 import { toast } from "sonner";
 
-import { getSignInErrorMessage } from "../auth.errors";
+import { parseSignInResult } from "../auth.errors";
 
 import AuthLayout from "./auth-layout";
 import AvatarPicker from "./avatar-picker";
@@ -44,8 +44,10 @@ const SignupForm: React.FC<SignupFormProps> = ({ inviteCode, inviteEmail }) => {
 
   const handleGoogleSuccess = async (credential: string): Promise<void> => {
     const result = await signIn("google", { credential, redirect: false });
-    if (result?.error) {
-      toast.error(getSignInErrorMessage(result));
+    const signInOutcome = parseSignInResult(result);
+
+    if (!signInOutcome.success) {
+      toast.error(signInOutcome.message);
       return;
     }
 

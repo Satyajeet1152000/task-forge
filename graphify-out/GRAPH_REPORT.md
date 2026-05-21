@@ -1,12 +1,12 @@
 # Graph Report - /Users/satyajeetsingh/Project/trello-task-management  (2026-05-21)
 
 ## Corpus Check
-- 196 files · ~91,222 words
+- 196 files · ~91,334 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 507 nodes · 482 edges · 146 communities detected
-- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 114 edges (avg confidence: 0.8)
+- 508 nodes · 486 edges · 146 communities detected
+- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 116 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -166,78 +166,78 @@
 6. `AuthService` - 7 edges
 7. `UserWriter` - 7 edges
 8. `SubTaskService` - 7 edges
-9. `useTaskForm()` - 6 edges
-10. `serializeUser()` - 6 edges
+9. `handleGoogleSuccess()` - 6 edges
+10. `handleGoogleSuccess()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `parseAuthResponse()` --calls--> `parseApiErrorMessage()`  [INFERRED]
+  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts
 - `HomePage()` --calls--> `useAuth()`  [INFERRED]
   /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/page.tsx → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/use-auth.ts
 - `DashboardPage()` --calls--> `useAuth()`  [INFERRED]
   /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/app/(private)/dashboard/page.tsx → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/use-auth.ts
-- `parseAuthResponse()` --calls--> `parseApiErrorMessage()`  [INFERRED]
-  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.server.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts
-- `getSignInErrorMessage()` --calls--> `handleGoogleSuccess()`  [INFERRED]
-  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/login-form.tsx
-- `getSignInErrorMessage()` --calls--> `handleGoogleSuccess()`  [INFERRED]
-  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/components/signup-form.tsx
+- `signupAction()` --calls--> `getSignInErrorMessage()`  [INFERRED]
+  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.actions.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/auth/auth.errors.ts
+- `useCreateTask()` --calls--> `useTaskForm()`  [INFERRED]
+  /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/task.queries.ts → /Users/satyajeetsingh/Project/trello-task-management/apps/frontend/src/modules/task/components/tasks/task-form.hook.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.09
-Nodes (6): SubTaskReader, TaskReader, serializeTask(), TaskService, deriveTaskStatusFromSubTasks(), TaskWriter
+Cohesion: 0.08
+Nodes (10): handle(), proxyRequest(), serializeSubTask(), SubTaskWriter, taskRouter(), serializeTask(), TaskService, deriveTaskStatusFromSubTasks() (+2 more)
 
 ### Community 1 - "Community 1"
+Cohesion: 0.08
+Nodes (6): SubTaskReader, TaskReader, TeamMemberReader, serializeTeamMembersList(), TeamMemberService, TeamMemberWriter
+
+### Community 2 - "Community 2"
 Cohesion: 0.11
 Nodes (7): AuthService, signToken(), verifyToken(), requireAuth(), UserReader, serializeUser(), UserWriter
 
-### Community 2 - "Community 2"
-Cohesion: 0.1
-Nodes (7): handle(), proxyRequest(), serializeSubTask(), SubTaskWriter, deleteTask(), taskRouter(), teamMemberRouter()
-
 ### Community 3 - "Community 3"
+Cohesion: 0.09
+Nodes (12): getSignInErrorMessage(), parseApiErrorMessage(), parseSignInResult(), handleGoogleSuccess(), fetchMemberInviteByCodeServer(), InvitePage(), handleGoogleSuccess(), acceptMemberInvite() (+4 more)
+
+### Community 4 - "Community 4"
 Cohesion: 0.11
 Nodes (14): DashboardIndex(), DashboardPage(), HomePage(), TaskDetailsPage(), mapSubTasksToInput(), toDateInputValue(), useTaskForm(), useCreateTask() (+6 more)
 
-### Community 4 - "Community 4"
+### Community 5 - "Community 5"
 Cohesion: 0.12
 Nodes (7): MemberInviteReader, serializeCreatedMemberInvite(), serializeMemberInvitePreview(), serializeTeamInviteInviter(), MemberInviteService, generateUniqueInviteCode(), MemberInviteWriter
 
-### Community 5 - "Community 5"
-Cohesion: 0.1
-Nodes (9): handleGoogleSuccess(), fetchMemberInviteByCodeServer(), InvitePage(), handleGoogleSuccess(), acceptMemberInvite(), continueTeamInviteAfterAuth(), buildInvitePageRoute(), buildInviteRoute() (+1 more)
-
 ### Community 6 - "Community 6"
-Cohesion: 0.16
-Nodes (13): logoutAction(), signupAction(), getSignInErrorMessage(), parseApiErrorMessage(), clearBackendAuthCookie(), getApiUrl(), googleAuthWithBackend(), loginWithBackend() (+5 more)
-
-### Community 7 - "Community 7"
-Cohesion: 0.12
-Nodes (4): TeamMemberReader, serializeTeamMembersList(), TeamMemberService, TeamMemberWriter
-
-### Community 8 - "Community 8"
 Cohesion: 0.12
 Nodes (9): formatDashboardDate(), formatTaskCreatedDate(), getDaySuffix(), getTimeGreeting(), DashboardGreetingCard(), formatTaskDate(), getDaySuffix(), getSubTaskProgress() (+1 more)
 
-### Community 9 - "Community 9"
+### Community 7 - "Community 7"
+Cohesion: 0.23
+Nodes (11): logoutAction(), signupAction(), clearBackendAuthCookie(), getApiUrl(), googleAuthWithBackend(), loginWithBackend(), logoutWithBackend(), parseAuthResponse() (+3 more)
+
+### Community 8 - "Community 8"
 Cohesion: 0.17
 Nodes (7): createServer(), init(), registerCors(), registerErrorHandler(), registerHelmet(), registerJwt(), registerRequestContext()
 
-### Community 10 - "Community 10"
+### Community 9 - "Community 9"
 Cohesion: 0.23
 Nodes (6): handleDownloadReport(), formatReportRows(), formatTaskReportRows(), formatTeamReportRows(), generateReport(), triggerFileDownload()
 
-### Community 11 - "Community 11"
+### Community 10 - "Community 10"
 Cohesion: 0.18
 Nodes (5): GoogleAuthError, InvalidCredentialsError, UnauthorizedError, UserEmailAlreadyExistsError, UserNotFoundError
 
-### Community 12 - "Community 12"
+### Community 11 - "Community 11"
 Cohesion: 0.25
 Nodes (1): SubTaskService
 
-### Community 13 - "Community 13"
+### Community 12 - "Community 12"
 Cohesion: 0.29
 Nodes (0): 
+
+### Community 13 - "Community 13"
+Cohesion: 0.29
+Nodes (1): deleteTask()
 
 ### Community 14 - "Community 14"
 Cohesion: 0.38
@@ -992,17 +992,17 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TaskDetailsPage()` connect `Community 3` to `Community 0`?**
+- **Why does `TaskDetailsPage()` connect `Community 4` to `Community 0`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
-- **Why does `UserReader` connect `Community 1` to `Community 0`, `Community 7`?**
+- **Why does `UserReader` connect `Community 2` to `Community 0`, `Community 1`?**
   _High betweenness centrality (0.031) - this node is a cross-community bridge._
-- **Why does `TaskService` connect `Community 0` to `Community 2`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `createServer()` (e.g. with `registerRequestContext()` and `registerHelmet()`) actually correct?**
   _`createServer()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `AuthController`, `UserEntity`, `SubTaskEntity` to the rest of the system?**
   _9 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+- **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.11 - nodes in this community are weakly interconnected._

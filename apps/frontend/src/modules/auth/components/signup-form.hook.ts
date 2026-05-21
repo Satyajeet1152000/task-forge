@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { signupAction } from "../auth.actions";
-import { getErrorMessage, getSignInErrorMessage } from "../auth.errors";
+import { getErrorMessage, parseSignInResult } from "../auth.errors";
 import { getRandomSignupAvatar } from "../signup-avatars.constants";
 
 import { buildInvitePageRoute, buildLoginWithInviteRoute } from "@/modules/team-member";
@@ -64,9 +64,10 @@ export function useSignupForm(params: UseSignupFormParams = {}) {
           password: values.password,
           redirect: false,
         });
+        const signInOutcome = parseSignInResult(loginResult);
 
-        if (loginResult?.error) {
-          toast.error(getSignInErrorMessage(loginResult));
+        if (!signInOutcome.success) {
+          toast.error(signInOutcome.message);
           router.push(inviteCode ? buildLoginWithInviteRoute(inviteCode, email) : Routes.LOGIN);
           router.refresh();
           return;

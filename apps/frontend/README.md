@@ -25,7 +25,8 @@ On first run, `pnpm dev` copies `.env.example` to `.env.development` if missing.
 | `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | Google OAuth client ID |
 | `NEXT_PUBLIC_AUTH_COOKIE_NAME` | Auth cookie name (must match backend) |
 | `AUTH_SECRET` | NextAuth secret (32+ characters) |
-| `AUTH_URL` | Frontend URL (e.g. `http://localhost:3001`) |
+| `AUTH_URL` | Frontend URL (e.g. `http://localhost:3001`) — required in production |
+| `AUTH_TRUST_HOST` | Set to `true` when not on Vercel/Cloudflare (self-hosted production) |
 
 ### Scripts
 
