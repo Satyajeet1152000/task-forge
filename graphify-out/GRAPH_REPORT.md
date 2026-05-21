@@ -1,7 +1,7 @@
 # Graph Report - /Users/satyajeetsingh/Project/trello-task-management  (2026-05-21)
 
 ## Corpus Check
-- 196 files · ~94,199 words
+- 196 files · ~91,224 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
