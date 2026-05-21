@@ -27,8 +27,7 @@ const AppDataSource = ((): DataSource => {
   return new DataSource({
     ...baseConfig,
     ssl: {
-      rejectUnauthorized: true,
-      ca: env.DATABASE_CA_CERT,
+      rejectUnauthorized: false,
     },
     logging: false,
     entities: ["dist/modules/**/*.entity{.ts,.js}"],
