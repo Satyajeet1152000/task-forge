@@ -9,8 +9,8 @@ import { formatTaskCreatedDate } from "../dashboard.utils";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TASK_PRIORITY_STYLES, TASK_STATUS_STYLES } from "@/modules/task/task.utils";
 import { cn } from "@/lib/utils";
+import { TASK_PRIORITY_STYLES, TASK_STATUS_STYLES } from "@/modules/task/task.utils";
 
 interface DashboardRecentTasksProps {
   tasks: Task[];
@@ -27,7 +27,12 @@ const DashboardRecentTasks: React.FC<DashboardRecentTasksProps> = ({ tasks }) =>
     <Card className="rounded-2xl border-slate-100 shadow-sm">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
         <CardTitle className="text-lg font-semibold text-slate-900">Recent Tasks</CardTitle>
-        <Button variant="secondary" size="sm" className="rounded-lg bg-slate-100 text-slate-700" asChild>
+        <Button
+          variant="secondary"
+          size="sm"
+          className="rounded-lg bg-slate-100 text-slate-700"
+          asChild
+        >
           <Link href={Routes.TASKS}>
             Show All
             <Icon icon="mdi:arrow-right" className="h-4 w-4" />

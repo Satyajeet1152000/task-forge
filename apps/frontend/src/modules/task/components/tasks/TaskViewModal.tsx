@@ -4,10 +4,10 @@ import { Icon } from "@iconify/react";
 import type { TaskListData } from "@task-forge/shared/types";
 
 import MemberAvatars from "./MemberAvatars";
+import { useTaskViewModal } from "./task-view-modal.hook";
 import TaskDates from "./TaskDates";
 import TaskProgress from "./TaskProgress";
 import TaskStatusPriorityTags from "./TaskStatusPriorityTags";
-import { useTaskViewModal } from "./task-view-modal.hook";
 
 import {
   Dialog,

@@ -4,6 +4,7 @@ import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, XAxis, YAxis } from 
 
 import type { DashboardPriorityChartItem, DashboardStatusChartItem } from "../dashboard.utils";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChartContainer,
   ChartLegend,
@@ -12,7 +13,6 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const statusChartConfig = {
   pending: {
@@ -61,7 +61,10 @@ const DashboardCharts: React.FC<DashboardChartsProps> = ({ statusData, priorityD
         </CardHeader>
         <CardContent className="pb-6">
           {hasStatusData ? (
-            <ChartContainer config={statusChartConfig} className="mx-auto aspect-square max-h-[280px]">
+            <ChartContainer
+              config={statusChartConfig}
+              className="mx-auto aspect-square max-h-[280px]"
+            >
               <PieChart>
                 <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                 <Pie
@@ -94,7 +97,11 @@ const DashboardCharts: React.FC<DashboardChartsProps> = ({ statusData, priorityD
           {hasPriorityData ? (
             <ChartContainer config={priorityChartConfig} className="aspect-auto h-[280px] w-full">
               <BarChart data={priorityData} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
-                <CartesianGrid vertical={false} strokeDasharray="3 3" className="stroke-slate-100" />
+                <CartesianGrid
+                  vertical={false}
+                  strokeDasharray="3 3"
+                  className="stroke-slate-100"
+                />
                 <XAxis
                   dataKey="priority"
                   tickLine={false}
@@ -104,7 +111,12 @@ const DashboardCharts: React.FC<DashboardChartsProps> = ({ statusData, priorityD
                   }
                   className="text-xs text-slate-500"
                 />
-                <YAxis allowDecimals={false} tickLine={false} axisLine={false} className="text-xs" />
+                <YAxis
+                  allowDecimals={false}
+                  tickLine={false}
+                  axisLine={false}
+                  className="text-xs"
+                />
                 <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                 <Bar dataKey="count" radius={[8, 8, 0, 0]}>
                   {priorityData.map((entry) => (
