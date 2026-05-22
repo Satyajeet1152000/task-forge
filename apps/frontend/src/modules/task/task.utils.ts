@@ -6,6 +6,7 @@ export interface TaskStatusStyle {
   label: string;
   tagClass: string;
   accentClass: string;
+  textClass: string;
 }
 
 export interface TaskPriorityStyle {
@@ -18,16 +19,19 @@ export const TASK_STATUS_STYLES: Record<TaskStatus, TaskStatusStyle> = {
     label: "Pending",
     tagClass: "bg-purple-100 text-purple-700",
     accentClass: "bg-purple-500",
+    textClass: "text-purple-500",
   },
   [TaskStatus.IN_PROGRESS]: {
     label: "In Progress",
     tagClass: "bg-cyan-100 text-cyan-700",
     accentClass: "bg-cyan-500",
+    textClass: "text-cyan-500",
   },
   [TaskStatus.COMPLETED]: {
     label: "Completed",
     tagClass: "bg-green-100 text-green-700",
     accentClass: "bg-green-500",
+    textClass: "text-green-500",
   },
 };
 

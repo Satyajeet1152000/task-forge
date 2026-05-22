@@ -1,21 +1,27 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { TEAM_MEMBER_STAT_STYLES } from "@task-forge/shared/constant";
+import { TaskStatus } from "@task-forge/shared/types";
 import type { TeamMemberUser } from "@task-forge/shared/types";
 import Image from "next/image";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { TASK_STATUS_STYLES } from "@/modules/task/task.utils";
 
 interface TeamMemberCardProps {
   member: TeamMemberUser;
   onRemove: (member: TeamMemberUser) => void;
 }
 
+const TASK_STAT_ITEMS = [
+  { status: TaskStatus.PENDING, valueKey: "pending" as const },
+  { status: TaskStatus.IN_PROGRESS, valueKey: "inProgress" as const },
+  { status: TaskStatus.COMPLETED, valueKey: "completed" as const },
+];
+
 const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, onRemove }) => {
   const initials = member.name.charAt(0).toUpperCase();
-  const { pending, inProgress, completed } = member.taskStats;
 
   return (
     <article className="overflow-hidden rounded-xl border border-slate-100 bg-white shadow-sm">
@@ -51,28 +57,17 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, onRemove }) => 
         </Button>
       </div>
       <div className="grid grid-cols-3 divide-x divide-slate-100 px-2 py-4">
-        <div className="flex flex-col items-center gap-1 px-2">
-          <span className={`text-2xl font-bold ${TEAM_MEMBER_STAT_STYLES.pending.valueClass}`}>
-            {pending}
-          </span>
-          <span className={`text-sm ${TEAM_MEMBER_STAT_STYLES.pending.labelClass}`}>Pending</span>
-        </div>
-        <div className="flex flex-col items-center gap-1 px-2">
-          <span className={`text-2xl font-bold ${TEAM_MEMBER_STAT_STYLES.inProgress.valueClass}`}>
-            {inProgress}
-          </span>
-          <span className={`text-sm ${TEAM_MEMBER_STAT_STYLES.inProgress.labelClass}`}>
-            In Progress
-          </span>
-        </div>
-        <div className="flex flex-col items-center gap-1 px-2">
-          <span className={`text-2xl font-bold ${TEAM_MEMBER_STAT_STYLES.completed.valueClass}`}>
-            {completed}
-          </span>
-          <span className={`text-sm ${TEAM_MEMBER_STAT_STYLES.completed.labelClass}`}>
-            Completed
-          </span>
-        </div>
+        {TASK_STAT_ITEMS.map(({ status, valueKey }) => {
+          const statusStyle = TASK_STATUS_STYLES[status];
+          const value = member.taskStats[valueKey];
+
+          return (
+            <div key={status} className="flex flex-col items-center gap-1 px-2">
+              <span className={`text-2xl font-bold ${statusStyle.textClass}`}>{value}</span>
+              <span className={`text-sm ${statusStyle.textClass}`}>{statusStyle.label}</span>
+            </div>
+          );
+        })}
       </div>
     </article>
   );
