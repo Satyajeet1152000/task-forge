@@ -1,0 +1,35 @@
+services:
+  task-forge-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: task-forge-backend
+
+    restart: no
+
+    env_file:
+      - .env
+    environment:
+      PGSSLMODE: disable
+
+    labels:
+      - traefik.enable=true
+
+      # Route
+      - traefik.http.routers.taskforge.rule=PathPrefix(`/taskforge`)
+      - traefik.http.routers.taskforge.entrypoints=web
+
+      # Strip prefix
+      - traefik.http.middlewares.taskforge-strip.stripprefix.prefixes=/taskforge
+      - traefik.http.routers.taskforge.middlewares=taskforge-strip
+
+      # Internal app port
+      - traefik.http.services.taskforge.loadbalancer.server.port=3000
+
+    networks:
+      - satyalabs_network
+
+networks:
+  satyalabs_network:
+    external: true

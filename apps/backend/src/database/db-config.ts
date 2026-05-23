@@ -23,9 +23,7 @@ export default class DatabaseConfig {
       user: env.DATABASE_USERNAME,
       password: env.DATABASE_PASSWORD,
       database: env.DATABASE_NAME,
-      ssl: {
-        rejectUnauthorized: false,
-      },
+      ssl: false,
     });
 
     dbPool.on("error", (err) => {

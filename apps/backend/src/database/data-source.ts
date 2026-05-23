@@ -26,9 +26,7 @@ const AppDataSource = ((): DataSource => {
 
   return new DataSource({
     ...baseConfig,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    ssl: false,
     logging: false,
     entities: ["dist/modules/**/*.entity{.ts,.js}"],
     migrations: ["dist/database/migrations/*{.ts,.js}"],
